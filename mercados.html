@@ -16,6 +16,18 @@
 	<link rel="stylesheet" href="vendors/nice-select/css/nice-select.css">
 	<!-- main css -->
 	<link rel="stylesheet" href="css/style.css">
+
+    <!-- para tabla de mercado css -->
+    <script src="js/codes/load_table_mercado.js" defer></script>
+
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        window.onload = function() {
+            imprimirMercado();
+        };
+    </script>
 </head>
 
 <body class="blog_version">
@@ -108,7 +120,16 @@
 
 
                         <article class="row blog_item">
+                            <input type="text" id="myInput" onkeyup="search_product()" placeholder="Search for names.." title="Type in a name">
+                        </article>
+                        <article class="row blog_item">
                             <table id="miTabla">
+                                <!-- La tabla se llenará dinámicamente desde el archivo CSV -->
+                            </table>
+                        </article>
+                            
+                        <article class="row blog_item">
+                                <table id="miTabla1">
                                 <thead>
                                     <tr>
                                         <th>Fecha</th>
