@@ -19,7 +19,7 @@
 
     <style>
         .precio_mercado {
-            text-align: center;
+            text-align: right;
         }
     </style>
 
@@ -85,7 +85,7 @@
 	<!--================ End Header Area =================-->
 
     <!--================Blog Categorie Area =================-->
-    <section class="section_gap_top_100">
+    <section class="section_gap_top">
     </section>
     <!--================Blog Categorie Area =================-->
     
@@ -155,17 +155,5 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="js/jquery.ajaxchimp.min.js"></script>
     <script src="js/mail-script.js"></script>
     <script src="js/theme.js"></script>
-
-    <script>
-        // Obtener todos los elementos de la clase "formatted-column"
-        var numeroCells = document.querySelectorAll(".formatted-column");
-    
-        // Iterar sobre cada celda y formatear el número
-        numeroCells.forEach(function(cell) {
-            var numero = parseFloat(cell.innerHTML);
-            var numeroFormateado = numero.toLocaleString('es-ES', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
-            cell.innerHTML = numeroFormateado;
-        });
-    </script>
 </body>
 </html>
