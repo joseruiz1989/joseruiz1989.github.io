@@ -183,8 +183,11 @@ def imprimir_elementos(elemento, nivel=0):
 
 if __name__ == '__main__':
 
-    mercados = [['Mercamio', '/home/joseruiz/Documents/mercados/mercamio/'],
-                ['Alkosto', '/home/joseruiz/Documents/mercados/alkosto/']]
+    mercados = [['Mercamio', 'C:/Users/joser/OneDrive/Papeles/facturas cosas/mercamio/'],
+                ['Dollarcity', 'C:/Users/joser/OneDrive/Papeles/facturas cosas/dollarcity/'],
+                ['Exito', 'C:/Users/joser/OneDrive/Papeles/facturas cosas/exito/'],
+                ['Alkosto', 'C:/Users/joser/OneDrive/Papeles/facturas cosas/alkosto/'],
+                ['Jumbo', 'C:/Users/joser/OneDrive/Papeles/facturas cosas/jumbo/']]
     
     df = pd.DataFrame()
     
@@ -223,6 +226,7 @@ if __name__ == '__main__':
     print(df.columns)
 
     df_end = df[['IssueDate', 'Item_Description', 'Precio_comparar', 'Almacen']]
+    # df_end = df
 
     df_end = df_end.rename(columns={'IssueDate': 'Fecha',
                                     'Item_Description': 'Producto',
@@ -230,6 +234,14 @@ if __name__ == '__main__':
     
     
 
+    product_names = df_end['Producto'].unique().tolist()
+    product_names.sort()
+    
+    df_nombres = pd.DataFrame({'nombre_original': product_names})
+    df_nombres.to_csv('files/nombres.csv', index=False)
+    
+    
+    
     df_end.to_csv('files/mercado.csv', index=False)
 
 
