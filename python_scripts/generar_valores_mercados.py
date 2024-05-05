@@ -180,6 +180,16 @@ def imprimir_elementos(elemento, nivel=0):
     if elemento.text and elemento.text.strip():
         print(f"{espacio}  Texto: |{elemento.text}|")
 
+def obtener_dict_por_nombre(df, nombre_buscar):
+    # Filtrar el DataFrame por el valor de 'id'
+    fila_seleccionada = df[df['Producto'] == nombre_buscar]
+    
+    # Extraer el valor de almacen
+    Almacen = fila_seleccionada['Almacen'].iloc[0]
+    
+    # Retornar un diccionario con los valores de 'nombre' y 'apellido'
+    return {'Almacen': Almacen}
+
 
 if __name__ == '__main__':
 
@@ -197,7 +207,7 @@ if __name__ == '__main__':
         
         for folder in folders[:]:
             xml_files = glob.glob(f"{folder}*.xml")
-            for xml_file in xml_files:
+            for xml_file in xml_files[:]:
                 print(f"{xml_file}")
 
                 productos = get_invoice_data(xml_file)
@@ -219,7 +229,7 @@ if __name__ == '__main__':
     df['total']=round(df['InvoicedQuantity']*df['Price_PriceAmount'])
     df['total_imp']=df['total']+df['TaxTotal_Amount']
     
-    df = df.sort_values(by=['Item_Description', 'IssueDate'])
+    df = df.sort_values(by=['Item_Description', 'IssueDate'], ascending=[True, False])
 
     df['IssueDate'] = pd.to_datetime(df['IssueDate'])
     df['IssueDate'] = df['IssueDate'].dt.strftime('%d %b %Y')
@@ -232,20 +242,34 @@ if __name__ == '__main__':
                                     'Item_Description': 'Producto',
                                     'Precio_comparar': 'Precio'})
     
-    
-
-    product_names = df_end['Producto'].unique().tolist()
-    product_names.sort()
-    
-    df_nombres = pd.DataFrame({'nombre_original': product_names})
-    df_nombres.to_csv('files/nombres.csv', index=False)
-    
-    
-    
     df_end.to_csv('files/mercado.csv', index=False)
 
 
-    print(df_end)
+    # print(df_end)
+    
+    # para los nombres de los productos
+    product_names = df_end['Producto'].unique().tolist()
+    product_names.sort()
+    
+    nombres_path = 'files/nombres_edt.csv'
+    
+    
+    nombres_categorizados_df = pd.read_csv(nombres_path, index_col=None, low_memory=False)
+    print(nombres_categorizados_df.columns)
+    nombres_categorizados = nombres_categorizados_df['nombre_original'].unique().tolist()
+    for product in product_names:
+        if product not in nombres_categorizados:
+            print(f"falta: |{product}|")
+            nombres_categorizados_df = nombres_categorizados_df._append({'nombre_original': product}, ignore_index=True)
+            
+    nombres_categorizados_df = nombres_categorizados_df.sort_values(by='nombre_original')
+    
+    for idx, row in nombres_categorizados_df.iterrows():
+        _producto = row['nombre_original']
+        almacen = obtener_dict_por_nombre(df_end, _producto)['Almacen']
+        nombres_categorizados_df.at[idx, 'Almacen'] = almacen
+    
+    nombres_categorizados_df.to_csv('files/nombres_edt.csv', index=False)
 
             
 

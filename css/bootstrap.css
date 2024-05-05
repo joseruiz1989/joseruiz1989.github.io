@@ -1623,6 +1623,22 @@ pre code {
     border-top: 1px solid #dee2e6
 }
 
+.mercado_table {
+    font-size: 10px;
+    /*color: #f33; /*Elige el color deseado para el texto */
+    border-collapse: collapse; /* Combina los bordes de las celdas en uno solo */
+    border-spacing: 0; /* Establece el espacio entre las celdas en cero */
+    padding: 0; /* Elimina el espacio dentro de las celdas */
+    line-height: normal;
+}
+
+.mercado_table th, td {
+    padding: 0px; /* Establece el espacio dentro de las celdas */
+    border-left: 1px solid rgb(167, 167, 167); /* Agrega un borde izquierdo de 1px */
+    border-right: 1px solid rgb(167, 167, 167); /* Agrega un borde derecho de 1px */
+}
+
+
 .table thead th {
     vertical-align: bottom;
     border-bottom: 2px solid #dee2e6
