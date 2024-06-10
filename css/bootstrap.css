@@ -1633,7 +1633,7 @@ pre code {
 }
 
 .mercado_table th, td {
-    padding: 0px; /* Establece el espacio dentro de las celdas */
+    padding: 3px; /* Establece el espacio dentro de las celdas */
     border-left: 1px solid rgb(167, 167, 167); /* Agrega un borde izquierdo de 1px */
     border-right: 1px solid rgb(167, 167, 167); /* Agrega un borde derecho de 1px */
 }

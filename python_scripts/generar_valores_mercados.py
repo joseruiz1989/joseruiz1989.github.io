@@ -160,9 +160,46 @@ def get_invoice_data(xml_path):
                 Charge_BaseAmount = 0
             producto['Charge_BaseAmount'] = Charge_BaseAmount
             if prints: print(f'  Charge_BaseAmount: {Charge_BaseAmount}')
+            
+            producto['TaxSubtotal_Category_Percent'] = float(producto['TaxSubtotal_Category_Percent'])
+            producto['Charge_MultiplierFactorNumeric'] = float(producto['Charge_MultiplierFactorNumeric'])
+            
 
-            producto['Precio_comparar'] = float(producto['Price_PriceAmount']) + float(producto['TaxTotal_Amount'])
-        
+            # producto sin descuentos
+            if producto['Charge_MultiplierFactorNumeric'] == 0:
+                producto['Precio_comparar'] = float(producto['Price_PriceAmount']) + float(producto['TaxTotal_Amount'])
+                producto['Precio_Normal']   = float(producto['Price_PriceAmount']) + float(producto['TaxTotal_Amount'])
+            # producto sin impuestos y con descuentos
+            elif producto['TaxSubtotal_Category_Percent'] == 0 and producto['Charge_MultiplierFactorNumeric'] > 0:
+                _desc = float(producto['Charge_MultiplierFactorNumeric'])/100
+                
+                producto['Precio_comparar'] = float(producto['Price_PriceAmount']) * (1-_desc)
+                producto['Precio_Normal'] = float(producto['Price_PriceAmount'])
+                
+            # producto con impuestos y con descuentos
+            elif producto['TaxSubtotal_Category_Percent'] > 0 and producto['Charge_MultiplierFactorNumeric'] > 0:
+                # descuento
+                _desc = float(producto['Charge_MultiplierFactorNumeric'])/100
+                # impuesto
+                _imp = float(producto['TaxSubtotal_Category_Percent'])/100
+                
+                # precio base
+                _pr_base = float(producto['Price_PriceAmount'])
+                
+                # precio base con descuento
+                _pr_base_desc = float(producto['TaxSubtotal_TaxableAmount'])
+                # impuestos de precio base con descuento
+                _imp_base_desc = float(producto['TaxTotal_Amount'])
+                producto['Precio_comparar'] = _pr_base_desc + _imp_base_desc
+                
+                producto['Precio_Normal']   = _pr_base * (1+_imp)
+            else:
+                print("********** falta un caso ******************\n"*10)
+                
+            # if float(producto['Price_BaseQuantity']) >= 1:
+            #     producto['Precio_comparar'] = producto['Precio_comparar']/float(producto['Price_BaseQuantity'])
+            producto['Precio_comparar'] = round(producto['Precio_comparar'], 0)
+            producto['Precio_Normal'] = round(producto['Precio_Normal'], 0)
             # if prints: print(f'{elemento.tag}: {elemento.text}')
             productos.append(producto)
 
@@ -191,86 +228,156 @@ def obtener_dict_por_nombre(df, nombre_buscar):
     return {'Almacen': Almacen}
 
 
+
 if __name__ == '__main__':
 
-    mercados = [['Mercamio', 'C:/Users/joser/OneDrive/Papeles/facturas cosas/mercamio/'],
+    mercados = [
+                ['Mercamio', 'C:/Users/joser/OneDrive/Papeles/facturas cosas/mercamio/'],
                 ['Dollarcity', 'C:/Users/joser/OneDrive/Papeles/facturas cosas/dollarcity/'],
                 ['Exito', 'C:/Users/joser/OneDrive/Papeles/facturas cosas/exito/'],
                 ['Alkosto', 'C:/Users/joser/OneDrive/Papeles/facturas cosas/alkosto/'],
-                ['Jumbo', 'C:/Users/joser/OneDrive/Papeles/facturas cosas/jumbo/']]
+                ['Jumbo', 'C:/Users/joser/OneDrive/Papeles/facturas cosas/jumbo/']
+                ]
     
-    df = pd.DataFrame()
+    create_csv = True
+    add_to_categorized_names = False
+    replace_in_df_end = True
     
-    for almacen, main_folder in mercados:
-        folders = glob.glob(f"{main_folder}*/")
-        folders.sort()
+    if create_csv:
+        df = pd.DataFrame()
         
-        for folder in folders[:]:
-            xml_files = glob.glob(f"{folder}*.xml")
-            for xml_file in xml_files[:]:
-                print(f"{xml_file}")
-
-                productos = get_invoice_data(xml_file)
-                for prod in productos:
-                    prod['Almacen'] = almacen
-                    if '�' in prod['Item_Description']:
-                        prod['Item_Description'] = prod['Item_Description'].replace('�', 'n')
-                    # print("*/*/*/*/*/*/*/*/*/"*20)
-                    # for key in prod:
-                        # print(key, prod)
-                    df = df._append(prod, ignore_index=True)
-
-    df.fillna(0, inplace=True)
-    df['InvoicedQuantity'] = df['InvoicedQuantity'].astype(float)
-    df['Price_PriceAmount'] = df['Price_PriceAmount'].astype(float)
-    df['TaxTotal_Amount'] = df['TaxTotal_Amount'].astype(float)
-    df['Precio_comparar'] = df['Precio_comparar'].astype(int)
-
-    df['total']=round(df['InvoicedQuantity']*df['Price_PriceAmount'])
-    df['total_imp']=df['total']+df['TaxTotal_Amount']
-    
-    df = df.sort_values(by=['Item_Description', 'IssueDate'], ascending=[True, False])
-
-    df['IssueDate'] = pd.to_datetime(df['IssueDate'])
-    df['IssueDate'] = df['IssueDate'].dt.strftime('%d %b %Y')
-    print(df.columns)
-
-    df_end = df[['IssueDate', 'Item_Description', 'Precio_comparar', 'Almacen']]
-    # df_end = df
-
-    df_end = df_end.rename(columns={'IssueDate': 'Fecha',
-                                    'Item_Description': 'Producto',
-                                    'Precio_comparar': 'Precio'})
-    
-    df_end.to_csv('files/mercado.csv', index=False)
-
-
-    # print(df_end)
-    
-    # para los nombres de los productos
-    product_names = df_end['Producto'].unique().tolist()
-    product_names.sort()
-    
-    nombres_path = 'files/nombres_edt.csv'
-    
-    
-    nombres_categorizados_df = pd.read_csv(nombres_path, index_col=None, low_memory=False)
-    print(nombres_categorizados_df.columns)
-    nombres_categorizados = nombres_categorizados_df['nombre_original'].unique().tolist()
-    for product in product_names:
-        if product not in nombres_categorizados:
-            print(f"falta: |{product}|")
-            nombres_categorizados_df = nombres_categorizados_df._append({'nombre_original': product}, ignore_index=True)
+        # itero sobre cada almacen
+        for almacen, main_folder in mercados:
+            folders = glob.glob(f"{main_folder}*/")
+            folders.sort()
             
-    nombres_categorizados_df = nombres_categorizados_df.sort_values(by='nombre_original')
-    
-    for idx, row in nombres_categorizados_df.iterrows():
-        _producto = row['nombre_original']
-        almacen = obtener_dict_por_nombre(df_end, _producto)['Almacen']
-        nombres_categorizados_df.at[idx, 'Almacen'] = almacen
-    
-    nombres_categorizados_df.to_csv('files/nombres_edt.csv', index=False)
+            # itero sobre cada carpeta de fecha
+            for folder in folders[:]:
+                xml_files = glob.glob(f"{folder}*.xml")
+                # itero sobre cada factura xml
+                for xml_file in xml_files[:]:
+                    print(f"{xml_file}")
 
-            
+                    productos = get_invoice_data(xml_file)
+                    for prod in productos:
+                        prod['Almacen'] = almacen
+                        if '�' in prod['Item_Description']:
+                            prod['Item_Description'] = prod['Item_Description'].replace('�', 'n')
+                        # print("*/*/*/*/*/*/*/*/*/"*20)
+                        # for key in prod:
+                            # print(key, prod)
+                        df = df._append(prod, ignore_index=True)
 
+        # lleno con 0 lo que esté vacio
+        df.fillna(0, inplace=True)
+        
+        # defino el tipo de dato de cada columna
+        df['InvoicedQuantity'] = df['InvoicedQuantity'].astype(float)
+        df['Price_PriceAmount'] = df['Price_PriceAmount'].astype(float)
+        df['TaxTotal_Amount'] = df['TaxTotal_Amount'].astype(float)
+        df['Precio_comparar'] = df['Precio_comparar'].astype(int)
+
+        df['total']=round(df['InvoicedQuantity']*df['Price_PriceAmount'])
+        df['total_imp']=df['total']+df['TaxTotal_Amount']
+        
+        # ordeno por nombre y fecha
+        df = df.sort_values(by=['Item_Description', 'IssueDate'], ascending=[True, False])
+
+        # transformo en tipo fecha
+        df['IssueDate'] = pd.to_datetime(df['IssueDate'])
+        df['IssueDate'] = df['IssueDate'].dt.strftime('%d %b %Y')
+        print(df.columns)
+
+        df_end = df[['IssueDate', 'Item_Description', 'Precio_comparar', 'Almacen']]
+        df_end = df
+        # df_end = df_end.drop(columns=['InvoicedQuantity'])
+        # df_end = df_end.drop(columns=['Item_ID'])
+        # df_end = df_end.drop(columns=['Charge_Indicator'])
+        # df_end = df_end.drop(columns=['TaxSubtotal_Category_TaxScheme_ID'])
+        
+        
+        
+        # df_end = df_end.drop(columns=['LineExtensionAmount'])
+        # df_end = df_end.drop(columns=['Price_BaseQuantity'])
+        
+        # df_end = df[['IssueDate', 'InvoicedQuantity', 'LineExtensionAmount',
+    #    'Item_Description', 'Item_ID', 'Price_PriceAmount',
+    #    'Price_BaseQuantity', 'TaxTotal_Amount', 'TaxSubtotal_TaxableAmount',
+    #    'TaxSubtotal_Category_Percent', 'TaxSubtotal_Category_TaxScheme_ID',
+    #    'Charge_Indicator', 'Charge_MultiplierFactorNumeric', 'Charge_Amount',
+    #    'Charge_BaseAmount', 'Precio_comparar', 'Almacen', 'total',
+    #    'total_imp']]
+
+        # cambio los nombres de las columnas
+        df_end = df_end.rename(columns={'IssueDate': 'Fecha',
+                                        'Item_Description': 'Producto',
+                                        # 'Precio_comparar': 'Precio',
+                                        'Price_PriceAmount':'PrecioBase',
+                                        'TaxSubtotal_Category_Percent': 'Pc_Imp',
+                                        'Charge_MultiplierFactorNumeric': 'Pc_Descuento'})
+        
+        df_end.to_csv('files/mercado.csv', index=False)
+    else:
+        df_end = pd.read_csv('files/mercado.csv')
+        # print(df_end)
+    
+    ################################################################################
+    # para agregar los nombres qeu faltan a el compilado de nombres con propriedades
+    ################################################################################
+    if add_to_categorized_names:
+        print(f"{'*'*80}\nInicia proceso de nombres categorizados\n{'*'*80}\n")
+        product_names = df_end['Producto'].unique().tolist()
+        product_names.sort()
+        
+        nombres_path = 'files/nombres_edt.csv'
+        
+        nombres_categorizados_df = pd.read_csv(nombres_path, index_col=None, low_memory=False)
+        print(nombres_categorizados_df.columns)
+        nombres_categorizados = nombres_categorizados_df['nombre_original'].unique().tolist()
+        for product in product_names:
+            if product not in nombres_categorizados:
+                print(f"falta: |{product}|")
+                nombres_categorizados_df = nombres_categorizados_df._append({'nombre_original': product}, ignore_index=True)
                 
+        nombres_categorizados_df = nombres_categorizados_df.sort_values(by='nombre_original')
+        
+        for idx, row in nombres_categorizados_df.iterrows():
+            _producto = row['nombre_original']
+            almacen = obtener_dict_por_nombre(df_end, _producto)['Almacen']
+            nombres_categorizados_df.at[idx, 'Almacen'] = almacen
+        
+        nombres_categorizados_df.fillna('-', inplace=True)
+        nombres_categorizados_df.to_csv('files/nombres_edt.csv', index=False)
+    else:
+        nombres_categorizados_df = pd.read_csv('files/nombres_edt.csv')
+        
+    if replace_in_df_end:
+        
+        def return_dict_from_base(df, name):
+            row = df[df['nombre_original'] == name]
+            product_dict = {}
+            for colum in df.columns:
+                product_dict[colum] = row[colum].values[0]
+            return product_dict
+            
+        
+        
+        i = 0
+        for idx, row in df_end[:].iterrows():
+            i += 1
+            print(f"{i:5} de {len(df_end):5}                          ", end='\r')
+            _producto = row['Producto']
+            product_dict = return_dict_from_base(nombres_categorizados_df, _producto)
+            for key, value in product_dict.items():
+                df_end.at[idx, key] = value
+            if product_dict['Tamano_num'] != '-':
+                pr_comparar = float(row['Precio_comparar'])
+                cantd = float(product_dict['Cantidad'])
+                tam_undidad = float(product_dict['Tamano_num'])
+                df_end.at[idx, 'Precio_Unidad'] = round(pr_comparar / (cantd * tam_undidad), 2)
+                
+        df_end.fillna('-', inplace=True)
+        df_end.to_csv('files/mercado.csv', index=False)
+        
+        
+        

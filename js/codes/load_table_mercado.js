@@ -5,11 +5,13 @@ function imprimirMercado() {
             .then(response => response.text())
             .then(data => {
                 const lineas = data.split('\n');
-                const encabezados = lineas[0].split(',');
+                // const encabezados = lineas[0].split(',');
+                const encabezados = ['Fecha', 'Producto', 'PrecioN', 'PrecioPromo', 'Almacen', 'Precio unidad', 'Categoria'];
     
                 // Crear la fila de encabezados
                 const tabla = document.getElementById('miTabla');
                 const encabezadoRow = tabla.insertRow(0);
+                console.log(encabezados);
                 encabezados.forEach(encabezado => {
                     const th = document.createElement('th');
                     th.textContent = encabezado;
@@ -31,17 +33,40 @@ function imprimirMercado() {
                     celda0.textContent = valores[0];
 
                     const celda1 = fila.insertCell();
-                    celda1.textContent = valores[1];
-
-                    const celda2 = fila.insertCell();
-                    var numeroFormateado = Math.round(valores[2]);
+                    celda1.textContent = valores[3];
+                    // 15: precio comparar
+                    // 16: precio normal
+                    // 17: almacen
+                    // 22: categoria
+                    // 26: unidad
+                    // 29: precio unidad
+                    
+                    const precionormal = fila.insertCell();
+                    var numeroFormateado = Math.round(valores[16]);
                     // console.log(numeroFormateado);
                     var numeroFormateado1 = numeroFormateado.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-                    celda2.textContent = numeroFormateado1
-                    celda2.classList.add("precio_mercado");
+                    precionormal.textContent = numeroFormateado1
+                    precionormal.classList.add("precio_mercado");
+
+                    const preciopromo = fila.insertCell();
+                    var numeroFormateado = Math.round(valores[15]);
+                    // console.log(numeroFormateado);
+                    var numeroFormateado1 = numeroFormateado.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                    preciopromo.textContent = numeroFormateado1
+                    preciopromo.classList.add("precio_mercado");
 
                     const celda3 = fila.insertCell();
-                    celda3.textContent = valores[3];
+                    celda3.textContent = valores[17];
+
+                    const preciounidad = fila.insertCell();
+                    var numeroFormateado = valores[29];
+                    var numeroFormateado1 = numeroFormateado.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+                    preciounidad.textContent = numeroFormateado1 + ' ' + valores[26]
+                    preciounidad.classList.add("precio_mercado");
+
+                    const categoria = fila.insertCell();
+                    categoria.textContent = valores[22];
+
                 }
             })
             .catch(error => {
@@ -63,23 +88,34 @@ function imprimirMercado() {
 }
 
 function search_product() {
-    var input, filter, table, tr, td, i, txtValue;
-    input = document.getElementById("myInput");
-    filter = input.value.toUpperCase();
-    table = document.getElementById("miTabla");
-    tr = table.getElementsByTagName("tr");
-    for (i = 0; i < tr.length; i++) {
-      td = tr[i].getElementsByTagName("td")[1];
-      if (td) {
-        txtValue = td.textContent || td.innerText;
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+  var input, filter, table, tr, td, i, j, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("miTabla");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+      // Inicialmente, se asume que la fila coincide con el filtro
+      var match = false;
+      td = tr[i].getElementsByTagName("td");
+      // Itera sobre todas las celdas de la fila
+      for (j = 0; j < td.length; j++) {
+          if (td[j]) {
+              txtValue = td[j].textContent || td[j].innerText;
+              // Si se encuentra una coincidencia en alguna celda, marca la fila como coincidente y sal del bucle
+              if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                  match = true;
+                  break;
+              }
+          }
+      }
+      // Muestra u oculta la fila según si coincide con el filtro
+      if (match) {
           tr[i].style.display = "";
-        } else {
+      } else {
           tr[i].style.display = "none";
-        }
-      }       
-    }
+      }
   }
+}
 
 
 
