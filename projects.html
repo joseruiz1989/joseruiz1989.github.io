@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="icon" href="img/favicon.png" type="image/png">
+	<title>Projects</title>
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="vendors/linericon/style.css">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
+	<link rel="stylesheet" href="css/magnific-popup.css">
+	<link rel="stylesheet" href="vendors/nice-select/css/nice-select.css">
+	<!-- main css -->
+	<link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        .portfolio_box { margin-bottom: 30px; box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.08); border-radius: 5px; overflow: hidden; background: #fff; display: flex; flex-direction: column; height: 100%;}
+        .portfolio_box .single_portfolio { height: 250px; overflow: hidden; position: relative;}
+        .portfolio_box .single_portfolio img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;}
+        .portfolio_box:hover .single_portfolio img { transform: scale(1.1); }
+        .portfolio_box .short_info { text-align: left; padding: 25px; flex-grow: 1; display: flex; flex-direction: column;}
+        .portfolio_box .short_info h4 { margin-bottom: 10px; font-size: 20px;}
+        .portfolio_box .short_info h4 a { color: #222222; transition: color 0.3s ease; }
+        .portfolio_box .short_info h4 a:hover { color: #766dff; }
+        .portfolio_box .short_info b { color: #766dff; font-size: 14px; font-weight: 500;}
+        .portfolio_box .short_info p { margin-top: 15px; margin-bottom: 20px; font-size: 14px; color: #777777; flex-grow: 1;}
+        .portfolio-grid { display: flex; flex-wrap: wrap; margin-bottom: 50px; }
+    </style>
+</head>
+
+<body>
+	<!--================ Start Header Area =================-->
+	<header class="header_area">
+		<div class="main_menu">
+			<nav class="navbar navbar-expand-lg navbar-light">
+				<div class="container">
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<a class="navbar-brand logo_h" href="index.html"><img src="img/logo.png" alt=""></a>
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+					 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+						<ul class="nav navbar-nav menu_nav justify-content-end">
+							<li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+							<li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+							<li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+							<li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
+                            <li class="nav-item active"><a class="nav-link" href="projects.html">Projects</a></li>
+                            <li class="nav-item"><a class="nav-link" href="publications.html">Publications</a></li>
+							<li class="nav-item submenu dropdown">
+								<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+								 aria-expanded="false">Pages</a>
+								<ul class="dropdown-menu">
+                                    <li class="nav-item"><a class="nav-link" href="elements.html">Elements</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="portfolio-details.html">Portfolio Details</a></li>
+								</ul>
+							</li>
+							<li class="nav-item submenu dropdown">
+								<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+								 aria-expanded="false">Blog</a>
+								<ul class="dropdown-menu">
+									<li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+									<li class="nav-item"><a class="nav-link" href="single-blog.html">Blog Details</a></li>
+								</ul>
+							</li>
+							<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</div>
+	</header>
+	<!--================ End Header Area =================-->
+
+    <!--================ Start Banner Area =================-->
+    <section class="banner_area">
+        <div class="banner_inner d-flex align-items-center">
+            <div class="container">
+                <div class="banner_content text-center">
+                    <h2>My Projects</h2>
+                    <div class="page_link">
+                        <a href="index.html">Home</a>
+                        <a href="projects.html">Projects</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--================ End Banner Area =================-->
+
+	<!--================Start Portfolio Area =================-->
+	<section class="portfolio_area section_gap_top" id="portfolio">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="main_title text-left">
+                        <h2>Quality Work <br>
+                            Projects, Research & Developments </h2>
+                        <p>Explore my wide range of projects across Machine Learning, Software Development, Semiconductor Research, and Hardware Engineering.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="filters portfolio-filter">
+                <ul>
+                    <li class="active" data-filter="*">All</li>
+                    <li data-filter=".machine-learning">Machine Learning & AI</li>
+                    <li data-filter=".software-web">Software & Web</li>
+                    <li data-filter=".semiconductor-nanotech">Semiconductor Research</li>
+                    <li data-filter=".electronics-hardware">Electronics & Hardware</li>
+                </ul>
+            </div>
+    
+            <div class="filters-content">
+				<div class="row portfolio-grid">
+
+					<!-- Project 1 -->
+					<div class="col-lg-6 col-md-6 all machine-learning">
+						<div class="portfolio_box">
+							<div class="single_portfolio">
+								<img src="https://image.pollinations.ai/prompt/oil-reservoir-ai-neural-network-data?width=600&height=400&nologo=true" alt="Proxy System for Reservoir Production">
+							</div>
+							<div class="short_info">
+								<h4><a href="#">Proxy System for Reservoir Production</a></h4>
+                                <b>Applied Computational Intelligence Laboratory (ICA), PUC-Rio</b>
+								<p>Reservoir simulation with CMG software, extraction and parsing of simulation results, HDF5 data creation, and dataset structuration. Trained transformer models for a proxy system to predict oil and gas reservoir production. Employed parallel computing and SLURM systems to expedite processing of large-scale datasets.</p>
+                                <div><a href="#" class="primary_btn" style="padding: 0px 20px; line-height: 40px;"><span>View Full Project</span></a></div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Project 2 -->
+					<div class="col-lg-6 col-md-6 all machine-learning">
+						<div class="portfolio_box">
+							<div class="single_portfolio">
+								<img src="https://image.pollinations.ai/prompt/computer-vision-object-detection-retail?width=600&height=400&nologo=true" alt="Object Detection & Optimization">
+							</div>
+							<div class="short_info">
+								<h4><a href="#">Object Detection & AI Optimization</a></h4>
+                                <b>Lucro Colombia</b>
+								<p>Developed object detection models using TensorFlow 2 Object Detection API. Undertook end-to-end development including training, freezing, optimizing to ONNX and Float16 formats, and conversion to TensorRT format for rapid deployment. Ensured reliable CI/CD delivery using Docker containerization.</p>
+                                <div><a href="#" class="primary_btn" style="padding: 0px 20px; line-height: 40px;"><span>View Full Project</span></a></div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Project 3 -->
+					<div class="col-lg-6 col-md-6 all machine-learning software-web">
+						<div class="portfolio_box">
+							<div class="single_portfolio">
+								<img src="https://image.pollinations.ai/prompt/medical-xray-artificial-intelligence-analysis?width=600&height=400&nologo=true" alt="Chest X-Ray Classification Web Service">
+							</div>
+							<div class="short_info">
+								<h4><a href="#">Chest X-Ray Classification Web Service</a></h4>
+                                <b>Applied Computational Intelligence Laboratory (ICA)</b>
+								<p>Built a free web service for fast COVID-19 classification of chest X-Ray images utilizing deep learning algorithms. Responsible for data quality assurance, preprocessing of image datasets, and leading the deployment of the machine learning backend integrated with user-friendly web interfaces.</p>
+                                <div><a href="#" class="primary_btn" style="padding: 0px 20px; line-height: 40px;"><span>View Full Project</span></a></div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Project 4 -->
+					<div class="col-lg-6 col-md-6 all machine-learning">
+						<div class="portfolio_box">
+							<div class="single_portfolio">
+								<img src="https://image.pollinations.ai/prompt/digital-synthetic-data-generation-neural?width=600&height=400&nologo=true" alt="AI Synthetic Data Generation">
+							</div>
+							<div class="short_info">
+								<h4><a href="#">AI Synthetic Data Generation & Augmentation</a></h4>
+                                <b>Applied Computational Intelligence Laboratory (ICA)</b>
+								<p>Enlarged dataset volumes through the generation of synthetic data. Produced a wide array of synthetic images and videos to fortify model robustness in text, image, and video processing applications. Enhanced generalization capabilities across computer vision and NLP models.</p>
+                                <div><a href="#" class="primary_btn" style="padding: 0px 20px; line-height: 40px;"><span>View Full Project</span></a></div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Project 5 -->
+					<div class="col-lg-6 col-md-6 all machine-learning semiconductor-nanotech">
+						<div class="portfolio_box">
+							<div class="single_portfolio">
+								<img src="https://image.pollinations.ai/prompt/genetic-algorithm-laser-simulation-data?width=600&height=400&nologo=true" alt="Laser Optimization with Genetic Algorithms">
+							</div>
+							<div class="short_info">
+								<h4><a href="#">Photodetector Optimization with Genetic Algorithms</a></h4>
+                                <b>Federal University of Rio de Janeiro (UFRJ)</b>
+								<p>Applied evolutionary genetic algorithms to optimize simulations of nanostructured photodetectors and semiconductor devices. Evolved material selection, doping profiles, and layer thicknesses across thousands of parallel multiprocessed simulations to propose novel high-performance device structures.</p>
+                                <div><a href="#" class="primary_btn" style="padding: 0px 20px; line-height: 40px;"><span>View Full Project</span></a></div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Project 6 -->
+					<div class="col-lg-6 col-md-6 all software-web">
+						<div class="portfolio_box">
+							<div class="single_portfolio">
+								<img src="https://image.pollinations.ai/prompt/graphical-user-interface-software-development?width=600&height=400&nologo=true" alt="e-mulate Software GUI">
+							</div>
+							<div class="short_info">
+								<h4><a href="#">e-mulate Software Application</a></h4>
+                                <b>Federal University of Rio de Janeiro (UFRJ)</b>
+								<p>Translated legacy Fortran code to Python to develop <i>e-mulate</i>, a user-friendly GUI software for electronic state calculations in quantum well heterostructures. Implemented advanced numerical methods like transfer matrix and Numerov algorithms to solve the Schrodinger equation accurately.</p>
+                                <div><a href="#" class="primary_btn" style="padding: 0px 20px; line-height: 40px;"><span>View Full Project</span></a></div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Project 7 -->
+					<div class="col-lg-6 col-md-6 all software-web">
+						<div class="portfolio_box">
+							<div class="single_portfolio">
+								<img src="https://image.pollinations.ai/prompt/web-api-backend-servers-network?width=600&height=400&nologo=true" alt="Django Web APIs for AI Services">
+							</div>
+							<div class="short_info">
+								<h4><a href="#">Django Web APIs for AI Services</a></h4>
+                                <b>Applied Computational Intelligence Laboratory (ICA)</b>
+								<p>Comprehensive backend and frontend development of Python-based API systems utilizing the Django framework. Successfully bridged advanced AI inference models (Transformers, Object Detectors) with interactive front-end user portals, ensuring high reliability and modularity.</p>
+                                <div><a href="#" class="primary_btn" style="padding: 0px 20px; line-height: 40px;"><span>View Full Project</span></a></div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Project 8 -->
+					<div class="col-lg-6 col-md-6 all software-web machine-learning">
+						<div class="portfolio_box">
+							<div class="single_portfolio">
+								<img src="https://image.pollinations.ai/prompt/cognitive-search-web-app-analytics?width=600&height=400&nologo=true" alt="Cognitive Search Web Service">
+							</div>
+							<div class="short_info">
+								<h4><a href="#">Cognitive Search Web Service</a></h4>
+                                <b>Applied Computational Intelligence Laboratory (ICA)</b>
+								<p>Developed Cognitive Search, a free information retrieval web service designed to effectively search, classify, and extract critical data from millions of COVID-19 related scientific papers, leveraging cutting-edge Natural Language Processing (NLP) techniques.</p>
+                                <div><a href="#" class="primary_btn" style="padding: 0px 20px; line-height: 40px;"><span>View Full Project</span></a></div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Project 9 -->
+					<div class="col-lg-6 col-md-6 all semiconductor-nanotech">
+						<div class="portfolio_box">
+							<div class="single_portfolio">
+								<img src="https://image.pollinations.ai/prompt/semiconductor-nanostructure-cleanroom-microscope?width=600&height=400&nologo=true" alt="Nanostructured Photodetectors Simulation">
+							</div>
+							<div class="short_info">
+								<h4><a href="#">Nanostructured Photodetectors Simulation</a></h4>
+                                <b>Federal University of Rio de Janeiro (UFRJ)</b>
+								<p>Created robust Python multiprocessing code for semiconductor structure simulations. Validated the generated findings by comparing calculated absorption spectra with experimental results for quantum Bragg mirror detectors, achieving remarkable accuracy and reliability.</p>
+                                <div><a href="#" class="primary_btn" style="padding: 0px 20px; line-height: 40px;"><span>View Full Project</span></a></div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Project 10 -->
+					<div class="col-lg-6 col-md-6 all semiconductor-nanotech">
+						<div class="portfolio_box">
+							<div class="single_portfolio">
+								<img src="https://image.pollinations.ai/prompt/laboratory-laser-beam-simulation-photonics?width=600&height=400&nologo=true" alt="Laser Performance Simulation">
+							</div>
+							<div class="short_info">
+								<h4><a href="#">Laser Performance Optimization</a></h4>
+                                <b>University of Sherbrooke</b>
+								<p>Optimization of multi-junction laser architectures, waveguide structures, and tunnel diodes. Conducted rigorous research mapping operational voltages while maintaining strong device output power, working actively across theoretical simulations and practical cleanroom fabrication.</p>
+                                <div><a href="#" class="primary_btn" style="padding: 0px 20px; line-height: 40px;"><span>View Full Project</span></a></div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Project 11 -->
+					<div class="col-lg-6 col-md-6 all semiconductor-nanotech">
+						<div class="portfolio_box">
+							<div class="single_portfolio">
+								<img src="https://image.pollinations.ai/prompt/solar-cells-wafer-microscope-lab?width=600&height=400&nologo=true" alt="GaInNAs Growth by MOVPE for Solar Cells">
+							</div>
+							<div class="short_info">
+								<h4><a href="#">GaInNAs Epitaxy Growth (Ph.D. Thesis)</a></h4>
+                                <b>Fraunhofer ISE & PUC-Rio</b>
+								<p>Explored GaInNAs material growth via MetalOrganic Vapor Phase Epitaxy (MOVPE) to significantly reduce carbon background. Conducted complete characterizations using Atomic Force Microscopy (AFM), Photoluminescence, and ECV for highly efficient multi-junction solar cell prototypes.</p>
+                                <div><a href="#" class="primary_btn" style="padding: 0px 20px; line-height: 40px;"><span>View Full Project</span></a></div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Project 12 -->
+					<div class="col-lg-6 col-md-6 all semiconductor-nanotech">
+						<div class="portfolio_box">
+							<div class="single_portfolio">
+								<img src="https://image.pollinations.ai/prompt/quantum-dots-nanotechnology-glowing?width=600&height=400&nologo=true" alt="Characterization of InAs Quantum Dots">
+							</div>
+							<div class="short_info">
+								<h4><a href="#">InAs Quantum Dots Characterization (M.Sc.)</a></h4>
+                                <b>Semiconductor Laboratory (LabSem), PUC-Rio</b>
+								<p>Characterized novel semiconductor structures containing InAs quantum dots utilizing high-precision optical and morphological methods. Engineered automated software solutions for processing and validating complex data derived from Atomic Force Microscopy (AFM) images.</p>
+                                <div><a href="#" class="primary_btn" style="padding: 0px 20px; line-height: 40px;"><span>View Full Project</span></a></div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Project 13 -->
+					<div class="col-lg-6 col-md-6 all electronics-hardware">
+						<div class="portfolio_box">
+							<div class="single_portfolio">
+								<img src="https://image.pollinations.ai/prompt/piezoelectric-electronic-circuit-board-macro?width=600&height=400&nologo=true" alt="Piezoelectric Disk Displacement Control">
+							</div>
+							<div class="short_info">
+								<h4><a href="#">Piezoelectric Displacement Control (B.Sc.)</a></h4>
+                                <b>University of Nariño (UDENAR)</b>
+								<p>Designed and built an advanced closed-loop control system utilizing interferometry to precisely characterize and correct hysteresis and drift phenomena in Piezoelectric Disk displacements as a strict mathematical function of applied steady-state voltage.</p>
+                                <div><a href="#" class="primary_btn" style="padding: 0px 20px; line-height: 40px;"><span>View Full Project</span></a></div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Project 14 -->
+					<div class="col-lg-6 col-md-6 all electronics-hardware software-web">
+						<div class="portfolio_box">
+							<div class="single_portfolio">
+								<img src="https://image.pollinations.ai/prompt/optical-interferometer-lasers-equipment?width=600&height=400&nologo=true" alt="Michelson Interferometer Assembly">
+							</div>
+							<div class="short_info">
+								<h4><a href="#">Michelson Interferometer Assembly</a></h4>
+                                <b>Instrumentation & Intelligent Systems Group, UDENAR</b>
+								<p>Fabricated a custom Michelson interferometer setup to observe and characterize nanometric scale device displacements. Successfully implemented sophisticated logic controllers bridging hardware parameters into software inputs, achieving a positional tracking resolution of +- 1 nanometer.</p>
+                                <div><a href="#" class="primary_btn" style="padding: 0px 20px; line-height: 40px;"><span>View Full Project</span></a></div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Project 15 -->
+					<div class="col-lg-6 col-md-6 all machine-learning software-web">
+						<div class="portfolio_box">
+							<div class="single_portfolio">
+								<img src="https://image.pollinations.ai/prompt/programming-education-data-science-academy?width=600&height=400&nologo=true" alt="Python & Machine Learning Education Program">
+							</div>
+							<div class="short_info">
+								<h4><a href="#">Data Science & ML Mentorship Programs</a></h4>
+                                <b>Escalab Academy</b>
+								<p>Designed and actively delivered immersive tutoring programs focused on Python programming, intricate data manipulation, deep machine learning techniques, guiding students through practical scenarios, real-world data science deployments, and AI ecosystem architecture best practices.</p>
+                                <div><a href="#" class="primary_btn" style="padding: 0px 20px; line-height: 40px;"><span>View Full Project</span></a></div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+        </div>
+    </section>
+    <!--================End Portfolio Area =================-->
+
+	<!--================Footer Area =================-->
+	<footer class="footer_area">
+        <div class="container">
+            <div class="row footer_bottom justify-content-center">
+                <p class="col-lg-8 col-sm-12 footer-text">
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+            </div>
+        </div>
+    </footer>
+    <!--================End Footer Area =================-->
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/stellar.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="vendors/nice-select/js/jquery.nice-select.min.js"></script>
+    <script src="vendors/isotope/imagesloaded.pkgd.min.js"></script>
+    <script src="vendors/isotope/isotope-min.js"></script>
+    <script src="vendors/owl-carousel/owl.carousel.min.js"></script>
+    <script src="js/jquery.ajaxchimp.min.js"></script>
+    <script src="js/mail-script.js"></script>
+    <!--gmaps Js-->
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script> -->
+    <script src="js/gmaps.min.js"></script>
+    <script src="js/theme.js"></script>
+
+    <!-- Isotope Initialization specifically mapped to our classes -->
+    <script>
+        $(document).ready(function(){
+            // init Isotope
+            var $grid = $('.portfolio-grid').isotope({
+                itemSelector: '.all',
+                layoutMode: 'fitRows'
+            });
+            // layout Isotope after each image loads
+            $grid.imagesLoaded().progress( function() {
+                $grid.isotope('layout');
+            });
+
+            // filter items on button click
+            $('.portfolio-filter ul li').on( 'click', function() {
+                $('.portfolio-filter ul li').removeClass('active');
+                $(this).addClass('active');
+                var filterValue = $(this).attr('data-filter');
+                $grid.isotope({ filter: filterValue });
+            });
+        });
+    </script>
+</body>
+
+</html>
