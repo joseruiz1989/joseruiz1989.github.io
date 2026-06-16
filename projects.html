@@ -4,10 +4,10 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta name="description" content="Jose Ruiz – Projects across Machine Learning, Software Development, Semiconductor Research, and Hardware Engineering.">
+	<meta name="description"
+		content="Jose Ruiz – Projects across Machine Learning, Software Development, Semiconductor Research, and Hardware Engineering.">
 	<link rel="icon" href="img/favicon.png" type="image/png">
 	<title>Projects | Jose Ruiz</title>
-	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="css/bootstrap.css">
 	<link rel="stylesheet" href="vendors/linericon/style.css">
 	<link rel="stylesheet" href="css/font-awesome.min.css">
@@ -18,22 +18,96 @@
 	<link rel="stylesheet" href="css/custom.css">
 
 	<style>
-		.portfolio_box { margin-bottom: 30px; box-shadow: 0 4px 18px rgba(0,0,0,.08); border-radius: 12px; overflow: hidden; background: #fff; display: flex; flex-direction: column; height: 100%; border: 1px solid #eee; transition: all .3s ease; }
-		.portfolio_box:hover { transform: translateY(-5px); box-shadow: 0 12px 36px rgba(118,109,255,.18); border-color: #766dff; }
-		.portfolio_box .single_portfolio { height: 220px; overflow: hidden; position: relative; }
-		.portfolio_box .single_portfolio img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
-		.portfolio_box:hover .single_portfolio img { transform: scale(1.08); }
-		.portfolio_box .short_info { text-align: left; padding: 22px; flex-grow: 1; display: flex; flex-direction: column; }
-		.portfolio_box .short_info h4 { margin-bottom: 6px; font-size: 18px; }
-		.portfolio_box .short_info h4 a { color: #222; transition: color .3s; }
-		.portfolio_box .short_info h4 a:hover { color: #766dff; }
-		.portfolio_box .short_info .org { color: #766dff; font-size: 13px; font-weight: 600; margin-bottom: 10px; }
-		.portfolio_box .short_info p { font-size: 13.5px; color: #777; flex-grow: 1; margin-bottom: 16px; line-height: 1.6; }
+		.portfolio_box {
+			margin-bottom: 30px;
+			box-shadow: 0 4px 18px rgba(0, 0, 0, .08);
+			border-radius: 12px;
+			overflow: hidden;
+			background: #fff;
+			display: flex;
+			flex-direction: column;
+			height: 100%;
+			border: 1px solid #eee;
+			transition: all .3s ease;
+		}
+
+		.portfolio_box:hover {
+			transform: translateY(-5px);
+			box-shadow: 0 12px 36px rgba(118, 109, 255, .18);
+			border-color: #766dff;
+		}
+
+		.portfolio_box .single_portfolio {
+			height: 220px;
+			overflow: hidden;
+			position: relative;
+		}
+
+		.portfolio_box .single_portfolio img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			transition: transform .5s ease;
+		}
+
+		.portfolio_box:hover .single_portfolio img {
+			transform: scale(1.08);
+		}
+
+		.portfolio_box .short_info {
+			text-align: left;
+			padding: 22px;
+			flex-grow: 1;
+			display: flex;
+			flex-direction: column;
+		}
+
+		.portfolio_box .short_info h4 {
+			margin-bottom: 6px;
+			font-size: 18px;
+		}
+
+		.portfolio_box .short_info h4 a {
+			color: #222;
+			transition: color .3s;
+		}
+
+		.portfolio_box .short_info h4 a:hover {
+			color: #766dff;
+		}
+
+		.portfolio_box .short_info .org {
+			color: #766dff;
+			font-size: 13px;
+			font-weight: 600;
+			margin-bottom: 10px;
+		}
+
+		.portfolio_box .short_info p {
+			font-size: 13.5px;
+			color: #777;
+			flex-grow: 1;
+			margin-bottom: 16px;
+			line-height: 1.6;
+		}
+
 		.proj-item { display: none; }
-		.proj-item.show { display: block; }
-		/* Animate in */
-		.proj-item.show { animation: fadeInUp .35s ease both; }
-		@keyframes fadeInUp { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
+		.proj-item.show { display: block; animation: fadeInUp .35s ease both; }
+
+		@keyframes fadeInUp {
+			from { opacity: 0; transform: translateY(16px); }
+			to   { opacity: 1; transform: translateY(0); }
+		}
+
+		/* Loading state */
+		#proj-loading {
+			text-align: center;
+			padding: 60px 20px;
+			color: #888;
+			font-size: 16px;
+		}
+		#proj-loading i { font-size: 40px; color: #766dff; display: block; margin-bottom: 14px; animation: spin 1s linear infinite; }
+		@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 	</style>
 </head>
 
@@ -63,14 +137,14 @@
 				<div class="col-lg-12">
 					<div class="main_title text-left">
 						<h2>Research, Engineering<br>&amp; Development Projects</h2>
-						<p>Explore my projects across Machine Learning, Software Development, Semiconductor Research, and Hardware Engineering — spanning 5 countries and 14+ years.</p>
+						<p>Explore my projects across Machine Learning, Software Development, Semiconductor Research,
+							and Hardware Engineering — spanning 5 countries and 14+ years.</p>
 					</div>
 				</div>
 			</div>
 
 			<!-- ======== FILTER BAR ======== -->
 			<div class="filter-bar mb-4">
-				<!-- Area -->
 				<div class="filter-bar-title"><i class="fa fa-tag"></i> Filter by Area</div>
 				<div class="filter-pills" id="pills-area">
 					<span class="filter-pill active" data-filter="area" data-value="all"><i class="fa fa-th"></i> All Areas</span>
@@ -80,7 +154,6 @@
 					<span class="filter-pill" data-filter="area" data-value="electronics-hardware"><i class="fa fa-cogs"></i> Electronics &amp; Hardware</span>
 				</div>
 
-				<!-- Country -->
 				<div class="filter-bar-title" style="margin-top:14px;"><i class="fa fa-globe"></i> Filter by Country</div>
 				<div class="filter-pills" id="pills-country">
 					<span class="filter-pill active" data-filter="country" data-value="all"><i class="fa fa-globe"></i> All Countries</span>
@@ -91,7 +164,6 @@
 					<span class="filter-pill" data-filter="country" data-value="dom-republic">🇩🇴 Dom. Republic</span>
 				</div>
 
-				<!-- Type -->
 				<div class="filter-bar-title" style="margin-top:14px;"><i class="fa fa-folder-open"></i> Filter by Type</div>
 				<div class="filter-pills" id="pills-type">
 					<span class="filter-pill active" data-filter="type" data-value="all"><i class="fa fa-list"></i> All Types</span>
@@ -105,360 +177,11 @@
 			<!-- Results count -->
 			<div class="filter-results-count" id="proj-count"></div>
 
-			<!-- ======== PROJECT GRID ======== -->
-			<div class="row" id="proj-grid">
+			<!-- Loading indicator -->
+			<div id="proj-loading"><i class="fa fa-circle-o-notch"></i> Loading projects…</div>
 
-				<!-- Project 1 -->
-				<div class="col-lg-6 col-md-6 proj-item show"
-					data-area="machine-learning"
-					data-country="brazil"
-					data-type="research">
-					<div class="portfolio_box">
-						<div class="single_portfolio">
-							<img src="https://image.pollinations.ai/prompt/oil-reservoir-ai-neural-network-data?width=600&height=400&nologo=true" alt="Proxy System for Reservoir Production">
-						</div>
-						<div class="short_info">
-							<div class="project-tags">
-								<span class="project-tag tag-area">ML &amp; AI</span>
-								<span class="project-tag tag-country">🇧🇷 Brazil</span>
-								<span class="project-tag tag-type">Research</span>
-							</div>
-							<h4><a href="#">Proxy System for Reservoir Production</a></h4>
-							<div class="org">Applied Computational Intelligence Lab (ICA), PUC-Rio</div>
-							<p>Reservoir simulation with CMG software, HDF5 dataset structuration, and transformer models trained as proxy systems to predict oil and gas reservoir production. Parallel computing with SLURM on HPC infrastructure.</p>
-							<div><a href="#" class="primary_btn" style="padding:0 20px; line-height:38px; font-size:13px;"><span>View Project</span></a></div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Project 2 -->
-				<div class="col-lg-6 col-md-6 proj-item show"
-					data-area="machine-learning"
-					data-country="colombia"
-					data-type="industry">
-					<div class="portfolio_box">
-						<div class="single_portfolio">
-							<img src="https://image.pollinations.ai/prompt/computer-vision-object-detection-retail?width=600&height=400&nologo=true" alt="Object Detection">
-						</div>
-						<div class="short_info">
-							<div class="project-tags">
-								<span class="project-tag tag-area">ML &amp; AI</span>
-								<span class="project-tag tag-country">🇨🇴 Colombia</span>
-								<span class="project-tag tag-type">Industry</span>
-							</div>
-							<h4><a href="#">Object Detection &amp; AI Optimization</a></h4>
-							<div class="org">Lucro Colombia</div>
-							<p>End-to-end object detection using TensorFlow 2 API — training, ONNX/Float16 optimization, TensorRT deployment. CI/CD delivery via Docker containerization for production-grade reliability.</p>
-							<div><a href="#" class="primary_btn" style="padding:0 20px; line-height:38px; font-size:13px;"><span>View Project</span></a></div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Project 3 -->
-				<div class="col-lg-6 col-md-6 proj-item show"
-					data-area="machine-learning software-web"
-					data-country="brazil"
-					data-type="research">
-					<div class="portfolio_box">
-						<div class="single_portfolio">
-							<img src="https://image.pollinations.ai/prompt/medical-xray-artificial-intelligence-analysis?width=600&height=400&nologo=true" alt="Chest X-Ray Classification">
-						</div>
-						<div class="short_info">
-							<div class="project-tags">
-								<span class="project-tag tag-area">ML &amp; AI</span>
-								<span class="project-tag tag-area">Software</span>
-								<span class="project-tag tag-country">🇧🇷 Brazil</span>
-								<span class="project-tag tag-type">Research</span>
-							</div>
-							<h4><a href="#">Chest X-Ray Classification Web Service</a></h4>
-							<div class="org">Applied Computational Intelligence Lab (ICA), PUC-Rio</div>
-							<p>Free web service for fast COVID-19 classification of chest X-Ray images using deep learning. Responsible for data QA, image preprocessing, and ML backend deployment integrated with user-friendly web interfaces.</p>
-							<div><a href="#" class="primary_btn" style="padding:0 20px; line-height:38px; font-size:13px;"><span>View Project</span></a></div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Project 4 -->
-				<div class="col-lg-6 col-md-6 proj-item show"
-					data-area="machine-learning"
-					data-country="brazil"
-					data-type="research">
-					<div class="portfolio_box">
-						<div class="single_portfolio">
-							<img src="https://image.pollinations.ai/prompt/digital-synthetic-data-generation-neural?width=600&height=400&nologo=true" alt="AI Synthetic Data Generation">
-						</div>
-						<div class="short_info">
-							<div class="project-tags">
-								<span class="project-tag tag-area">ML &amp; AI</span>
-								<span class="project-tag tag-country">🇧🇷 Brazil</span>
-								<span class="project-tag tag-type">Research</span>
-							</div>
-							<h4><a href="#">AI Synthetic Data Generation &amp; Augmentation</a></h4>
-							<div class="org">Applied Computational Intelligence Lab (ICA), PUC-Rio</div>
-							<p>Generated synthetic images and videos to expand datasets and improve model robustness in text, image, and video processing. Enhanced generalization in CV and NLP models through advanced augmentation pipelines.</p>
-							<div><a href="#" class="primary_btn" style="padding:0 20px; line-height:38px; font-size:13px;"><span>View Project</span></a></div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Project 5 -->
-				<div class="col-lg-6 col-md-6 proj-item show"
-					data-area="machine-learning semiconductor-nanotech"
-					data-country="brazil"
-					data-type="research">
-					<div class="portfolio_box">
-						<div class="single_portfolio">
-							<img src="https://image.pollinations.ai/prompt/genetic-algorithm-laser-simulation-data?width=600&height=400&nologo=true" alt="Photodetector Optimization">
-						</div>
-						<div class="short_info">
-							<div class="project-tags">
-								<span class="project-tag tag-area">ML &amp; AI</span>
-								<span class="project-tag tag-area">Semiconductor</span>
-								<span class="project-tag tag-country">🇧🇷 Brazil</span>
-								<span class="project-tag tag-type">Research</span>
-							</div>
-							<h4><a href="#">Photodetector Optimization with Genetic Algorithms</a></h4>
-							<div class="org">Federal University of Rio de Janeiro (UFRJ)</div>
-							<p>Applied evolutionary genetic algorithms to optimize nanostructured photodetectors: material selection, doping profiles, and layer thicknesses across thousands of parallel multiprocessed simulations.</p>
-							<div><a href="#" class="primary_btn" style="padding:0 20px; line-height:38px; font-size:13px;"><span>View Project</span></a></div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Project 6 -->
-				<div class="col-lg-6 col-md-6 proj-item show"
-					data-area="software-web"
-					data-country="brazil"
-					data-type="academic">
-					<div class="portfolio_box">
-						<div class="single_portfolio">
-							<img src="https://image.pollinations.ai/prompt/graphical-user-interface-software-development?width=600&height=400&nologo=true" alt="e-mulate Software">
-						</div>
-						<div class="short_info">
-							<div class="project-tags">
-								<span class="project-tag tag-area">Software</span>
-								<span class="project-tag tag-country">🇧🇷 Brazil</span>
-								<span class="project-tag tag-type">Academic</span>
-							</div>
-							<h4><a href="#">e-mulate Software Application</a></h4>
-							<div class="org">Federal University of Rio de Janeiro (UFRJ)</div>
-							<p>Translated legacy Fortran code to Python to develop <em>e-mulate</em>, a GUI for electronic state calculations in quantum well heterostructures using transfer matrix and Numerov algorithms.</p>
-							<div><a href="#" class="primary_btn" style="padding:0 20px; line-height:38px; font-size:13px;"><span>View Project</span></a></div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Project 7 -->
-				<div class="col-lg-6 col-md-6 proj-item show"
-					data-area="software-web"
-					data-country="brazil"
-					data-type="research">
-					<div class="portfolio_box">
-						<div class="single_portfolio">
-							<img src="https://image.pollinations.ai/prompt/web-api-backend-servers-network?width=600&height=400&nologo=true" alt="Django Web APIs">
-						</div>
-						<div class="short_info">
-							<div class="project-tags">
-								<span class="project-tag tag-area">Software</span>
-								<span class="project-tag tag-country">🇧🇷 Brazil</span>
-								<span class="project-tag tag-type">Research</span>
-							</div>
-							<h4><a href="#">Django Web APIs for AI Services</a></h4>
-							<div class="org">Applied Computational Intelligence Lab (ICA), PUC-Rio</div>
-							<p>Backend and frontend development of Python-based APIs bridging AI inference models (Transformers, Object Detectors) with interactive front-end portals for high-reliability deployment.</p>
-							<div><a href="#" class="primary_btn" style="padding:0 20px; line-height:38px; font-size:13px;"><span>View Project</span></a></div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Project 8 -->
-				<div class="col-lg-6 col-md-6 proj-item show"
-					data-area="software-web machine-learning"
-					data-country="brazil"
-					data-type="research">
-					<div class="portfolio_box">
-						<div class="single_portfolio">
-							<img src="https://image.pollinations.ai/prompt/cognitive-search-web-app-analytics?width=600&height=400&nologo=true" alt="Cognitive Search">
-						</div>
-						<div class="short_info">
-							<div class="project-tags">
-								<span class="project-tag tag-area">ML &amp; AI</span>
-								<span class="project-tag tag-area">Software</span>
-								<span class="project-tag tag-country">🇧🇷 Brazil</span>
-								<span class="project-tag tag-type">Research</span>
-							</div>
-							<h4><a href="#">Cognitive Search Web Service</a></h4>
-							<div class="org">Applied Computational Intelligence Lab (ICA), PUC-Rio</div>
-							<p>Free NLP-based information retrieval web service to search, classify, and extract critical data from millions of COVID-19 related scientific papers.</p>
-							<div><a href="#" class="primary_btn" style="padding:0 20px; line-height:38px; font-size:13px;"><span>View Project</span></a></div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Project 9 -->
-				<div class="col-lg-6 col-md-6 proj-item show"
-					data-area="semiconductor-nanotech"
-					data-country="brazil"
-					data-type="research">
-					<div class="portfolio_box">
-						<div class="single_portfolio">
-							<img src="https://image.pollinations.ai/prompt/semiconductor-nanostructure-cleanroom-microscope?width=600&height=400&nologo=true" alt="Nanostructured Photodetectors">
-						</div>
-						<div class="short_info">
-							<div class="project-tags">
-								<span class="project-tag tag-area">Semiconductor</span>
-								<span class="project-tag tag-country">🇧🇷 Brazil</span>
-								<span class="project-tag tag-type">Research</span>
-							</div>
-							<h4><a href="#">Nanostructured Photodetectors Simulation</a></h4>
-							<div class="org">Federal University of Rio de Janeiro (UFRJ)</div>
-							<p>Python multiprocessing code for semiconductor structure simulations, validated by comparing calculated absorption spectra with experimental results for quantum Bragg mirror detectors.</p>
-							<div><a href="#" class="primary_btn" style="padding:0 20px; line-height:38px; font-size:13px;"><span>View Project</span></a></div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Project 10 -->
-				<div class="col-lg-6 col-md-6 proj-item show"
-					data-area="semiconductor-nanotech"
-					data-country="canada"
-					data-type="research">
-					<div class="portfolio_box">
-						<div class="single_portfolio">
-							<img src="https://image.pollinations.ai/prompt/laboratory-laser-beam-simulation-photonics?width=600&height=400&nologo=true" alt="Laser Performance Simulation">
-						</div>
-						<div class="short_info">
-							<div class="project-tags">
-								<span class="project-tag tag-area">Semiconductor</span>
-								<span class="project-tag tag-country">🇨🇦 Canada</span>
-								<span class="project-tag tag-type">Research</span>
-							</div>
-							<h4><a href="#">Laser Performance Optimization</a></h4>
-							<div class="org">University of Sherbrooke</div>
-							<p>Optimization of multi-junction laser architectures, waveguide structures, and tunnel diodes. Research mapping operational voltages while maintaining high device output power, spanning simulations and cleanroom fabrication.</p>
-							<div><a href="#" class="primary_btn" style="padding:0 20px; line-height:38px; font-size:13px;"><span>View Project</span></a></div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Project 11 -->
-				<div class="col-lg-6 col-md-6 proj-item show"
-					data-area="semiconductor-nanotech"
-					data-country="germany"
-					data-type="research academic">
-					<div class="portfolio_box">
-						<div class="single_portfolio">
-							<img src="https://image.pollinations.ai/prompt/solar-cells-wafer-microscope-lab?width=600&height=400&nologo=true" alt="GaInNAs Growth">
-						</div>
-						<div class="short_info">
-							<div class="project-tags">
-								<span class="project-tag tag-area">Semiconductor</span>
-								<span class="project-tag tag-country">🇩🇪 Germany</span>
-								<span class="project-tag tag-area">🇧🇷 Brazil</span>
-								<span class="project-tag tag-type">Academic</span>
-							</div>
-							<h4><a href="#">GaInNAs Epitaxy Growth (Ph.D. Thesis)</a></h4>
-							<div class="org">Fraunhofer ISE &amp; PUC-Rio</div>
-							<p>GaInNAs material growth via MOVPE to reduce carbon background. Complete characterizations using AFM, Photoluminescence, and ECV for highly efficient multi-junction solar cell prototypes. Ph.D. thesis research.</p>
-							<div><a href="#" class="primary_btn" style="padding:0 20px; line-height:38px; font-size:13px;"><span>View Project</span></a></div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Project 12 -->
-				<div class="col-lg-6 col-md-6 proj-item show"
-					data-area="semiconductor-nanotech"
-					data-country="brazil"
-					data-type="academic">
-					<div class="portfolio_box">
-						<div class="single_portfolio">
-							<img src="https://image.pollinations.ai/prompt/quantum-dots-nanotechnology-glowing?width=600&height=400&nologo=true" alt="InAs Quantum Dots">
-						</div>
-						<div class="short_info">
-							<div class="project-tags">
-								<span class="project-tag tag-area">Semiconductor</span>
-								<span class="project-tag tag-country">🇧🇷 Brazil</span>
-								<span class="project-tag tag-type">Academic</span>
-							</div>
-							<h4><a href="#">InAs Quantum Dots Characterization (M.Sc.)</a></h4>
-							<div class="org">Semiconductor Laboratory (LabSem), PUC-Rio</div>
-							<p>Characterized novel semiconductor structures containing InAs quantum dots using high-precision optical and morphological methods. Engineered automated software for processing AFM image data. M.Sc. thesis.</p>
-							<div><a href="#" class="primary_btn" style="padding:0 20px; line-height:38px; font-size:13px;"><span>View Project</span></a></div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Project 13 -->
-				<div class="col-lg-6 col-md-6 proj-item show"
-					data-area="electronics-hardware"
-					data-country="colombia"
-					data-type="academic">
-					<div class="portfolio_box">
-						<div class="single_portfolio">
-							<img src="https://image.pollinations.ai/prompt/piezoelectric-electronic-circuit-board-macro?width=600&height=400&nologo=true" alt="Piezoelectric Control">
-						</div>
-						<div class="short_info">
-							<div class="project-tags">
-								<span class="project-tag tag-area">Electronics</span>
-								<span class="project-tag tag-country">🇨🇴 Colombia</span>
-								<span class="project-tag tag-type">Academic</span>
-							</div>
-							<h4><a href="#">Piezoelectric Displacement Control (B.Sc.)</a></h4>
-							<div class="org">University of Nariño (UDENAR)</div>
-							<p>Designed a closed-loop control system using interferometry to characterize and correct hysteresis and drift in Piezoelectric Disk displacements as a function of applied steady-state voltage. B.Sc. thesis.</p>
-							<div><a href="#" class="primary_btn" style="padding:0 20px; line-height:38px; font-size:13px;"><span>View Project</span></a></div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Project 14 -->
-				<div class="col-lg-6 col-md-6 proj-item show"
-					data-area="electronics-hardware software-web"
-					data-country="colombia"
-					data-type="research">
-					<div class="portfolio_box">
-						<div class="single_portfolio">
-							<img src="https://image.pollinations.ai/prompt/optical-interferometer-lasers-equipment?width=600&height=400&nologo=true" alt="Michelson Interferometer">
-						</div>
-						<div class="short_info">
-							<div class="project-tags">
-								<span class="project-tag tag-area">Electronics</span>
-								<span class="project-tag tag-area">Software</span>
-								<span class="project-tag tag-country">🇨🇴 Colombia</span>
-								<span class="project-tag tag-type">Research</span>
-							</div>
-							<h4><a href="#">Michelson Interferometer Assembly</a></h4>
-							<div class="org">Instrumentation &amp; Intelligent Systems Group, UDENAR</div>
-							<p>Custom Michelson interferometer for nanometric displacement characterization. Logic controllers bridging hardware to software with ±1 nm positional tracking resolution.</p>
-							<div><a href="#" class="primary_btn" style="padding:0 20px; line-height:38px; font-size:13px;"><span>View Project</span></a></div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Project 15 -->
-				<div class="col-lg-6 col-md-6 proj-item show"
-					data-area="machine-learning software-web"
-					data-country="dom-republic"
-					data-type="industry">
-					<div class="portfolio_box">
-						<div class="single_portfolio">
-							<img src="https://image.pollinations.ai/prompt/programming-education-data-science-academy?width=600&height=400&nologo=true" alt="ML Education">
-						</div>
-						<div class="short_info">
-							<div class="project-tags">
-								<span class="project-tag tag-area">ML &amp; AI</span>
-								<span class="project-tag tag-country">🇩🇴 Dom. Republic</span>
-								<span class="project-tag tag-type">Industry</span>
-							</div>
-							<h4><a href="#">Data Science &amp; ML Mentorship Programs</a></h4>
-							<div class="org">Escalab Academy</div>
-							<p>Designed and delivered immersive tutoring programs on Python, data manipulation, machine learning techniques, and AI ecosystem architecture best practices for real-world deployments.</p>
-							<div><a href="#" class="primary_btn" style="padding:0 20px; line-height:38px; font-size:13px;"><span>View Project</span></a></div>
-						</div>
-					</div>
-				</div>
-
-			</div><!-- end #proj-grid -->
+			<!-- ======== PROJECT GRID (populated by JS) ======== -->
+			<div class="row" id="proj-grid"></div>
 
 			<!-- No results message -->
 			<div class="no-results-msg" id="proj-no-results">
@@ -474,7 +197,9 @@
 		<div class="container">
 			<div class="row footer_bottom justify-content-center">
 				<p class="col-lg-8 col-sm-12 footer-text">
-					Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Template by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+					Copyright &copy;
+					<script>document.write(new Date().getFullYear());</script> All rights reserved | Template by <a
+						href="https://colorlib.com" target="_blank">Colorlib</a>
 				</p>
 			</div>
 		</div>
@@ -487,65 +212,151 @@
 	<script src="js/stellar.js"></script>
 	<script src="vendors/owl-carousel/owl.carousel.min.js"></script>
 	<script src="js/theme.js"></script>
+	<script src="js/csv-loader.js"></script>
 	<script src="js/header.js"></script>
 	<script>renderHeader('projects');</script>
 
 	<script>
 	// ============================================================
-	// Multi-filter logic for Projects
+	// Area / country / type display label maps
 	// ============================================================
-	(function() {
-		var activeFilters = { area: 'all', country: 'all', type: 'all' };
+	var AREA_LABELS = {
+		'machine-learning':     { label: 'ML & AI',       css: 'tag-area' },
+		'software-web':         { label: 'Software & Web', css: 'tag-area' },
+		'semiconductor-nanotech':{ label: 'Semiconductor', css: 'tag-area' },
+		'electronics-hardware': { label: 'Electronics',   css: 'tag-area' }
+	};
+	var COUNTRY_FLAGS = {
+		'brazil':      '🇧🇷 Brazil',
+		'colombia':    '🇨🇴 Colombia',
+		'germany':     '🇩🇪 Germany',
+		'canada':      '🇨🇦 Canada',
+		'dom-republic':'🇩🇴 Dom. Republic',
+		'austria':     '🇦🇹 Austria'
+	};
 
-		function applyFilters() {
-			var items = document.querySelectorAll('.proj-item');
-			var count = 0;
+	// ============================================================
+	// Build a project card HTML from a CSV row
+	// ============================================================
+	function buildProjectCard(row) {
+		var areas    = row.area    ? row.area.split(';')    : [];
+		var countries= row.country ? row.country.split(';') : [];
+		var types    = row.type    ? row.type.split(';')    : [];
 
-			items.forEach(function(item) {
-				var itemArea    = item.getAttribute('data-area')    || '';
-				var itemCountry = item.getAttribute('data-country') || '';
-				var itemType    = item.getAttribute('data-type')    || '';
+		// data-attrs for filter (join with space)
+		var dataArea    = areas.join(' ');
+		var dataCountry = countries.join(';');
+		var dataType    = types.join(';');
 
-				var matchArea    = (activeFilters.area    === 'all') || itemArea.indexOf(activeFilters.area)    !== -1;
-				var matchCountry = (activeFilters.country === 'all') || itemCountry.indexOf(activeFilters.country) !== -1;
-				var matchType    = (activeFilters.type    === 'all') || itemType.indexOf(activeFilters.type)    !== -1;
+		// Tags HTML
+		var tagsHtml = '';
+		areas.forEach(function(a) {
+			var info = AREA_LABELS[a.trim()] || { label: a.trim(), css: 'tag-area' };
+			tagsHtml += '<span class="project-tag ' + info.css + '">' + info.label + '</span>';
+		});
+		countries.forEach(function(c) {
+			var label = COUNTRY_FLAGS[c.trim()] || c.trim();
+			tagsHtml += '<span class="project-tag tag-country">' + label + '</span>';
+		});
+		types.forEach(function(t) {
+			var label = t.trim().charAt(0).toUpperCase() + t.trim().slice(1);
+			tagsHtml += '<span class="project-tag tag-type">' + label + '</span>';
+		});
 
-				if (matchArea && matchCountry && matchType) {
-					item.classList.add('show');
-					count++;
-				} else {
-					item.classList.remove('show');
-				}
-			});
+		var imgSrc   = row.image_url  || 'img/about-us.png';
+		var linkHref = row.link_url   || '#';
+		var years    = row.year_start === row.year_end
+			? row.year_start
+			: row.year_start + ' – ' + (row.year_end || 'present');
 
-			// Update count
-			var countEl = document.getElementById('proj-count');
-			if (countEl) countEl.textContent = 'Showing ' + count + ' of ' + items.length + ' projects';
+		return '<div class="col-lg-6 col-md-6 proj-item show"' +
+			' data-area="'    + dataArea    + '"' +
+			' data-country="' + dataCountry + '"' +
+			' data-type="'    + dataType    + '">' +
+			'<div class="portfolio_box">' +
+				'<div class="single_portfolio">' +
+					'<img src="' + imgSrc + '" alt="' + row.title + '" loading="lazy">' +
+				'</div>' +
+				'<div class="short_info">' +
+					'<div class="project-tags">' + tagsHtml + '</div>' +
+					'<h4><a href="' + linkHref + '">' + row.title + '</a></h4>' +
+					'<div class="org">' + row.organization + ' <span style="color:#aaa;font-weight:400;font-size:12px;">(' + years + ')</span></div>' +
+					'<p>' + row.description + '</p>' +
+					'<div><a href="' + linkHref + '" class="primary_btn" style="padding:0 20px;line-height:38px;font-size:13px;"><span>View Project</span></a></div>' +
+				'</div>' +
+			'</div>' +
+		'</div>';
+	}
 
-			// No results
-			var noRes = document.getElementById('proj-no-results');
-			if (noRes) noRes.style.display = count === 0 ? 'block' : 'none';
-		}
+	// ============================================================
+	// Multi-filter logic
+	// ============================================================
+	var activeFilters = { area: 'all', country: 'all', type: 'all' };
 
+	function applyFilters() {
+		var items = document.querySelectorAll('.proj-item');
+		var count = 0;
+
+		items.forEach(function(item) {
+			var itemArea    = item.getAttribute('data-area')    || '';
+			var itemCountry = item.getAttribute('data-country') || '';
+			var itemType    = item.getAttribute('data-type')    || '';
+
+			var matchArea    = activeFilters.area    === 'all' || itemArea.indexOf(activeFilters.area)    !== -1;
+			var matchCountry = activeFilters.country === 'all' || itemCountry.indexOf(activeFilters.country) !== -1;
+			var matchType    = activeFilters.type    === 'all' || itemType.indexOf(activeFilters.type)    !== -1;
+
+			if (matchArea && matchCountry && matchType) {
+				item.classList.add('show');
+				count++;
+			} else {
+				item.classList.remove('show');
+			}
+		});
+
+		var countEl = document.getElementById('proj-count');
+		if (countEl) countEl.textContent = 'Showing ' + count + ' of ' + items.length + ' projects';
+
+		var noRes = document.getElementById('proj-no-results');
+		if (noRes) noRes.style.display = count === 0 ? 'block' : 'none';
+	}
+
+	function initFilterPills() {
 		document.querySelectorAll('.filter-pill').forEach(function(pill) {
 			pill.addEventListener('click', function() {
 				var filterType  = this.getAttribute('data-filter');
 				var filterValue = this.getAttribute('data-value');
-
-				// Update active state within the group
 				document.querySelectorAll('.filter-pill[data-filter="' + filterType + '"]').forEach(function(p) {
 					p.classList.remove('active');
 				});
 				this.classList.add('active');
-
 				activeFilters[filterType] = filterValue;
 				applyFilters();
 			});
 		});
+	}
 
-		// Initial count
+	// ============================================================
+	// Load CSV and render
+	// ============================================================
+	CSVLoader.load('data/projects.csv').then(function(rows) {
+		var grid = document.getElementById('proj-grid');
+		var loading = document.getElementById('proj-loading');
+		if (loading) loading.style.display = 'none';
+
+		var html = '';
+		rows.forEach(function(row) {
+			if (row.id) html += buildProjectCard(row);
+		});
+		grid.innerHTML = html;
+
+		initFilterPills();
 		applyFilters();
-	})();
+	}).catch(function(err) {
+		var loading = document.getElementById('proj-loading');
+		if (loading) loading.innerHTML = '<i class="fa fa-exclamation-triangle" style="color:#e74c3c;animation:none;"></i> Error loading projects data. Please check data/projects.csv';
+		console.error(err);
+	});
 	</script>
 </body>
 
