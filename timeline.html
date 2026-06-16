@@ -4,7 +4,8 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta name="description" content="Jose Ruiz – Career and academic timeline covering education, work experience, projects, and publications from 2007 to present.">
+	<meta name="description"
+		content="Jose Ruiz – Career and academic timeline covering education, work experience, projects, and publications from 2007 to present.">
 	<link rel="icon" href="img/favicon.png" type="image/png">
 	<title>Timeline | Jose Ruiz</title>
 	<link rel="stylesheet" href="css/bootstrap.css">
@@ -14,7 +15,6 @@
 	<link rel="stylesheet" href="css/custom.css">
 
 	<style>
-		/* Override header to be transparent over dark bg */
 		.header_area { background: rgba(15,14,23,.95) !important; border-bottom: 1px solid rgba(255,255,255,.08); }
 		.header_area .navbar-brand img { filter: brightness(10); }
 		.header_area .nav-link { color: rgba(255,255,255,.75) !important; }
@@ -24,7 +24,6 @@
 
 		body { background: #0f0e17; }
 
-		/* Page breadcrumb banner */
 		.timeline-breadcrumb {
 			background: linear-gradient(135deg, #1a1836 0%, #0d1b2a 100%);
 			padding: 60px 0 30px;
@@ -33,6 +32,15 @@
 		.timeline-breadcrumb h2 { color: #fff; font-size: 36px; font-weight: 800; }
 		.timeline-breadcrumb .page_link a { color: rgba(255,255,255,.5); }
 		.timeline-breadcrumb .page_link a:hover { color: #a09bff; }
+
+		#tl-loading {
+			text-align: center;
+			padding: 80px 20px;
+			color: rgba(255,255,255,.4);
+			font-size: 16px;
+		}
+		#tl-loading i { font-size: 40px; color: #766dff; display: block; margin-bottom: 14px; animation: spin 1s linear infinite; }
+		@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 	</style>
 </head>
 
@@ -68,417 +76,13 @@
 				</div>
 			</div>
 
-			<!-- Timeline wrapper -->
-			<div class="timeline-wrapper">
+			<!-- Loading state -->
+			<div id="tl-loading"><i class="fa fa-circle-o-notch"></i> Loading timeline…</div>
+
+			<!-- Timeline wrapper (populated by JS) -->
+			<div class="timeline-wrapper" id="tl-wrapper">
 				<div class="timeline-line"></div>
-
-				<!-- ===================== 2007-2012 ===================== -->
-
-				<!-- B.Sc. Education -->
-				<div class="tl-item" data-tl-cat="education">
-					<div class="tl-side">
-						<div class="tl-year">2007</div>
-						<div class="tl-duration">2007 – 2012</div>
-					</div>
-					<div class="tl-dot"><div class="tl-dot-inner"></div></div>
-					<div class="tl-card">
-						<span class="tl-category cat-education">🎓 Education</span>
-						<h4>B.Sc. Electronics Engineering</h4>
-						<div class="tl-org">University of Nariño (UDENAR) · Pasto, Colombia</div>
-						<p>Bachelor's degree in Electronics Engineering with focus on control systems, instrumentation, and signal processing. Developed a closed-loop interferometric control system for piezoelectric displacement as B.Sc. thesis.</p>
-						<div class="tl-country-badge"><i class="fa fa-map-marker"></i> Pasto, 🇨🇴 Colombia</div>
-					</div>
-				</div>
-
-				<!-- B.Sc. Project -->
-				<div class="tl-item" data-tl-cat="project">
-					<div class="tl-side">
-						<div class="tl-year">2011</div>
-						<div class="tl-duration">B.Sc. Thesis</div>
-					</div>
-					<div class="tl-dot"><div class="tl-dot-inner"></div></div>
-					<div class="tl-card">
-						<span class="tl-category cat-project">🔬 Project</span>
-						<h4>Piezoelectric Displacement Control &amp; Michelson Interferometer</h4>
-						<div class="tl-org">UDENAR – Instrumentation &amp; Intelligent Systems Group</div>
-						<p>Designed a closed-loop control system for nanometric piezoelectric displacements achieving ±1 nm precision. Built a custom Michelson interferometer setup for characterization and measurement.</p>
-						<div class="tl-country-badge"><i class="fa fa-map-marker"></i> 🇨🇴 Colombia</div>
-					</div>
-				</div>
-
-				<!-- ===================== 2012-2015 ===================== -->
-
-				<!-- M.Sc. Education -->
-				<div class="tl-item" data-tl-cat="education">
-					<div class="tl-side">
-						<div class="tl-year">2012</div>
-						<div class="tl-duration">2012 – 2015</div>
-					</div>
-					<div class="tl-dot"><div class="tl-dot-inner"></div></div>
-					<div class="tl-card">
-						<span class="tl-category cat-education">🎓 Education</span>
-						<h4>M.Sc. Electrical Engineering</h4>
-						<div class="tl-org">PUC-Rio (Pontifical Catholic University of Rio de Janeiro) · Brazil</div>
-						<p>Master's degree focusing on semiconductor nanostructures, quantum dot characterization, and computational image processing. Developed automated software for AFM image analysis and quantum dot measurement.</p>
-						<div class="tl-country-badge"><i class="fa fa-map-marker"></i> Rio de Janeiro, 🇧🇷 Brazil</div>
-					</div>
-				</div>
-
-				<!-- M.Sc. Project -->
-				<div class="tl-item" data-tl-cat="project">
-					<div class="tl-side">
-						<div class="tl-year">2013</div>
-						<div class="tl-duration">M.Sc. Research</div>
-					</div>
-					<div class="tl-dot"><div class="tl-dot-inner"></div></div>
-					<div class="tl-card">
-						<span class="tl-category cat-project">🔬 Project</span>
-						<h4>InAs Quantum Dots Characterization</h4>
-						<div class="tl-org">Semiconductor Laboratory (LabSem), PUC-Rio</div>
-						<p>Characterized novel semiconductor structures containing InAs quantum dots using optical and morphological methods. Created automated software for AFM image analysis, enabling precise measurement of quantum dot height and density.</p>
-						<div class="tl-country-badge"><i class="fa fa-map-marker"></i> 🇧🇷 Brazil</div>
-					</div>
-				</div>
-
-				<!-- 2015 Publication -->
-				<div class="tl-item" data-tl-cat="publication">
-					<div class="tl-side">
-						<div class="tl-year">2015</div>
-						<div class="tl-duration">Publications</div>
-					</div>
-					<div class="tl-dot"><div class="tl-dot-inner"></div></div>
-					<div class="tl-card">
-						<span class="tl-category cat-publication">📄 Publication</span>
-						<h4>Early nucleation stages of low density InAs QDs · Journal of Crystal Growth</h4>
-						<div class="tl-org">+ 2 conference papers at XIV Brazil MRS Meeting</div>
-						<p>Published key results from M.Sc. research at Brazil MRS and in peer-reviewed journal, covering InAs quantum dot nucleation dynamics and AFM image processing optimization.</p>
-						<div class="tl-country-badge"><i class="fa fa-map-marker"></i> 🇧🇷 Brazil</div>
-					</div>
-				</div>
-
-				<!-- ===================== 2015-2021 PhD ===================== -->
-
-				<!-- Ph.D. Education -->
-				<div class="tl-item" data-tl-cat="education">
-					<div class="tl-side">
-						<div class="tl-year">2015</div>
-						<div class="tl-duration">2015 – 2021</div>
-					</div>
-					<div class="tl-dot"><div class="tl-dot-inner"></div></div>
-					<div class="tl-card">
-						<span class="tl-category cat-education">🎓 Education</span>
-						<h4>Ph.D. Electrical Engineering</h4>
-						<div class="tl-org">PUC-Rio / Fraunhofer ISE · Brazil &amp; Germany</div>
-						<p>Doctoral research on GaInNAs semiconductor material growth via MOVPE for multi-junction solar cells. Includes a research internship at Fraunhofer ISE in Freiburg, Germany — one of the world's leading solar energy research institutes.</p>
-						<div class="tl-country-badge"><i class="fa fa-map-marker"></i> 🇧🇷 Brazil · 🇩🇪 Germany</div>
-					</div>
-				</div>
-
-				<!-- Fraunhofer ISE internship -->
-				<div class="tl-item" data-tl-cat="work">
-					<div class="tl-side">
-						<div class="tl-year">2017</div>
-						<div class="tl-duration">Research Stay</div>
-					</div>
-					<div class="tl-dot"><div class="tl-dot-inner"></div></div>
-					<div class="tl-card">
-						<span class="tl-category cat-work">💼 Work</span>
-						<h4>Research Internship – MOVPE &amp; Solar Cells</h4>
-						<div class="tl-org">Fraunhofer Institute for Solar Energy Systems (ISE) · Freiburg, Germany</div>
-						<p>GaInNAs growth using Metal-Organic Vapor Phase Epitaxy (MOVPE) with low decomposition temperature precursors. Characterizations via AFM, Photoluminescence, and ECV profiling for next-generation multi-junction solar cells.</p>
-						<div class="tl-country-badge"><i class="fa fa-map-marker"></i> Freiburg, 🇩🇪 Germany</div>
-					</div>
-				</div>
-
-				<!-- 2017 Publications -->
-				<div class="tl-item" data-tl-cat="publication">
-					<div class="tl-side">
-						<div class="tl-year">2017</div>
-						<div class="tl-duration">Publications</div>
-					</div>
-					<div class="tl-dot"><div class="tl-dot-inner"></div></div>
-					<div class="tl-card">
-						<span class="tl-category cat-publication">📄 Publications</span>
-						<h4>Ultramicroscopy Journal · SBMicro · DGKK Conference</h4>
-						<div class="tl-org">3 publications in 2017</div>
-						<p>"Optimization of digital image processing to determine quantum dots height from AFM" (Ultramicroscopy), solar cell contact grid optimization (SBMicro), and GaInNAs growth results at DGKK Germany.</p>
-						<div class="tl-country-badge"><i class="fa fa-map-marker"></i> 🇧🇷 Brazil · 🇩🇪 Germany</div>
-					</div>
-				</div>
-
-				<!-- 2018 CBENS -->
-				<div class="tl-item" data-tl-cat="publication">
-					<div class="tl-side">
-						<div class="tl-year">2018</div>
-						<div class="tl-duration">Publication</div>
-					</div>
-					<div class="tl-dot"><div class="tl-dot-inner"></div></div>
-					<div class="tl-card">
-						<span class="tl-category cat-publication">📄 Publication</span>
-						<h4>Solar Cell Contact Grid Optimization – CBENS 2018</h4>
-						<div class="tl-org">VII Congresso Brasileiro de Energia Solar</div>
-						<p>Genetic algorithm optimization of metallic finger grid contacts for solar cell front electrical contacts — extending prior SBMicro work with energy solar focus.</p>
-						<div class="tl-country-badge"><i class="fa fa-map-marker"></i> 🇧🇷 Brazil</div>
-					</div>
-				</div>
-
-				<!-- Book Chapter 2019 -->
-				<div class="tl-item" data-tl-cat="publication">
-					<div class="tl-side">
-						<div class="tl-year">2019</div>
-						<div class="tl-duration">Book Chapter</div>
-					</div>
-					<div class="tl-dot"><div class="tl-dot-inner"></div></div>
-					<div class="tl-card">
-						<span class="tl-category cat-publication">📄 Book Chapter</span>
-						<h4>Chapter in "Energia no Brasil" – Editora Poisson</h4>
-						<div class="tl-org">Solar cell contact grid optimization via genetic algorithms</div>
-						<p>Published research on genetic algorithm-based optimization of finger grid contacts for solar cells as a book chapter in a Brazilian energy engineering anthology.</p>
-						<div class="tl-country-badge"><i class="fa fa-map-marker"></i> 🇧🇷 Brazil</div>
-					</div>
-				</div>
-
-				<!-- ICA / PUC-Rio work -->
-				<div class="tl-item" data-tl-cat="work">
-					<div class="tl-side">
-						<div class="tl-year">2019</div>
-						<div class="tl-duration">2019 – 2023</div>
-					</div>
-					<div class="tl-dot"><div class="tl-dot-inner"></div></div>
-					<div class="tl-card">
-						<span class="tl-category cat-work">💼 Work</span>
-						<h4>Research Engineer – Machine Learning &amp; AI</h4>
-						<div class="tl-org">Applied Computational Intelligence Lab (ICA), PUC-Rio · Brazil</div>
-						<p>Led development of ML systems including chest X-ray COVID-19 classification (web service), Cognitive Search NLP platform, AI synthetic data generation pipelines, and Django-based API deployments. Supervised teams across multiple projects.</p>
-						<div class="tl-country-badge"><i class="fa fa-map-marker"></i> Rio de Janeiro, 🇧🇷 Brazil</div>
-					</div>
-				</div>
-
-				<!-- COVID-19 Preprint -->
-				<div class="tl-item" data-tl-cat="publication">
-					<div class="tl-side">
-						<div class="tl-year">2020</div>
-						<div class="tl-duration">Preprint</div>
-					</div>
-					<div class="tl-dot"><div class="tl-dot-inner"></div></div>
-					<div class="tl-card">
-						<span class="tl-category cat-publication">📄 Publication</span>
-						<h4>COVID-19 Chest X-Ray Classification – arXiv 2020</h4>
-						<div class="tl-org">Deep Learning · Web Service · ICA PUC-Rio</div>
-						<p>Pre-print introducing a free web service for fast COVID-19 diagnosis from chest X-ray images using deep learning. Published in arXiv and later expanded for the ICCSA 2022 proceedings.</p>
-						<div class="tl-country-badge"><i class="fa fa-map-marker"></i> 🇧🇷 Brazil</div>
-					</div>
-				</div>
-
-				<!-- Patent 2021 -->
-				<div class="tl-item" data-tl-cat="award">
-					<div class="tl-side">
-						<div class="tl-year">2021</div>
-						<div class="tl-duration">Patent</div>
-					</div>
-					<div class="tl-dot"><div class="tl-dot-inner"></div></div>
-					<div class="tl-card">
-						<span class="tl-category cat-award">🏆 Patent</span>
-						<h4>Patent: Method for Extracting and Structuring Information</h4>
-						<div class="tl-org">INPI Brazil – BR 10 2021 023977-8</div>
-						<p>Filed and granted Brazilian patent for an NLP-based method for information extraction and structuring — core technology underlying the Cognitive Search platform developed at ICA/PUC-Rio.</p>
-						<div class="tl-country-badge"><i class="fa fa-map-marker"></i> 🇧🇷 Brazil</div>
-					</div>
-				</div>
-
-				<!-- SBMicro 2021 -->
-				<div class="tl-item" data-tl-cat="publication">
-					<div class="tl-side">
-						<div class="tl-year">2021</div>
-						<div class="tl-duration">2 Publications</div>
-					</div>
-					<div class="tl-dot"><div class="tl-dot-inner"></div></div>
-					<div class="tl-card">
-						<span class="tl-category cat-publication">📄 Publications</span>
-						<h4>Journal of Crystal Growth · SBMicro 2021</h4>
-						<div class="tl-org">Nitrogen/carbon incorporation in MOVPE + e-mulate software</div>
-						<p>Published Ph.D. thesis results in Journal of Crystal Growth (MOVPE nitrogen/carbon incorporation) and e-mulate optoelectronic simulation software at SBMicro 2021 symposium.</p>
-						<div class="tl-country-badge"><i class="fa fa-map-marker"></i> 🇧🇷 Brazil · 🇩🇪 Germany</div>
-					</div>
-				</div>
-
-				<!-- Lucro Colombia 2022 -->
-				<div class="tl-item" data-tl-cat="work">
-					<div class="tl-side">
-						<div class="tl-year">2022</div>
-						<div class="tl-duration">Industry Role</div>
-					</div>
-					<div class="tl-dot"><div class="tl-dot-inner"></div></div>
-					<div class="tl-card">
-						<span class="tl-category cat-work">💼 Work</span>
-						<h4>ML Engineer – Object Detection &amp; Computer Vision</h4>
-						<div class="tl-org">Lucro Colombia · Colombia</div>
-						<p>End-to-end development of object detection models using TensorFlow 2 Object Detection API. Model optimization to ONNX/Float16 and TensorRT for production deployment via Docker CI/CD pipelines.</p>
-						<div class="tl-country-badge"><i class="fa fa-map-marker"></i> 🇨🇴 Colombia</div>
-					</div>
-				</div>
-
-				<!-- ICCSA 2022 -->
-				<div class="tl-item" data-tl-cat="publication">
-					<div class="tl-side">
-						<div class="tl-year">2022</div>
-						<div class="tl-duration">Publication</div>
-					</div>
-					<div class="tl-dot"><div class="tl-dot-inner"></div></div>
-					<div class="tl-card">
-						<span class="tl-category cat-publication">📄 Publication</span>
-						<h4>COVID-19 X-Ray Classification – ICCSA 2022 / Springer LNCS</h4>
-						<div class="tl-org">Lecture Notes in Computer Science, vol 13375. Springer, Cham.</div>
-						<p>Extended version of the COVID-19 web service paper published at the International Conference on Computational Science and Its Applications (ICCSA) in Springer's LNCS series.</p>
-						<div class="tl-country-badge"><i class="fa fa-map-marker"></i> 🌍 International</div>
-					</div>
-				</div>
-
-				<!-- University of Sherbrooke -->
-				<div class="tl-item" data-tl-cat="work">
-					<div class="tl-side">
-						<div class="tl-year">2022</div>
-						<div class="tl-duration">Research Role</div>
-					</div>
-					<div class="tl-dot"><div class="tl-dot-inner"></div></div>
-					<div class="tl-card">
-						<span class="tl-category cat-work">💼 Work</span>
-						<h4>Researcher – Laser Performance Optimization</h4>
-						<div class="tl-org">University of Sherbrooke · Sherbrooke, Canada</div>
-						<p>Optimization of multi-junction laser architectures, waveguide structures, and tunnel diodes. Research combining theoretical simulations with practical cleanroom fabrication for high-performance semiconductor lasers.</p>
-						<div class="tl-country-badge"><i class="fa fa-map-marker"></i> Sherbrooke, 🇨🇦 Canada</div>
-					</div>
-				</div>
-
-				<!-- 2023 SBMicro -->
-				<div class="tl-item" data-tl-cat="publication">
-					<div class="tl-side">
-						<div class="tl-year">2023</div>
-						<div class="tl-duration">5+ Publications</div>
-					</div>
-					<div class="tl-dot"><div class="tl-dot-inner"></div></div>
-					<div class="tl-card">
-						<span class="tl-category cat-publication">📄 Publications</span>
-						<h4>SBMicro · IEEE ColCACI · Brazilian Physical Society · Humanities Congress</h4>
-						<div class="tl-org">Multidisciplinary output in 2023</div>
-						<p>Highly productive year: quantum Bragg mirror detector results (SBMicro, Autumn Meeting), Cognitive Search (IEEE ColCACI), and invited talks at the XX International Humanities Congress in Bucaramanga, Colombia on cybersecurity and human enhancement.</p>
-						<div class="tl-country-badge"><i class="fa fa-map-marker"></i> 🇧🇷 Brazil · 🇨🇴 Colombia</div>
-					</div>
-				</div>
-
-				<!-- Escalab Academy -->
-				<div class="tl-item" data-tl-cat="work">
-					<div class="tl-side">
-						<div class="tl-year">2023</div>
-						<div class="tl-duration">Education Role</div>
-					</div>
-					<div class="tl-dot"><div class="tl-dot-inner"></div></div>
-					<div class="tl-card">
-						<span class="tl-category cat-work">💼 Work</span>
-						<h4>ML Instructor &amp; Mentor</h4>
-						<div class="tl-org">Escalab Academy · Dominican Republic</div>
-						<p>Designed and delivered immersive programs covering Python programming, data science, deep learning, and AI ecosystem architecture. Mentored professionals transitioning into data science careers.</p>
-						<div class="tl-country-badge"><i class="fa fa-map-marker"></i> 🇩🇴 Dominican Republic</div>
-					</div>
-				</div>
-
-				<!-- Humanities Congress Talk -->
-				<div class="tl-item" data-tl-cat="award">
-					<div class="tl-side">
-						<div class="tl-year">2023</div>
-						<div class="tl-duration">Invited Speaker</div>
-					</div>
-					<div class="tl-dot"><div class="tl-dot-inner"></div></div>
-					<div class="tl-card">
-						<span class="tl-category cat-award">🏆 Invited Speaker</span>
-						<h4>XX International Humanities Congress – Keynote &amp; Panel</h4>
-						<div class="tl-org">USTA Bucaramanga – "Cyborg: The Human Condition in a Transhumanist World"</div>
-						<p>Invited to present on "Ethical and Social Challenges in the Age of Human Enhancement" and to participate in a panel discussion at a prestigious international humanities congress in Colombia.</p>
-						<div class="tl-country-badge"><i class="fa fa-map-marker"></i> Bucaramanga, 🇨🇴 Colombia</div>
-					</div>
-				</div>
-
-				<!-- UFRJ 2023 Quantum research -->
-				<div class="tl-item" data-tl-cat="project">
-					<div class="tl-side">
-						<div class="tl-year">2023</div>
-						<div class="tl-duration">Ongoing</div>
-					</div>
-					<div class="tl-dot"><div class="tl-dot-inner"></div></div>
-					<div class="tl-card">
-						<span class="tl-category cat-project">🔬 Project</span>
-						<h4>Quantum Bragg Mirror Detector Optimization (GA)</h4>
-						<div class="tl-org">UFRJ – Federal University of Rio de Janeiro</div>
-						<p>Genetic algorithm-based optimization of quantum Bragg mirror photodetectors — mapping oscillator strength, optimizing layer dimensions, and publishing results in top venues including APL Electronic Devices (2026).</p>
-						<div class="tl-country-badge"><i class="fa fa-map-marker"></i> 🇧🇷 Brazil</div>
-					</div>
-				</div>
-
-				<!-- ICA Proxy System -->
-				<div class="tl-item" data-tl-cat="project">
-					<div class="tl-side">
-						<div class="tl-year">2024</div>
-						<div class="tl-duration">Ongoing</div>
-					</div>
-					<div class="tl-dot"><div class="tl-dot-inner"></div></div>
-					<div class="tl-card">
-						<span class="tl-category cat-project">🔬 Project</span>
-						<h4>Transformer-based Proxy System for Reservoir Simulation</h4>
-						<div class="tl-org">ICA – Applied Computational Intelligence Lab, PUC-Rio</div>
-						<p>Developed a transformer ML proxy system to predict oil and gas reservoir production, replacing time-intensive CMG simulations. Built HDF5-structured datasets from thousands of reservoir simulations using SLURM HPC.</p>
-						<div class="tl-country-badge"><i class="fa fa-map-marker"></i> 🇧🇷 Brazil</div>
-					</div>
-				</div>
-
-				<!-- UNADE Symposium 2025 -->
-				<div class="tl-item" data-tl-cat="award">
-					<div class="tl-side">
-						<div class="tl-year">2025</div>
-						<div class="tl-duration">Invited Speaker</div>
-					</div>
-					<div class="tl-dot"><div class="tl-dot-inner"></div></div>
-					<div class="tl-card">
-						<span class="tl-category cat-award">🏆 Invited Speaker</span>
-						<h4>XI UNADE International Symposium – Keynote Speaker</h4>
-						<div class="tl-org">"National Security and Trade: Strategy for Sustainable Development" · Santo Domingo</div>
-						<p>Keynote presentation on "Cybersecurity as a Pillar of Sustainable Development" at an international symposium at the Universidad Nacional de Educación (UNADE), Dominican Republic.</p>
-						<div class="tl-country-badge"><i class="fa fa-map-marker"></i> 🇩🇴 Dominican Republic</div>
-					</div>
-				</div>
-
-				<!-- 2025 Publications -->
-				<div class="tl-item" data-tl-cat="publication">
-					<div class="tl-side">
-						<div class="tl-year">2025</div>
-						<div class="tl-duration">Publications</div>
-					</div>
-					<div class="tl-dot"><div class="tl-dot-inner"></div></div>
-					<div class="tl-card">
-						<span class="tl-category cat-publication">📄 Publications</span>
-						<h4>SBMicro 2025 (Manaus) · MIOMD Vienna · UNADE Symposium</h4>
-						<div class="tl-org">3 publications / presentations in 2025</div>
-						<p>X-ray diffraction of quantum Bragg mirror detectors designed by AI (SBMicro, Manaus), Genetic algorithm quantum mirror optimization (MIOMD, Vienna), and cybersecurity talk at UNADE International Symposium.</p>
-						<div class="tl-country-badge"><i class="fa fa-map-marker"></i> 🇧🇷 Brazil · 🇦🇹 Austria · 🇩🇴 Dominican Republic</div>
-					</div>
-				</div>
-
-				<!-- 2026 APL Publications -->
-				<div class="tl-item" data-tl-cat="publication">
-					<div class="tl-side">
-						<div class="tl-year">2026</div>
-						<div class="tl-duration">Present</div>
-					</div>
-					<div class="tl-dot"><div class="tl-dot-inner"></div></div>
-					<div class="tl-card">
-						<span class="tl-category cat-publication">📄 Publications</span>
-						<h4>APL Electronic Devices · Journal of Integrated Circuits and Systems</h4>
-						<div class="tl-org">2 peer-reviewed journal articles in 2026</div>
-						<p>"Genetic algorithm optimization of quantum Bragg mirror detectors" (APL Electronic Devices) and "X-Ray Diffraction of Infrared Quantum Bragg Mirror Detector Structures Designed by GA" (JICS) — consolidating years of nanotech research.</p>
-						<div class="tl-country-badge"><i class="fa fa-map-marker"></i> 🇧🇷 Brazil</div>
-					</div>
-				</div>
-
-			</div><!-- end timeline-wrapper -->
+			</div>
 		</div>
 	</section>
 
@@ -487,7 +91,8 @@
 		<div class="container">
 			<div class="row footer_bottom justify-content-center">
 				<p class="col-lg-8 col-sm-12 footer-text" style="color:rgba(255,255,255,.4);">
-					Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Template by <a href="https://colorlib.com" target="_blank" style="color:#766dff;">Colorlib</a>
+					Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Template by
+					<a href="https://colorlib.com" target="_blank" style="color:#766dff;">Colorlib</a>
 				</p>
 			</div>
 		</div>
@@ -499,35 +104,76 @@
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/stellar.js"></script>
 	<script src="js/theme.js"></script>
+	<script src="js/csv-loader.js"></script>
 	<script src="js/header.js"></script>
 	<script>renderHeader('timeline');</script>
 
 	<script>
 	// ============================================================
-	// Timeline category filter + scroll animation
+	// Category meta (icon / badge label / css class)
 	// ============================================================
-	(function() {
-		// Category filter
-		var activeFilter = 'all';
+	var CAT_META = {
+		education:   { emoji: '🎓', label: 'Education',   css: 'cat-education' },
+		work:        { emoji: '💼', label: 'Work',        css: 'cat-work' },
+		project:     { emoji: '🔬', label: 'Project',     css: 'cat-project' },
+		publication: { emoji: '📄', label: 'Publication', css: 'cat-publication' },
+		award:       { emoji: '🏆', label: 'Award / Recognition', css: 'cat-award' }
+	};
 
+	// ============================================================
+	// Build one timeline item from a CSV row
+	// ============================================================
+	function buildTLItem(row) {
+		var cat = row.category || 'work';
+		var meta = CAT_META[cat] || { emoji: '📌', label: cat, css: 'cat-work' };
+
+		var yearEnd = row.year_end && row.year_end !== row.year ? row.year_end : '';
+		var durationDisplay = row.duration_label || (yearEnd ? row.year + ' – ' + yearEnd : row.year);
+
+		return '<div class="tl-item" data-tl-cat="' + cat + '">' +
+			'<div class="tl-side">' +
+				'<div class="tl-year">' + row.year + '</div>' +
+				'<div class="tl-duration">' + durationDisplay + '</div>' +
+			'</div>' +
+			'<div class="tl-dot"><div class="tl-dot-inner"></div></div>' +
+			'<div class="tl-card">' +
+				'<span class="tl-category ' + meta.css + '">' + meta.emoji + ' ' + meta.label + '</span>' +
+				'<h4>' + row.title + '</h4>' +
+				'<div class="tl-org">' + row.organization + '</div>' +
+				'<p>' + row.description + '</p>' +
+				'<div class="tl-country-badge"><i class="fa fa-map-marker"></i> ' + row.country_emoji + ' ' + row.country_name + '</div>' +
+			'</div>' +
+		'</div>';
+	}
+
+	// ============================================================
+	// Category filter
+	// ============================================================
+	var activeFilter = 'all';
+
+	function applyTLFilter() {
+		document.querySelectorAll('.tl-item').forEach(function(item) {
+			var cat = item.getAttribute('data-tl-cat');
+			item.style.display = (activeFilter === 'all' || cat === activeFilter) ? 'flex' : 'none';
+		});
+	}
+
+	function initTLFilters() {
 		document.querySelectorAll('.tl-pill').forEach(function(pill) {
 			pill.addEventListener('click', function() {
 				document.querySelectorAll('.tl-pill').forEach(function(p) { p.classList.remove('active'); });
 				this.classList.add('active');
 				activeFilter = this.getAttribute('data-tl-filter');
-
-				document.querySelectorAll('.tl-item').forEach(function(item) {
-					var cat = item.getAttribute('data-tl-cat');
-					if (activeFilter === 'all' || cat === activeFilter) {
-						item.style.display = 'flex';
-					} else {
-						item.style.display = 'none';
-					}
-				});
+				applyTLFilter();
 			});
 		});
+	}
 
-		// Intersection Observer for scroll animation
+	// ============================================================
+	// Scroll-animation observer
+	// ============================================================
+	function initScrollObserver() {
+		if (!window.IntersectionObserver) return;
 		var observer = new IntersectionObserver(function(entries) {
 			entries.forEach(function(entry) {
 				if (entry.isIntersecting) {
@@ -540,7 +186,37 @@
 		document.querySelectorAll('.tl-item').forEach(function(item) {
 			observer.observe(item);
 		});
-	})();
+	}
+
+	// ============================================================
+	// Load CSV and render
+	// ============================================================
+	CSVLoader.load('data/timeline.csv').then(function(rows) {
+		var wrapper = document.getElementById('tl-wrapper');
+		var loading = document.getElementById('tl-loading');
+		if (loading) loading.style.display = 'none';
+
+		var html = '';
+		rows.forEach(function(row) {
+			if (row.id) html += buildTLItem(row);
+		});
+
+		// Append items inside wrapper (after the .timeline-line div)
+		var line = wrapper.querySelector('.timeline-line');
+		var temp = document.createElement('div');
+		temp.innerHTML = html;
+		while (temp.firstChild) {
+			wrapper.appendChild(temp.firstChild);
+		}
+
+		initTLFilters();
+		applyTLFilter();
+		initScrollObserver();
+	}).catch(function(err) {
+		var loading = document.getElementById('tl-loading');
+		if (loading) loading.innerHTML = '<i class="fa fa-exclamation-triangle" style="color:#e74c3c;animation:none;"></i> Error loading timeline. Please check data/timeline.csv';
+		console.error(err);
+	});
 	</script>
 </body>
 

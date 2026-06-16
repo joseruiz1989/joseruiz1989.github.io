@@ -4,7 +4,8 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta name="description" content="Jose Ruiz – Publications: journal articles, conference papers, book chapters, and patents in ML, semiconductor physics, and engineering.">
+	<meta name="description"
+		content="Jose Ruiz – Publications: journal articles, conference papers, book chapters, and patents in ML, semiconductor physics, and engineering.">
 	<link rel="icon" href="img/favicon.png" type="image/png">
 	<title>Publications | Jose Ruiz</title>
 	<link rel="stylesheet" href="css/bootstrap.css">
@@ -33,6 +34,15 @@
 		.pub-item { display: none; }
 		.pub-item.show { display: block; animation: fadeInUp .35s ease both; }
 		@keyframes fadeInUp { from { opacity:0; transform:translateY(14px); } to { opacity:1; transform:translateY(0); } }
+
+		#pub-loading {
+			text-align: center;
+			padding: 60px 20px;
+			color: #888;
+			font-size: 16px;
+		}
+		#pub-loading i { font-size: 40px; color: #766dff; display: block; margin-bottom: 14px; animation: spin 1s linear infinite; }
+		@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 	</style>
 </head>
 
@@ -67,9 +77,8 @@
 
 			<!-- ======== FILTER BAR ======== -->
 			<div class="filter-bar mb-4">
-				<!-- Area -->
 				<div class="filter-bar-title"><i class="fa fa-tag"></i> Filter by Area</div>
-				<div class="filter-pills" id="pills-area">
+				<div class="filter-pills">
 					<span class="filter-pill active" data-filter="area" data-value="all"><i class="fa fa-th"></i> All Areas</span>
 					<span class="filter-pill" data-filter="area" data-value="nanotech"><i class="fa fa-microchip"></i> Nanotech &amp; Semiconductors</span>
 					<span class="filter-pill" data-filter="area" data-value="machine-learning"><i class="fa fa-brain"></i> Machine Learning &amp; AI</span>
@@ -77,9 +86,8 @@
 					<span class="filter-pill" data-filter="area" data-value="cybersecurity"><i class="fa fa-shield"></i> Cybersecurity &amp; Society</span>
 				</div>
 
-				<!-- Country -->
 				<div class="filter-bar-title" style="margin-top:14px;"><i class="fa fa-globe"></i> Filter by Country</div>
-				<div class="filter-pills" id="pills-country">
+				<div class="filter-pills">
 					<span class="filter-pill active" data-filter="country" data-value="all"><i class="fa fa-globe"></i> All Countries</span>
 					<span class="filter-pill" data-filter="country" data-value="brazil">🇧🇷 Brazil</span>
 					<span class="filter-pill" data-filter="country" data-value="colombia">🇨🇴 Colombia</span>
@@ -89,9 +97,8 @@
 					<span class="filter-pill" data-filter="country" data-value="international">🌍 International</span>
 				</div>
 
-				<!-- Type -->
 				<div class="filter-bar-title" style="margin-top:14px;"><i class="fa fa-folder-open"></i> Filter by Type</div>
-				<div class="filter-pills" id="pills-type">
+				<div class="filter-pills">
 					<span class="filter-pill active" data-filter="type" data-value="all"><i class="fa fa-list"></i> All Types</span>
 					<span class="filter-pill" data-filter="type" data-value="journal"><i class="fa fa-newspaper-o"></i> Journal Article</span>
 					<span class="filter-pill" data-filter="type" data-value="conference"><i class="fa fa-users"></i> Conference</span>
@@ -103,602 +110,11 @@
 			<!-- Results count -->
 			<div class="filter-results-count" id="pub-count"></div>
 
-			<!-- ======== PUBLICATIONS LIST ======== -->
+			<!-- Loading state -->
+			<div id="pub-loading"><i class="fa fa-circle-o-notch"></i> Loading publications…</div>
 
-			<!-- ===== JOURNAL ARTICLES ===== -->
-			<h3 class="publication-section-title" id="section-journal">
-				<i class="fa fa-newspaper-o" style="color:#766dff; margin-right:8px;"></i>Journal Articles &amp; Proceedings
-			</h3>
-
-			<!-- Pub 1 -->
-			<div class="pub-item show"
-				data-area="nanotech"
-				data-country="brazil"
-				data-type="journal"
-				data-year="2026">
-				<div class="publication-item">
-					<div class="publication-meta-tags">
-						<span class="project-tag tag-area">Nanotech</span>
-						<span class="project-tag tag-country">🇧🇷 Brazil</span>
-						<span class="project-tag tag-type">Journal · 2026</span>
-					</div>
-					<h4 class="publication-title">X-Ray Diffraction of Infrared Quantum Bragg Mirror Detector Structures Designed by Genetic Algorithm</h4>
-					<span class="publication-authors">Jailson Oliveira Santana; <span class="publication-highlight">José Eduardo Ruiz Rosero</span>; Pedro Henrique Pereira; Luciana Dornelas Pinto; Rudy Massami Sakamoto Kawabata; Jéssica de Oliveira Lorenzi; Guilherme Monteiro Torelly; Patrícia Lustoza de Souza; Maurício Pamplona Pires; Germano Maioli Penello</span>
-					<div class="publication-journal">Journal of Integrated Circuits and Systems, 2026.</div>
-					<div class="publication-actions">
-						<a href="https://doi.org/10.29292/jics.v21i1.1198" target="_blank" class="btn-doi"><i class="fa fa-external-link"></i> DOI / Source</a>
-						<a href="files/publications/xray_diffraction_infrared_quantum_bragg_2026.pdf" download class="btn-pdf"><i class="fa fa-download"></i> PDF</a>
-					</div>
-				</div>
-			</div>
-
-			<!-- Pub 2 -->
-			<div class="pub-item show"
-				data-area="nanotech"
-				data-country="brazil"
-				data-type="journal"
-				data-year="2026">
-				<div class="publication-item">
-					<div class="publication-meta-tags">
-						<span class="project-tag tag-area">Nanotech</span>
-						<span class="project-tag tag-country">🇧🇷 Brazil</span>
-						<span class="project-tag tag-type">Journal · 2026</span>
-					</div>
-					<h4 class="publication-title">Genetic algorithm optimization of quantum Bragg mirror detectors</h4>
-					<span class="publication-authors"><span class="publication-highlight">Jose E. Ruiz</span>; Pedro H. Pereira; Guilherme M. Torelly; Patricia L. Souza; Mauricio P. Pires; Germano M. Penello</span>
-					<div class="publication-journal">APL Electronic Devices, 2026.</div>
-					<div class="publication-actions">
-						<a href="https://doi.org/10.1063/5.0315540" target="_blank" class="btn-doi"><i class="fa fa-external-link"></i> DOI / Source</a>
-						<a href="files/publications/genetic_algorithm_optimization_quantum_bragg_2026.pdf" download class="btn-pdf"><i class="fa fa-download"></i> PDF</a>
-					</div>
-				</div>
-			</div>
-
-			<!-- Pub 3 -->
-			<div class="pub-item show"
-				data-area="nanotech"
-				data-country="brazil"
-				data-type="journal"
-				data-year="2023">
-				<div class="publication-item">
-					<div class="publication-meta-tags">
-						<span class="project-tag tag-area">Nanotech</span>
-						<span class="project-tag tag-country">🇧🇷 Brazil</span>
-						<span class="project-tag tag-type">Proceedings · 2023</span>
-					</div>
-					<h4 class="publication-title">Mapping and Optimization of Oscillator Strength in Quantum Bragg Mirror Detectors as a Function of their Dimensions</h4>
-					<span class="publication-authors"><span class="publication-highlight">Jose E. Ruiz</span>; Pedro H. Pereira; Germano M. Penello; Guilherme M. Torelly; Patricia L. Souza; Mauricio P. Pires</span>
-					<div class="publication-journal">2023 37th Symposium on Microelectronics Technology and Devices (SBMicro).</div>
-					<div class="publication-actions">
-						<a href="https://doi.org/10.1109/SBMicro60499.2023.10302557" target="_blank" class="btn-doi"><i class="fa fa-external-link"></i> DOI / Source</a>
-						<a href="files/publications/mapping_optimization_oscillator_strength_2023.pdf" download class="btn-pdf"><i class="fa fa-download"></i> PDF</a>
-					</div>
-				</div>
-			</div>
-
-			<!-- Pub 4 -->
-			<div class="pub-item show"
-				data-area="machine-learning"
-				data-country="brazil colombia"
-				data-type="journal"
-				data-year="2023">
-				<div class="publication-item">
-					<div class="publication-meta-tags">
-						<span class="project-tag tag-area">ML &amp; AI</span>
-						<span class="project-tag tag-country">🇧🇷 Brazil · 🇨🇴 Colombia</span>
-						<span class="project-tag tag-type">Proceedings · 2023</span>
-					</div>
-					<h4 class="publication-title">Cognitive Search: a free information retrieval web service to coronavirus scientific papers</h4>
-					<span class="publication-authors">Cristian Enrique Munoz Villalobos; Leonardo Alfredo Forero Mendoza; Renato Sayão da Rocha; <span class="publication-highlight">Jose Eduardo Ruiz</span>; Harold De Mello; Marco Aurélio Cavalcanti Pacheco</span>
-					<div class="publication-journal">IEEE ColCACI 2023: IEEE Colombian Conference on Applications of Computational Intelligence.</div>
-					<div class="publication-actions">
-						<a href="https://doi.org/10.1109/ColCACI59285.2023.10225924" target="_blank" class="btn-doi"><i class="fa fa-external-link"></i> DOI / Source</a>
-						<a href="files/publications/cognitive_search_web_service_coronavirus_2023.pdf" download class="btn-pdf"><i class="fa fa-download"></i> PDF</a>
-					</div>
-				</div>
-			</div>
-
-			<!-- Pub 5 -->
-			<div class="pub-item show"
-				data-area="machine-learning"
-				data-country="brazil international"
-				data-type="journal"
-				data-year="2022">
-				<div class="publication-item">
-					<div class="publication-meta-tags">
-						<span class="project-tag tag-area">ML &amp; AI</span>
-						<span class="project-tag tag-country">🌍 International</span>
-						<span class="project-tag tag-type">Proceedings · 2022</span>
-					</div>
-					<h4 class="publication-title">A Free Web Service for Fast COVID-19 Classification of Chest X-Ray Images with Artificial Intelligence</h4>
-					<span class="publication-authors">Jose David Bermudez Castro; <span class="publication-highlight">Jose E. Ruiz</span>; Pedro Achanccaray Diaz; Smith Arauco Canchumuni; Cristian Muñoz Villalobos; Felipe Borges Coelho; Leonardo Forero Mendoza; Marco Aurelio C. Pacheco</span>
-					<div class="publication-journal">Computational Science and Its Applications – ICCSA 2022. Lecture Notes in Computer Science, vol 13375. Springer, Cham.</div>
-					<div class="publication-actions">
-						<a href="https://doi.org/10.1007/978-3-031-10522-7_29" target="_blank" class="btn-doi"><i class="fa fa-external-link"></i> DOI / Source</a>
-						<a href="files/publications/web_service_fast_covid19_classification_2022.pdf" download class="btn-pdf"><i class="fa fa-download"></i> PDF</a>
-					</div>
-				</div>
-			</div>
-
-			<!-- Pub 6 -->
-			<div class="pub-item show"
-				data-area="nanotech"
-				data-country="brazil"
-				data-type="journal"
-				data-year="2021">
-				<div class="publication-item">
-					<div class="publication-meta-tags">
-						<span class="project-tag tag-area">Nanotech</span>
-						<span class="project-tag tag-country">🇧🇷 Brazil</span>
-						<span class="project-tag tag-type">Proceedings · 2021</span>
-					</div>
-					<h4 class="publication-title">e-mulate: a user-friendly software to calculate optoelectronic properties of quantum well systems</h4>
-					<span class="publication-authors">Pereira, P. H.; Torelly, G. M.; Lacerda, M. S.; Souza, D. R.; <span class="publication-highlight">Ruiz, J. E.</span>; Souza, V. R.; Chipana, L. A.; Souza, P. L.; Penello, G. M.; Pires, M. P.</span>
-					<div class="publication-journal">2021 35th Symposium on Microelectronics Technology and Devices (SBMicro).</div>
-					<div class="publication-actions">
-						<a href="https://doi.org/10.1109/SBMicro50945.2021.9585740" target="_blank" class="btn-doi"><i class="fa fa-external-link"></i> DOI / Source</a>
-						<a href="files/publications/emulate_software_optoelectronic_2021.pdf" download class="btn-pdf"><i class="fa fa-download"></i> PDF</a>
-					</div>
-				</div>
-			</div>
-
-			<!-- Pub 7 -->
-			<div class="pub-item show"
-				data-area="nanotech"
-				data-country="germany brazil"
-				data-type="journal"
-				data-year="2021">
-				<div class="publication-item">
-					<div class="publication-meta-tags">
-						<span class="project-tag tag-area">Nanotech</span>
-						<span class="project-tag tag-country">🇩🇪 Germany · 🇧🇷 Brazil</span>
-						<span class="project-tag tag-type">Journal · 2021</span>
-					</div>
-					<h4 class="publication-title">Nitrogen and carbon incorporation in GaNxAs1-x grown in a showerhead MOVPE reactor</h4>
-					<span class="publication-authors"><span class="publication-highlight">Ruiz, J. E.</span>; Lackner, D.; Souza, P.L.; Dimroth, F.; Ohlmann, J.</span>
-					<div class="publication-journal">Journal of Crystal Growth, v 557, 125998, 2021.</div>
-					<div class="publication-actions">
-						<a href="https://doi.org/10.1016/j.jcrysgro.2020.125998" target="_blank" class="btn-doi"><i class="fa fa-external-link"></i> DOI / Source</a>
-						<a href="files/publications/nitrogen_carbon_incorporation_2021.pdf" download class="btn-pdf"><i class="fa fa-download"></i> PDF</a>
-					</div>
-				</div>
-			</div>
-
-			<!-- Pub 8 -->
-			<div class="pub-item show"
-				data-area="machine-learning"
-				data-country="brazil international"
-				data-type="journal"
-				data-year="2020">
-				<div class="publication-item">
-					<div class="publication-meta-tags">
-						<span class="project-tag tag-area">ML &amp; AI</span>
-						<span class="project-tag tag-country">🌍 International</span>
-						<span class="project-tag tag-type">Preprint · 2020</span>
-					</div>
-					<h4 class="publication-title">A free web service for fast COVID-19 classification of chest X-Ray images</h4>
-					<span class="publication-authors">Jose David Bermudez Castro; Ricardo Rei; <span class="publication-highlight">Jose E. Ruiz</span>; Pedro Achanccaray Diaz; Smith Arauco Canchumuni; Cristian Muñoz Villalobos; Felipe Borges Coelho; Leonardo Forero Mendoza; Marco Aurelio C. Pacheco</span>
-					<div class="publication-journal">arXiv 2009.01657. 2020.</div>
-					<div class="publication-actions">
-						<a href="https://doi.org/10.48550/arXiv.2009.01657" target="_blank" class="btn-doi"><i class="fa fa-external-link"></i> DOI / Source</a>
-						<a href="files/publications/free_web_service_covid19_arxiv_2020.pdf" download class="btn-pdf"><i class="fa fa-download"></i> PDF</a>
-					</div>
-				</div>
-			</div>
-
-			<!-- Pub 9 -->
-			<div class="pub-item show"
-				data-area="solar-energy"
-				data-country="brazil"
-				data-type="journal"
-				data-year="2018">
-				<div class="publication-item">
-					<div class="publication-meta-tags">
-						<span class="project-tag tag-area">Solar Energy</span>
-						<span class="project-tag tag-country">🇧🇷 Brazil</span>
-						<span class="project-tag tag-type">Proceedings · 2018</span>
-					</div>
-					<h4 class="publication-title">Otimização da malha metálica de dedos coletores para o contato elétrico frontal de células solares por algoritmos genéticos</h4>
-					<span class="publication-authors">PEJENDINO, R. C.; MICHA, D. N.; <span class="publication-highlight">RUIZ, J. E.</span>; WEINER, E. C.; PIRES, M. P.; SOUZA, P. L.</span>
-					<div class="publication-journal">VII Congresso Brasileiro de Energia Solar – CBENS, 2018.</div>
-					<div class="publication-actions">
-						<a href="https://anaiscbens.emnuvens.com.br/cbens/article/view/259" target="_blank" class="btn-doi"><i class="fa fa-external-link"></i> Source</a>
-						<a href="files/publications/otimizacao_malha_metalica_2018.pdf" download class="btn-pdf"><i class="fa fa-download"></i> PDF</a>
-					</div>
-				</div>
-			</div>
-
-			<!-- Pub 10 -->
-			<div class="pub-item show"
-				data-area="solar-energy nanotech"
-				data-country="brazil"
-				data-type="journal"
-				data-year="2017">
-				<div class="publication-item">
-					<div class="publication-meta-tags">
-						<span class="project-tag tag-area">Solar Energy</span>
-						<span class="project-tag tag-country">🇧🇷 Brazil</span>
-						<span class="project-tag tag-type">Proceedings · 2017</span>
-					</div>
-					<h4 class="publication-title">Optimization of contact grids for solar cells with genetic algorithms</h4>
-					<span class="publication-authors">PEJENDINO, R. C.; <span class="publication-highlight">RUIZ, J. E.</span>; WEINER, E.; MICHA, D. N.; PIRES, M. P.; SOUZA, P. L.</span>
-					<div class="publication-journal">32nd Symposium on Microelectronics Technology and Devices (SBMicro). 2017.</div>
-					<div class="publication-actions">
-						<a href="https://doi.org/10.1109/SBMicro.2017.8112975" target="_blank" class="btn-doi"><i class="fa fa-external-link"></i> DOI / Source</a>
-						<a href="files/publications/optimization_contact_grids_solar_cells_2017.pdf" download class="btn-pdf"><i class="fa fa-download"></i> PDF</a>
-					</div>
-				</div>
-			</div>
-
-			<!-- Pub 11 -->
-			<div class="pub-item show"
-				data-area="nanotech"
-				data-country="brazil"
-				data-type="journal"
-				data-year="2017">
-				<div class="publication-item">
-					<div class="publication-meta-tags">
-						<span class="project-tag tag-area">Nanotech</span>
-						<span class="project-tag tag-country">🇧🇷 Brazil</span>
-						<span class="project-tag tag-type">Journal · 2017</span>
-					</div>
-					<h4 class="publication-title">Optimization of digital image processing to determine quantum dots height and density from atomic force microscopy</h4>
-					<span class="publication-authors"><span class="publication-highlight">RUIZ, J. E.</span>; PACIORNIK, S.; PINTO, L. D.; PTAK, F.; PIRES, M. P.; SOUZA, P. L.</span>
-					<div class="publication-journal">Ultramicroscopy, v. 184, p. 234-241. 2017.</div>
-					<div class="publication-actions">
-						<a href="https://doi.org/10.1016/j.ultramic.2017.09.004" target="_blank" class="btn-doi"><i class="fa fa-external-link"></i> DOI / Source</a>
-						<a href="files/publications/optimization_digital_image_processing_2017.pdf" download class="btn-pdf"><i class="fa fa-download"></i> PDF</a>
-					</div>
-				</div>
-			</div>
-
-			<!-- Pub 12 -->
-			<div class="pub-item show"
-				data-area="nanotech"
-				data-country="brazil"
-				data-type="journal"
-				data-year="2015">
-				<div class="publication-item">
-					<div class="publication-meta-tags">
-						<span class="project-tag tag-area">Nanotech</span>
-						<span class="project-tag tag-country">🇧🇷 Brazil</span>
-						<span class="project-tag tag-type">Proceedings · 2015</span>
-					</div>
-					<h4 class="publication-title">Optimization in digital image processing to determine quantum dots heights from atomic force microscopy</h4>
-					<span class="publication-authors"><span class="publication-highlight">RUIZ, J. E.</span>; SOUZA, P. L.; DORNELAS, L. P.; PIRES, M. P.</span>
-					<div class="publication-journal">XIV Brazil MRS Meeting, Rio de Janeiro. 2015.</div>
-					<div class="publication-actions">
-						<a href="http://sbpmat.org.br/14encontro/anais/pdfs/plenary/ASEA.pdf" target="_blank" class="btn-doi"><i class="fa fa-external-link"></i> Source</a>
-						<a href="files/publications/optimization_digital_image_mrs_2015.pdf" download class="btn-pdf"><i class="fa fa-download"></i> PDF</a>
-					</div>
-				</div>
-			</div>
-
-			<!-- Pub 13 -->
-			<div class="pub-item show"
-				data-area="nanotech"
-				data-country="brazil"
-				data-type="journal"
-				data-year="2015">
-				<div class="publication-item">
-					<div class="publication-meta-tags">
-						<span class="project-tag tag-area">Nanotech</span>
-						<span class="project-tag tag-country">🇧🇷 Brazil</span>
-						<span class="project-tag tag-type">Journal · 2015</span>
-					</div>
-					<h4 class="publication-title">Early nucleation stages of low density InAs quantum dots nucleation on GaAs by MOVPE</h4>
-					<span class="publication-authors">TORELLY, G.; JAKOMIN, R.; PINTO, L. D.; PIRES, M. P.; <span class="publication-highlight">RUIZ, J.</span>; CALDAS, P. G.; PRIOLI, R.; XIE, H.; PONCE, F. A.; SOUZA, P. L.</span>
-					<div class="publication-journal">Journal of Crystal Growth, v. 434, p. 47-54. 2015.</div>
-					<div class="publication-actions">
-						<a href="https://doi.org/10.1016/j.jcrysgro.2015.10.031" target="_blank" class="btn-doi"><i class="fa fa-external-link"></i> DOI / Source</a>
-						<a href="files/publications/early_nucleation_stages_inas_2015.pdf" download class="btn-pdf"><i class="fa fa-download"></i> PDF</a>
-					</div>
-				</div>
-			</div>
-
-			<!-- ===== CONFERENCES ===== -->
-			<h3 class="publication-section-title">
-				<i class="fa fa-users" style="color:#766dff; margin-right:8px;"></i>Conference Publications
-			</h3>
-
-			<!-- Conf 1 -->
-			<div class="pub-item show"
-				data-area="cybersecurity"
-				data-country="dom-republic"
-				data-type="conference"
-				data-year="2025">
-				<div class="publication-item">
-					<div class="publication-meta-tags">
-						<span class="project-tag tag-area">Cybersecurity</span>
-						<span class="project-tag tag-country">🇩🇴 Dom. Republic</span>
-						<span class="project-tag tag-type">Conference · 2025</span>
-					</div>
-					<h4 class="publication-title">Cybersecurity as a Pillar of Sustainable Development and Commercial Stability: Perspective from Digital Interdependence</h4>
-					<span class="publication-authors"><span class="publication-highlight">Jose Eduardo Ruiz Rosero</span></span>
-					<div class="publication-journal">XI UNADE International Symposium 2025: "National Security and Trade: Strategy for Sustainable Development", Dominican Republic. 2025.</div>
-					<div class="publication-actions">
-						<a href="https://unade.edu.do/simposio-internacional/" target="_blank" class="btn-doi"><i class="fa fa-external-link"></i> Web Event</a>
-						<a href="https://www.youtube.com/live/hy1DNI7qKws?si=EnFZyJxDX8pqYDld&t=23600" target="_blank" class="btn-doi"><i class="fa fa-youtube-play"></i> Video</a>
-						<a href="files/publications/cybersecurity_pillar_sustainable_2025.pdf" download class="btn-pdf"><i class="fa fa-download"></i> PDF</a>
-					</div>
-				</div>
-			</div>
-
-			<!-- Conf 2 -->
-			<div class="pub-item show"
-				data-area="nanotech"
-				data-country="brazil"
-				data-type="conference"
-				data-year="2025">
-				<div class="publication-item">
-					<div class="publication-meta-tags">
-						<span class="project-tag tag-area">Nanotech</span>
-						<span class="project-tag tag-country">🇧🇷 Brazil</span>
-						<span class="project-tag tag-type">Conference · 2025</span>
-					</div>
-					<h4 class="publication-title">X-Ray Diffraction of Infrared Quantum Bragg Mirror Detectors Structures Designed by Artificial Intelligence</h4>
-					<span class="publication-authors">Jailson Santana; <span class="publication-highlight">Jose E. R. Rosero</span>; Pedro Henrique Pereira; Luciana D. Pinto; Rudy M. S. Kawabata; Guilherme M. Torelly; Germano M. Penello; Patrícia L. Souza; Mauricio P. Pires</span>
-					<div class="publication-journal">SBMicro – 39th symposium on microelectronics technology and devices – Chip in the Jungle. 2025.</div>
-					<div class="publication-actions">
-						<a href="https://sites.google.com/uea.edu.br/chip-in-the-jungle-2025/Program/program/sbmicro-program" target="_blank" class="btn-doi"><i class="fa fa-external-link"></i> Program</a>
-						<a href="files/publications/xray_diffraction_chip_in_jungle_2025.pdf" download class="btn-pdf"><i class="fa fa-download"></i> PDF</a>
-					</div>
-				</div>
-			</div>
-
-			<!-- Conf 3 -->
-			<div class="pub-item show"
-				data-area="nanotech"
-				data-country="austria"
-				data-type="conference"
-				data-year="2025">
-				<div class="publication-item">
-					<div class="publication-meta-tags">
-						<span class="project-tag tag-area">Nanotech</span>
-						<span class="project-tag tag-country">🇦🇹 Austria</span>
-						<span class="project-tag tag-type">Conference · 2025</span>
-					</div>
-					<h4 class="publication-title">Optimizing Quantum Bragg Mirror Detector: A Genetic Algorithm Approach</h4>
-					<span class="publication-authors">Pedro H. Pereira; <span class="publication-highlight">Jose E. Ruiz</span>; Guilherme M. Torelly; Mauricio P. Pires; Patricia L. Souza; Germano M. Penello</span>
-					<div class="publication-journal">Mid-IR Optoelectronics: Materials and Devices XVII 2025, Vienna, Austria. 2025.</div>
-					<div class="publication-actions">
-						<a href="https://miomd2025.conf.tuwien.ac.at/" target="_blank" class="btn-doi"><i class="fa fa-external-link"></i> Web Event</a>
-						<a href="files/publications/optimizing_quantum_bragg_miomd_2025.pdf" download class="btn-pdf"><i class="fa fa-download"></i> PDF</a>
-					</div>
-				</div>
-			</div>
-
-			<!-- Conf 4 -->
-			<div class="pub-item show"
-				data-area="cybersecurity"
-				data-country="colombia"
-				data-type="conference"
-				data-year="2023">
-				<div class="publication-item">
-					<div class="publication-meta-tags">
-						<span class="project-tag tag-area">Cybersecurity</span>
-						<span class="project-tag tag-country">🇨🇴 Colombia</span>
-						<span class="project-tag tag-type">Conference · 2023</span>
-					</div>
-					<h4 class="publication-title">Ethical and Social Challenges in the Age of Human Enhancement: How Converging Technologies Could Transform Our Individuality and Behavior</h4>
-					<span class="publication-authors"><span class="publication-highlight">Jose Eduardo Ruiz Rosero</span></span>
-					<div class="publication-journal">XX International Humanities Congress "Cyborg: The Human Condition in a Transhumanist World", Bucaramanga, Colombia. 2023.</div>
-					<div class="publication-actions">
-						<a href="https://humanidades.ustabuca.edu.co/index.php/extencion/congreso-2023" target="_blank" class="btn-doi"><i class="fa fa-external-link"></i> Web Event</a>
-						<a href="https://www.youtube.com/live/KUPJM2GgcKo?feature=share&t=3369" target="_blank" class="btn-doi"><i class="fa fa-youtube-play"></i> Video</a>
-						<a href="files/publications/ethical_social_challenges_human_enhancement_2023.pdf" download class="btn-pdf"><i class="fa fa-download"></i> PDF</a>
-					</div>
-				</div>
-			</div>
-
-			<!-- Conf 5 -->
-			<div class="pub-item show"
-				data-area="cybersecurity"
-				data-country="colombia"
-				data-type="conference"
-				data-year="2023">
-				<div class="publication-item">
-					<div class="publication-meta-tags">
-						<span class="project-tag tag-area">Cybersecurity</span>
-						<span class="project-tag tag-country">🇨🇴 Colombia</span>
-						<span class="project-tag tag-type">Conference · 2023</span>
-					</div>
-					<h4 class="publication-title">Panel Discussion: Cyborg: The Human Condition in a Transhumanist World</h4>
-					<span class="publication-authors"><span class="publication-highlight">Jose Eduardo Ruiz Rosero</span></span>
-					<div class="publication-journal">XX International Humanities Congress, Bucaramanga, Colombia. 2023.</div>
-					<div class="publication-actions">
-						<a href="https://humanidades.ustabuca.edu.co/index.php/extencion/congreso-2023" target="_blank" class="btn-doi"><i class="fa fa-external-link"></i> Web Event</a>
-						<a href="https://www.youtube.com/live/pTePCup8ukg?feature=share&t=4014" target="_blank" class="btn-doi"><i class="fa fa-youtube-play"></i> Video</a>
-						<a href="files/publications/panel_discussion_transhumanist_2023.pdf" download class="btn-pdf"><i class="fa fa-download"></i> PDF</a>
-					</div>
-				</div>
-			</div>
-
-			<!-- Conf 6 -->
-			<div class="pub-item show"
-				data-area="nanotech"
-				data-country="brazil"
-				data-type="conference"
-				data-year="2023">
-				<div class="publication-item">
-					<div class="publication-meta-tags">
-						<span class="project-tag tag-area">Nanotech</span>
-						<span class="project-tag tag-country">🇧🇷 Brazil</span>
-						<span class="project-tag tag-type">Conference · 2023</span>
-					</div>
-					<h4 class="publication-title">Quantum Bragg Mirror Detector Optimization Applying Genetic Algorithms</h4>
-					<span class="publication-authors"><span class="publication-highlight">Jose Ruiz</span>; Pedro H. Pereira; Germano M. Penello; Guilherme M. Torelly; Patricia L. Souza; Mauricio P. Pires</span>
-					<div class="publication-journal">Autumn Meeting of the Brazilian Physical Society, Ouro Preto. 2023.</div>
-					<div class="publication-actions">
-						<a href="https://sec.sbfisica.org.br/eventos/eosbf/2023/sys/resumos/R0784-1.pdf" target="_blank" class="btn-doi"><i class="fa fa-external-link"></i> Source</a>
-						<a href="files/publications/quantum_bragg_optimization_autumn_2023.pdf" download class="btn-pdf"><i class="fa fa-download"></i> PDF</a>
-					</div>
-				</div>
-			</div>
-
-			<!-- Conf 7 -->
-			<div class="pub-item show"
-				data-area="nanotech"
-				data-country="brazil"
-				data-type="conference"
-				data-year="2023">
-				<div class="publication-item">
-					<div class="publication-meta-tags">
-						<span class="project-tag tag-area">Nanotech</span>
-						<span class="project-tag tag-country">🇧🇷 Brazil</span>
-						<span class="project-tag tag-type">Conference · 2023</span>
-					</div>
-					<h4 class="publication-title">Mapping and Optimization of Oscillator Strength in Quantum Bragg Mirror Detectors as a Function of their Dimensions</h4>
-					<span class="publication-authors"><span class="publication-highlight">Jose Ruiz</span>; Pedro H. Pereira; Germano M. Penello; Guilherme M. Torelly; Patricia L. Souza; Mauricio P. Pires</span>
-					<div class="publication-journal">SBMicro – 37th symposium on microelectronics technology and devices – Chip in Rio. 2023.</div>
-					<div class="publication-actions">
-						<a href="#" target="_blank" class="btn-doi"><i class="fa fa-external-link"></i> Source</a>
-						<a href="files/publications/mapping_optimization_sbmicro_2023.pdf" download class="btn-pdf"><i class="fa fa-download"></i> PDF</a>
-					</div>
-				</div>
-			</div>
-
-			<!-- Conf 8 -->
-			<div class="pub-item show"
-				data-area="nanotech"
-				data-country="germany"
-				data-type="conference"
-				data-year="2017">
-				<div class="publication-item">
-					<div class="publication-meta-tags">
-						<span class="project-tag tag-area">Nanotech</span>
-						<span class="project-tag tag-country">🇩🇪 Germany</span>
-						<span class="project-tag tag-type">Conference · 2017</span>
-					</div>
-					<h4 class="publication-title">Dilute Nitride GaInNAs Growth with Low Decomposition Temperature Precursors by MOVPE</h4>
-					<span class="publication-authors"><span class="publication-highlight">RUIZ, J. E.</span>; OHLMANN, J.; DIMROTH, F.; LACKNER, D.</span>
-					<div class="publication-journal">DGKK "Deutsche Gesellschaft für Kristallwachstum und Kristallzüchtung" – Freiburg im Breisgau – Germany. 2017.</div>
-					<div class="publication-actions">
-						<a href="https://www.ise.fraunhofer.de/content/dam/ise/de/downloads/pdf/DGKK_2017_Homepage-Programm.pdf" target="_blank" class="btn-doi"><i class="fa fa-external-link"></i> Source</a>
-						<a href="files/publications/dilute_nitride_gainnas_growth_2017.pdf" download class="btn-pdf"><i class="fa fa-download"></i> PDF</a>
-					</div>
-				</div>
-			</div>
-
-			<!-- Conf 9 -->
-			<div class="pub-item show"
-				data-area="solar-energy"
-				data-country="brazil"
-				data-type="conference"
-				data-year="2017">
-				<div class="publication-item">
-					<div class="publication-meta-tags">
-						<span class="project-tag tag-area">Solar Energy</span>
-						<span class="project-tag tag-country">🇧🇷 Brazil</span>
-						<span class="project-tag tag-type">Conference · 2017</span>
-					</div>
-					<h4 class="publication-title">Simulação e otimização de células solares simples e multijunção com algoritmos genéticos</h4>
-					<span class="publication-authors">PACHECO, M. A. C.; <span class="publication-highlight">RUIZ, J. E.</span>; GALVÃO, P.</span>
-					<div class="publication-journal">XIX CECEMM: Congresso dos Estudantes de Ciência e Engenharia de Materiais do MERCOSUL. 2017.</div>
-					<div class="publication-actions">
-						<a href="#" target="_blank" class="btn-doi"><i class="fa fa-external-link"></i> Source</a>
-						<a href="files/publications/simulacao_otimizacao_celulas_solares_2017.pdf" download class="btn-pdf"><i class="fa fa-download"></i> PDF</a>
-					</div>
-				</div>
-			</div>
-
-			<!-- Conf 10 -->
-			<div class="pub-item show"
-				data-area="nanotech"
-				data-country="brazil"
-				data-type="conference"
-				data-year="2015">
-				<div class="publication-item">
-					<div class="publication-meta-tags">
-						<span class="project-tag tag-area">Nanotech</span>
-						<span class="project-tag tag-country">🇧🇷 Brazil</span>
-						<span class="project-tag tag-type">Conference · 2015</span>
-					</div>
-					<h4 class="publication-title">Dependence of the strain of InAs/InGaAlAs QDs on their size</h4>
-					<span class="publication-authors"><span class="publication-highlight">RUIZ, J. E.</span>; PIRES, M. P.; SOUZA, P. L.</span>
-					<div class="publication-journal">XIV Brazil MRS Meeting, Rio de Janeiro. 2015.</div>
-					<div class="publication-actions">
-						<a href="http://sbpmat.org.br/14encontro/anais/pdfs/plenary/ASEV.pdf" target="_blank" class="btn-doi"><i class="fa fa-external-link"></i> Source</a>
-						<a href="files/publications/dependence_strain_inas_2015.pdf" download class="btn-pdf"><i class="fa fa-download"></i> PDF</a>
-					</div>
-				</div>
-			</div>
-
-			<!-- Conf 11 -->
-			<div class="pub-item show"
-				data-area="nanotech"
-				data-country="brazil"
-				data-type="conference"
-				data-year="2015">
-				<div class="publication-item">
-					<div class="publication-meta-tags">
-						<span class="project-tag tag-area">Nanotech</span>
-						<span class="project-tag tag-country">🇧🇷 Brazil</span>
-						<span class="project-tag tag-type">Conference · 2015</span>
-					</div>
-					<h4 class="publication-title">From InAs extended monolayer flat 2D terraces to 3D islands grown on GaAs substrates</h4>
-					<span class="publication-authors">Torelly, G; <span class="publication-highlight">RUIZ, J.</span>; JAKOMIN, R.; DORNELAS, L. P.; PIRES, M. P.; CALDAS, P. G.; PRIOLI, R.; XIE, H.; PONCE, F. A.; SOUZA, P. L.</span>
-					<div class="publication-journal">XIV Brazil MRS Meeting, Rio de Janeiro. 2015.</div>
-					<div class="publication-actions">
-						<a href="#" target="_blank" class="btn-doi"><i class="fa fa-external-link"></i> Source</a>
-						<a href="files/publications/from_inas_extended_monolayer_2015.pdf" download class="btn-pdf"><i class="fa fa-download"></i> PDF</a>
-					</div>
-				</div>
-			</div>
-
-			<!-- ===== BOOK CHAPTERS ===== -->
-			<h3 class="publication-section-title">
-				<i class="fa fa-book" style="color:#766dff; margin-right:8px;"></i>Chapters in Books
-			</h3>
-
-			<!-- Book 1 -->
-			<div class="pub-item show"
-				data-area="solar-energy"
-				data-country="brazil"
-				data-type="book"
-				data-year="2019">
-				<div class="publication-item">
-					<div class="publication-meta-tags">
-						<span class="project-tag tag-area">Solar Energy</span>
-						<span class="project-tag tag-country">🇧🇷 Brazil</span>
-						<span class="project-tag tag-type">Book Chapter · 2019</span>
-					</div>
-					<h4 class="publication-title">Otimização da malha metálica de dedos coletores para o contato elétrico frontal de células solares por algoritmos genéticos</h4>
-					<span class="publication-authors">Roberto Carlos Pejendino Jojoa; Daniel Neves Micha; <span class="publication-highlight">Jose Eduardo Ruiz Rosero</span>; Eleonora Cominato Weiner; Mauricio Pamplona Pires; Patrícia Lustoza de Souza</span>
-					<div class="publication-journal">Energia no Brasil. 1ed.: Editora Poisson, v. 1, p. 89-101. 2019.</div>
-					<div class="publication-actions">
-						<a href="https://doi.org/10.5935/978-85-7042-107-4" target="_blank" class="btn-doi"><i class="fa fa-external-link"></i> DOI / Source</a>
-						<a href="files/publications/book_otimizacao_malha_metalica_2019.pdf" download class="btn-pdf"><i class="fa fa-download"></i> PDF</a>
-					</div>
-				</div>
-			</div>
-
-			<!-- ===== PATENTS ===== -->
-			<h3 class="publication-section-title">
-				<i class="fa fa-certificate" style="color:#766dff; margin-right:8px;"></i>Patents
-			</h3>
-
-			<!-- Patent 1 -->
-			<div class="pub-item show"
-				data-area="machine-learning"
-				data-country="brazil"
-				data-type="patent"
-				data-year="2021">
-				<div class="publication-item">
-					<div class="publication-meta-tags">
-						<span class="project-tag tag-area">ML &amp; AI</span>
-						<span class="project-tag tag-country">🇧🇷 Brazil</span>
-						<span class="project-tag tag-type">Patent · 2021</span>
-					</div>
-					<h4 class="publication-title">Method for Extracting and Structuring Information</h4>
-					<span class="publication-authors"><span class="publication-highlight">Jose Eduardo Ruiz</span> (et. al)</span>
-					<div class="publication-journal">BR 10 2021 023977-8. Issued Nov 26, 2021 – Journal number: 2662 – Section VI patents. 2021.</div>
-					<div class="publication-actions">
-						<a href="http://revistas.inpi.gov.br/rpi/" target="_blank" class="btn-doi"><i class="fa fa-external-link"></i> Source</a>
-						<a href="files/publications/patent_method_extracting_structuring_info_2021.pdf" download class="btn-pdf"><i class="fa fa-download"></i> PDF</a>
-					</div>
-				</div>
-			</div>
+			<!-- ======== PUBLICATIONS LIST (populated by JS) ======== -->
+			<div id="pub-list"></div>
 
 			<!-- No results -->
 			<div class="no-results-msg" id="pub-no-results">
@@ -714,7 +130,8 @@
 		<div class="container">
 			<div class="row footer_bottom justify-content-center">
 				<p class="col-lg-8 col-sm-12 footer-text">
-					Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Template by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+					Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Template by <a
+						href="https://colorlib.com" target="_blank">Colorlib</a>
 				</p>
 			</div>
 		</div>
@@ -726,67 +143,213 @@
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/stellar.js"></script>
 	<script src="js/theme.js"></script>
+	<script src="js/csv-loader.js"></script>
 	<script src="js/header.js"></script>
 	<script>renderHeader('publications');</script>
 
 	<script>
 	// ============================================================
-	// Multi-filter logic for Publications
+	// Section metadata
 	// ============================================================
-	(function() {
-		var activeFilters = { area: 'all', country: 'all', type: 'all' };
+	var SECTIONS = {
+		journal:    { icon: 'fa-newspaper-o', label: 'Journal Articles & Proceedings' },
+		conference: { icon: 'fa-users',       label: 'Conference Publications' },
+		book:       { icon: 'fa-book',        label: 'Chapters in Books' },
+		patent:     { icon: 'fa-certificate', label: 'Patents' }
+	};
 
-		function applyFilters() {
-			var items = document.querySelectorAll('.pub-item');
-			var count = 0;
+	var COUNTRY_FLAGS = {
+		'brazil':       '🇧🇷 Brazil',
+		'colombia':     '🇨🇴 Colombia',
+		'germany':      '🇩🇪 Germany',
+		'austria':      '🇦🇹 Austria',
+		'dom-republic': '🇩🇴 Dom. Republic',
+		'canada':       '🇨🇦 Canada',
+		'international':'🌍 International'
+	};
 
-			items.forEach(function(item) {
-				var itemArea    = item.getAttribute('data-area')    || '';
-				var itemCountry = item.getAttribute('data-country') || '';
-				var itemType    = item.getAttribute('data-type')    || '';
+	var AREA_LABELS = {
+		'nanotech':       'Nanotech',
+		'machine-learning':'ML & AI',
+		'solar-energy':   'Solar Energy',
+		'cybersecurity':  'Cybersecurity'
+	};
 
-				var matchArea    = (activeFilters.area    === 'all') || itemArea.indexOf(activeFilters.area)    !== -1;
-				var matchCountry = (activeFilters.country === 'all') || itemCountry.indexOf(activeFilters.country) !== -1;
-				var matchType    = (activeFilters.type    === 'all') || itemType.indexOf(activeFilters.type)    !== -1;
+	var TYPE_LABELS = {
+		'journal':    'Journal',
+		'conference': 'Conference',
+		'book':       'Book Chapter',
+		'patent':     'Patent'
+	};
 
-				if (matchArea && matchCountry && matchType) {
-					item.classList.add('show');
-					count++;
-				} else {
-					item.classList.remove('show');
-				}
-			});
+	// ============================================================
+	// Build one publication item from a CSV row
+	// ============================================================
+	function buildPubItem(row) {
+		var areas     = row.area    ? row.area.split(';')    : [];
+		var countries = row.country ? row.country.split(';') : [];
 
-			// Update section titles visibility
-			['journal','conference','book','patent'].forEach(function(type) {
-				var section = document.getElementById('section-' + type);
-				// Show section if its type is allowed or all types shown
-			});
+		// data-attrs (semicolon-joined for multi-value country)
+		var dataArea    = areas.join(';');
+		var dataCountry = countries.join(';');
+		var dataType    = row.type || '';
 
-			var countEl = document.getElementById('pub-count');
-			if (countEl) countEl.textContent = 'Showing ' + count + ' of ' + items.length + ' publications';
+		// Tags
+		var tagsHtml = '';
+		areas.forEach(function(a) {
+			var label = AREA_LABELS[a.trim()] || a.trim();
+			tagsHtml += '<span class="project-tag tag-area">' + label + '</span>';
+		});
+		countries.forEach(function(c) {
+			var label = COUNTRY_FLAGS[c.trim()] || c.trim();
+			tagsHtml += '<span class="project-tag tag-country">' + label + '</span>';
+		});
+		var typeLabel = TYPE_LABELS[row.type] || row.type;
+		tagsHtml += '<span class="project-tag tag-type">' + typeLabel + ' · ' + row.year + '</span>';
 
-			var noRes = document.getElementById('pub-no-results');
-			if (noRes) noRes.style.display = count === 0 ? 'block' : 'none';
+		// Action buttons
+		var actionsHtml = '';
+		if (row.doi_url && row.doi_url !== '#') {
+			actionsHtml += '<a href="' + row.doi_url + '" target="_blank" class="btn-doi"><i class="fa fa-external-link"></i> ' + (row.doi_label || 'DOI') + '</a>';
+		}
+		if (row.pdf_file) {
+			actionsHtml += '<a href="' + row.pdf_file + '" download class="btn-pdf"><i class="fa fa-download"></i> PDF</a>';
+		}
+		if (row.extra_url_1) {
+			var extraIcon = row.extra_label_1 && row.extra_label_1.toLowerCase().indexOf('video') !== -1 ? 'fa-youtube-play' : 'fa-external-link';
+			actionsHtml += '<a href="' + row.extra_url_1 + '" target="_blank" class="btn-doi"><i class="fa ' + extraIcon + '"></i> ' + (row.extra_label_1 || 'Link') + '</a>';
+		}
+		if (row.extra_url_2) {
+			actionsHtml += '<a href="' + row.extra_url_2 + '" target="_blank" class="btn-doi"><i class="fa fa-external-link"></i> ' + (row.extra_label_2 || 'Link') + '</a>';
 		}
 
+		return '<div class="pub-item show"' +
+			' data-area="'    + dataArea    + '"' +
+			' data-country="' + dataCountry + '"' +
+			' data-type="'    + dataType    + '">' +
+			'<div class="publication-item">' +
+				'<div class="publication-meta-tags">' + tagsHtml + '</div>' +
+				'<h4 class="publication-title">' + row.title + '</h4>' +
+				'<span class="publication-authors">' + row.authors + '</span>' +
+				'<div class="publication-journal">' + row.journal + '</div>' +
+				(actionsHtml ? '<div class="publication-actions">' + actionsHtml + '</div>' : '') +
+			'</div>' +
+		'</div>';
+	}
+
+	// ============================================================
+	// Build a section heading
+	// ============================================================
+	function buildSectionHeading(sectionKey) {
+		var meta = SECTIONS[sectionKey] || { icon: 'fa-list', label: sectionKey };
+		return '<h3 class="publication-section-title" data-section="' + sectionKey + '">' +
+			'<i class="fa ' + meta.icon + '" style="color:#766dff;margin-right:8px;"></i>' +
+			meta.label +
+		'</h3>';
+	}
+
+	// ============================================================
+	// Multi-filter logic
+	// ============================================================
+	var activeFilters = { area: 'all', country: 'all', type: 'all' };
+
+	function applyFilters() {
+		var items = document.querySelectorAll('.pub-item');
+		var count = 0;
+
+		items.forEach(function(item) {
+			var itemArea    = item.getAttribute('data-area')    || '';
+			var itemCountry = item.getAttribute('data-country') || '';
+			var itemType    = item.getAttribute('data-type')    || '';
+
+			// Multi-value matching (semicolon-separated)
+			var matchArea    = activeFilters.area    === 'all' || matchMulti(itemArea,    activeFilters.area);
+			var matchCountry = activeFilters.country === 'all' || matchMulti(itemCountry, activeFilters.country);
+			var matchType    = activeFilters.type    === 'all' || itemType === activeFilters.type;
+
+			if (matchArea && matchCountry && matchType) {
+				item.classList.add('show');
+				count++;
+			} else {
+				item.classList.remove('show');
+			}
+		});
+
+		// Hide section headings with no visible items below
+		document.querySelectorAll('.publication-section-title').forEach(function(heading) {
+			var sectionKey = heading.getAttribute('data-section');
+			// Check if there's at least one visible pub-item for this section
+			var hasVisible = false;
+			var next = heading.nextElementSibling;
+			while (next && !next.classList.contains('publication-section-title')) {
+				if (next.classList.contains('pub-item') && next.classList.contains('show')) {
+					hasVisible = true;
+					break;
+				}
+				next = next.nextElementSibling;
+			}
+			heading.style.display = hasVisible ? '' : 'none';
+		});
+
+		var countEl = document.getElementById('pub-count');
+		if (countEl) countEl.textContent = 'Showing ' + count + ' of ' + items.length + ' publications';
+
+		var noRes = document.getElementById('pub-no-results');
+		if (noRes) noRes.style.display = count === 0 ? 'block' : 'none';
+	}
+
+	function matchMulti(itemValue, filterValue) {
+		var parts = itemValue.split(';');
+		for (var i = 0; i < parts.length; i++) {
+			if (parts[i].trim() === filterValue) return true;
+		}
+		return false;
+	}
+
+	function initFilterPills() {
 		document.querySelectorAll('.filter-pill').forEach(function(pill) {
 			pill.addEventListener('click', function() {
 				var filterType  = this.getAttribute('data-filter');
 				var filterValue = this.getAttribute('data-value');
-
 				document.querySelectorAll('.filter-pill[data-filter="' + filterType + '"]').forEach(function(p) {
 					p.classList.remove('active');
 				});
 				this.classList.add('active');
-
 				activeFilters[filterType] = filterValue;
 				applyFilters();
 			});
 		});
+	}
 
+	// ============================================================
+	// Load CSV and render
+	// ============================================================
+	CSVLoader.load('data/publications.csv').then(function(rows) {
+		var container = document.getElementById('pub-list');
+		var loading   = document.getElementById('pub-loading');
+		if (loading) loading.style.display = 'none';
+
+		// Group rows by section (preserve CSV order but only add heading when section changes)
+		var currentSection = null;
+		var html = '';
+
+		rows.forEach(function(row) {
+			if (!row.id) return;
+			if (row.section !== currentSection) {
+				currentSection = row.section;
+				html += buildSectionHeading(currentSection);
+			}
+			html += buildPubItem(row);
+		});
+
+		container.innerHTML = html;
+		initFilterPills();
 		applyFilters();
-	})();
+	}).catch(function(err) {
+		var loading = document.getElementById('pub-loading');
+		if (loading) loading.innerHTML = '<i class="fa fa-exclamation-triangle" style="color:#e74c3c;animation:none;"></i> Error loading publications. Please check data/publications.csv';
+		console.error(err);
+	});
 	</script>
 </body>
 
