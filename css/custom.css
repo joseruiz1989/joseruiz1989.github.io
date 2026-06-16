@@ -318,28 +318,28 @@
 /* Vertical line */
 .timeline-wrapper {
   position: relative;
-  max-width: 900px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 0 20px;
   z-index: 1;
 }
 
+/* Line pinned to the year-column edge */
 .timeline-line {
   position: absolute;
-  left: 50%;
+  left: 240px;
   top: 0;
   bottom: 0;
   width: 2px;
   background: linear-gradient(to bottom, transparent, var(--accent) 10%, var(--accent) 90%, transparent);
-  transform: translateX(-50%);
   opacity: .35;
 }
 
-/* Timeline items */
+/* Timeline items — always LTR: year | dot | card */
 .tl-item {
   display: flex;
   align-items: flex-start;
-  margin-bottom: 40px;
+  margin-bottom: 36px;
   position: relative;
   opacity: 0;
   transform: translateY(30px);
@@ -351,36 +351,33 @@
   transform: translateY(0);
 }
 
-.tl-item:nth-child(even) { flex-direction: row-reverse; }
-
-/* Side content */
+/* Year column — wider, always on the left */
 .tl-side {
-  width: calc(50% - 40px);
+  width: 220px;
   flex-shrink: 0;
+  text-align: right;
+  padding-right: 24px;
+  padding-top: 6px;
 }
 
-.tl-item:nth-child(odd) .tl-side  { padding-right: 30px; text-align: right; }
-.tl-item:nth-child(even) .tl-side { padding-left: 30px;  text-align: left; }
-
-/* Year badge on side */
+/* Year badge */
 .tl-year {
-  font-size: 28px;
+  font-size: 24px;
   font-weight: 800;
   color: var(--accent-light);
   line-height: 1;
-  margin-bottom: 4px;
+  margin-bottom: 3px;
+  display: block;
 }
 
 .tl-duration {
-  font-size: 12px;
-  color: rgba(255,255,255,.4);
-  font-style: italic;
+  display: none;
 }
 
-/* Center dot */
+/* Dot column */
 .tl-dot {
   position: relative;
-  width: 80px;
+  width: 40px;
   flex-shrink: 0;
   display: flex;
   justify-content: center;
@@ -388,12 +385,12 @@
 }
 
 .tl-dot-inner {
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
   border-radius: 50%;
   background: var(--accent);
   border: 3px solid #1a1836;
-  box-shadow: 0 0 16px rgba(118,109,255,.6);
+  box-shadow: 0 0 14px rgba(118,109,255,.6);
   position: relative;
   z-index: 1;
   transition: transform .3s ease;
@@ -403,20 +400,17 @@
   transform: scale(1.4);
 }
 
-/* Card */
+/* Card — takes all remaining space */
 .tl-card {
-  width: calc(50% - 40px);
-  flex-shrink: 0;
+  flex: 1;
+  min-width: 0;
   background: rgba(255,255,255,.05);
   backdrop-filter: blur(12px);
   border: 1px solid rgba(255,255,255,.1);
   border-radius: 14px;
-  padding: 22px 26px;
+  padding: 22px 28px;
   transition: all var(--transition);
 }
-
-.tl-item:nth-child(odd)  .tl-card { padding-left: 30px; }
-.tl-item:nth-child(even) .tl-card { padding-right: 30px; }
 
 .tl-card:hover {
   background: rgba(118,109,255,.12);
@@ -593,29 +587,19 @@
    RESPONSIVE
    ============================================================ */
 @media (max-width: 768px) {
-  .timeline-line { left: 30px; }
+  .timeline-line { left: 20px; }
 
-  .tl-item,
-  .tl-item:nth-child(even) { flex-direction: column; margin-left: 60px; }
+  .tl-item { margin-left: 40px; }
 
-  .tl-dot { position: absolute; left: -60px; top: 8px; width: 40px; }
+  .tl-dot { position: absolute; left: -40px; top: 8px; width: 30px; }
 
-  .tl-side,
-  .tl-item:nth-child(odd) .tl-side,
-  .tl-item:nth-child(even) .tl-side {
-    width: 100%;
-    padding: 0 0 8px 0;
-    text-align: left;
+  .tl-side {
+    display: none;
   }
 
-  .tl-card,
-  .tl-item:nth-child(odd) .tl-card,
-  .tl-item:nth-child(even) .tl-card {
-    width: 100%;
-    padding: 20px;
-  }
+  .tl-card { padding: 18px 20px; }
 
-  .tl-year { font-size: 22px; }
+  .tl-year { font-size: 20px; }
 
   .timeline-header h1 { font-size: 32px; }
 

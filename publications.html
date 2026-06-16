@@ -18,22 +18,48 @@
 	<link rel="stylesheet" href="css/custom.css">
 
 	<style>
-		.banner_content .social_links { margin-top: 20px; }
+		.banner_content .social_links {
+			margin-top: 20px;
+		}
+
 		.banner_content .social_links a {
 			display: inline-block;
-			background: rgba(255,255,255,.1);
+			background: rgba(255, 255, 255, .1);
 			color: #fff;
 			padding: 8px 18px;
 			border-radius: 30px;
 			margin: 0 6px;
 			transition: all .3s;
-			border: 1px solid rgba(255,255,255,.3);
+			border: 1px solid rgba(255, 255, 255, .3);
 			font-size: 13px;
 		}
-		.banner_content .social_links a:hover { background: #fff; color: #766dff; text-decoration: none; }
-		.pub-item { display: none; }
-		.pub-item.show { display: block; animation: fadeInUp .35s ease both; }
-		@keyframes fadeInUp { from { opacity:0; transform:translateY(14px); } to { opacity:1; transform:translateY(0); } }
+
+		.banner_content .social_links a:hover {
+			background: #fff;
+			color: #766dff;
+			text-decoration: none;
+		}
+
+		.pub-item {
+			display: none;
+		}
+
+		.pub-item.show {
+			display: block;
+			animation: fadeInUp .35s ease both;
+		}
+
+		@keyframes fadeInUp {
+			from {
+				opacity: 0;
+				transform: translateY(14px);
+			}
+
+			to {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
 
 		#pub-loading {
 			text-align: center;
@@ -41,8 +67,24 @@
 			color: #888;
 			font-size: 16px;
 		}
-		#pub-loading i { font-size: 40px; color: #766dff; display: block; margin-bottom: 14px; animation: spin 1s linear infinite; }
-		@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+		#pub-loading i {
+			font-size: 40px;
+			color: #766dff;
+			display: block;
+			margin-bottom: 14px;
+			animation: spin 1s linear infinite;
+		}
+
+		@keyframes spin {
+			from {
+				transform: rotate(0deg);
+			}
+
+			to {
+				transform: rotate(360deg);
+			}
+		}
 	</style>
 </head>
 
@@ -79,28 +121,25 @@
 			<div class="filter-bar mb-4">
 				<div class="filter-bar-title"><i class="fa fa-tag"></i> Filter by Area</div>
 				<div class="filter-pills">
-					<span class="filter-pill active" data-filter="area" data-value="all"><i class="fa fa-th"></i> All Areas</span>
-					<span class="filter-pill" data-filter="area" data-value="nanotech"><i class="fa fa-microchip"></i> Nanotech &amp; Semiconductors</span>
-					<span class="filter-pill" data-filter="area" data-value="machine-learning"><i class="fa fa-brain"></i> Machine Learning &amp; AI</span>
-					<span class="filter-pill" data-filter="area" data-value="solar-energy"><i class="fa fa-sun-o"></i> Solar Energy</span>
-					<span class="filter-pill" data-filter="area" data-value="cybersecurity"><i class="fa fa-shield"></i> Cybersecurity &amp; Society</span>
+					<span class="filter-pill active" data-filter="area" data-value="all"><i class="fa fa-th"></i> All
+						Areas</span>
+					<span class="filter-pill" data-filter="area" data-value="nanotech"><i class="fa fa-microchip"></i>
+						Nanotech &amp; Semiconductors</span>
+					<span class="filter-pill" data-filter="area" data-value="machine-learning"><i
+							class="fa fa-brain"></i> Machine Learning &amp; AI</span>
+					<span class="filter-pill" data-filter="area" data-value="solar-energy"><i class="fa fa-sun-o"></i>
+						Solar Energy</span>
+					<span class="filter-pill" data-filter="area" data-value="cybersecurity"><i class="fa fa-shield"></i>
+						Cybersecurity &amp; Society</span>
 				</div>
 
-				<div class="filter-bar-title" style="margin-top:14px;"><i class="fa fa-globe"></i> Filter by Country</div>
-				<div class="filter-pills">
-					<span class="filter-pill active" data-filter="country" data-value="all"><i class="fa fa-globe"></i> All Countries</span>
-					<span class="filter-pill" data-filter="country" data-value="brazil">🇧🇷 Brazil</span>
-					<span class="filter-pill" data-filter="country" data-value="colombia">🇨🇴 Colombia</span>
-					<span class="filter-pill" data-filter="country" data-value="germany">🇩🇪 Germany</span>
-					<span class="filter-pill" data-filter="country" data-value="austria">🇦🇹 Austria</span>
-					<span class="filter-pill" data-filter="country" data-value="dom-republic">🇩🇴 Dom. Republic</span>
-					<span class="filter-pill" data-filter="country" data-value="international">🌍 International</span>
-				</div>
 
-				<div class="filter-bar-title" style="margin-top:14px;"><i class="fa fa-folder-open"></i> Filter by Type</div>
+				<div class="filter-bar-title" style="margin-top:14px;"><i class="fa fa-folder-open"></i> Filter by Type
+				</div>
 				<div class="filter-pills">
 					<span class="filter-pill active" data-filter="type" data-value="all"><i class="fa fa-list"></i> All Types</span>
 					<span class="filter-pill" data-filter="type" data-value="journal"><i class="fa fa-newspaper-o"></i> Journal Article</span>
+					<span class="filter-pill" data-filter="type" data-value="proceedings"><i class="fa fa-file-text-o"></i> Proceedings</span>
 					<span class="filter-pill" data-filter="type" data-value="conference"><i class="fa fa-users"></i> Conference</span>
 					<span class="filter-pill" data-filter="type" data-value="book"><i class="fa fa-book"></i> Book Chapter</span>
 					<span class="filter-pill" data-filter="type" data-value="patent"><i class="fa fa-certificate"></i> Patent</span>
@@ -130,7 +169,8 @@
 		<div class="container">
 			<div class="row footer_bottom justify-content-center">
 				<p class="col-lg-8 col-sm-12 footer-text">
-					Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Template by <a
+					Copyright &copy;
+					<script>document.write(new Date().getFullYear());</script> All rights reserved | Template by <a
 						href="https://colorlib.com" target="_blank">Colorlib</a>
 				</p>
 			</div>
@@ -148,208 +188,188 @@
 	<script>renderHeader('publications');</script>
 
 	<script>
-	// ============================================================
-	// Section metadata
-	// ============================================================
-	var SECTIONS = {
-		journal:    { icon: 'fa-newspaper-o', label: 'Journal Articles & Proceedings' },
-		conference: { icon: 'fa-users',       label: 'Conference Publications' },
-		book:       { icon: 'fa-book',        label: 'Chapters in Books' },
-		patent:     { icon: 'fa-certificate', label: 'Patents' }
-	};
+		// ============================================================
+		// Section metadata
+		// ============================================================
+		var SECTIONS = {
+			journal:     { icon: 'fa-newspaper-o', label: 'Journal Articles & Proceedings' },
+			proceedings: { icon: 'fa-file-text-o', label: 'Conference Proceedings' },
+			conference:  { icon: 'fa-users',       label: 'Conference Publications' },
+			book:        { icon: 'fa-book',        label: 'Chapters in Books' },
+			patent:      { icon: 'fa-certificate', label: 'Patents' }
+		};
 
-	var COUNTRY_FLAGS = {
-		'brazil':       '🇧🇷 Brazil',
-		'colombia':     '🇨🇴 Colombia',
-		'germany':      '🇩🇪 Germany',
-		'austria':      '🇦🇹 Austria',
-		'dom-republic': '🇩🇴 Dom. Republic',
-		'canada':       '🇨🇦 Canada',
-		'international':'🌍 International'
-	};
+		var AREA_LABELS = {
+			'nanotech': 'Nanotech',
+			'machine-learning': 'ML & AI',
+			'solar-energy': 'Solar Energy',
+			'cybersecurity': 'Cybersecurity'
+		};
 
-	var AREA_LABELS = {
-		'nanotech':       'Nanotech',
-		'machine-learning':'ML & AI',
-		'solar-energy':   'Solar Energy',
-		'cybersecurity':  'Cybersecurity'
-	};
+		var TYPE_LABELS = {
+			'journal':     'Journal',
+			'proceedings': 'Proceedings',
+			'conference':  'Conference',
+			'book':        'Book Chapter',
+			'patent':      'Patent'
+		};
 
-	var TYPE_LABELS = {
-		'journal':    'Journal',
-		'conference': 'Conference',
-		'book':       'Book Chapter',
-		'patent':     'Patent'
-	};
+		// ============================================================
+		// Build one publication item from a CSV row
+		// ============================================================
+		function buildPubItem(row) {
+			var areas = row.area ? row.area.split(';') : [];
 
-	// ============================================================
-	// Build one publication item from a CSV row
-	// ============================================================
-	function buildPubItem(row) {
-		var areas     = row.area    ? row.area.split(';')    : [];
-		var countries = row.country ? row.country.split(';') : [];
+			var dataArea = areas.join(';');
+			var dataType = row.type || '';
 
-		// data-attrs (semicolon-joined for multi-value country)
-		var dataArea    = areas.join(';');
-		var dataCountry = countries.join(';');
-		var dataType    = row.type || '';
+			// Tags
+			var tagsHtml = '';
+			areas.forEach(function (a) {
+				var label = AREA_LABELS[a.trim()] || a.trim();
+				tagsHtml += '<span class="project-tag tag-area">' + label + '</span>';
+			});
+			var typeLabel = TYPE_LABELS[row.type] || row.type;
+			tagsHtml += '<span class="project-tag tag-type">' + typeLabel + ' · ' + row.year + '</span>';
 
-		// Tags
-		var tagsHtml = '';
-		areas.forEach(function(a) {
-			var label = AREA_LABELS[a.trim()] || a.trim();
-			tagsHtml += '<span class="project-tag tag-area">' + label + '</span>';
-		});
-		countries.forEach(function(c) {
-			var label = COUNTRY_FLAGS[c.trim()] || c.trim();
-			tagsHtml += '<span class="project-tag tag-country">' + label + '</span>';
-		});
-		var typeLabel = TYPE_LABELS[row.type] || row.type;
-		tagsHtml += '<span class="project-tag tag-type">' + typeLabel + ' · ' + row.year + '</span>';
+			// Action buttons
+			var actionsHtml = '';
+			if (row.doi_url && row.doi_url !== '#') {
+				actionsHtml += '<a href="' + row.doi_url + '" target="_blank" class="btn-doi"><i class="fa fa-external-link"></i> ' + (row.doi_label || 'DOI') + '</a>';
+			}
+			if (row.pdf_file) {
+				actionsHtml += '<a href="' + row.pdf_file + '" download class="btn-pdf"><i class="fa fa-download"></i> PDF</a>';
+			}
+			if (row.extra_url_1) {
+				var extraIcon = row.extra_label_1 && row.extra_label_1.toLowerCase().indexOf('video') !== -1 ? 'fa-youtube-play' : 'fa-external-link';
+				actionsHtml += '<a href="' + row.extra_url_1 + '" target="_blank" class="btn-doi"><i class="fa ' + extraIcon + '"></i> ' + (row.extra_label_1 || 'Link') + '</a>';
+			}
+			if (row.extra_url_2) {
+				actionsHtml += '<a href="' + row.extra_url_2 + '" target="_blank" class="btn-doi"><i class="fa fa-external-link"></i> ' + (row.extra_label_2 || 'Link') + '</a>';
+			}
 
-		// Action buttons
-		var actionsHtml = '';
-		if (row.doi_url && row.doi_url !== '#') {
-			actionsHtml += '<a href="' + row.doi_url + '" target="_blank" class="btn-doi"><i class="fa fa-external-link"></i> ' + (row.doi_label || 'DOI') + '</a>';
-		}
-		if (row.pdf_file) {
-			actionsHtml += '<a href="' + row.pdf_file + '" download class="btn-pdf"><i class="fa fa-download"></i> PDF</a>';
-		}
-		if (row.extra_url_1) {
-			var extraIcon = row.extra_label_1 && row.extra_label_1.toLowerCase().indexOf('video') !== -1 ? 'fa-youtube-play' : 'fa-external-link';
-			actionsHtml += '<a href="' + row.extra_url_1 + '" target="_blank" class="btn-doi"><i class="fa ' + extraIcon + '"></i> ' + (row.extra_label_1 || 'Link') + '</a>';
-		}
-		if (row.extra_url_2) {
-			actionsHtml += '<a href="' + row.extra_url_2 + '" target="_blank" class="btn-doi"><i class="fa fa-external-link"></i> ' + (row.extra_label_2 || 'Link') + '</a>';
-		}
-
-		return '<div class="pub-item show"' +
-			' data-area="'    + dataArea    + '"' +
-			' data-country="' + dataCountry + '"' +
-			' data-type="'    + dataType    + '">' +
-			'<div class="publication-item">' +
+			return '<div class="pub-item show"' +
+				' data-area="' + dataArea + '"' +
+				' data-type="' + dataType + '">' +
+				'<div class="publication-item">' +
 				'<div class="publication-meta-tags">' + tagsHtml + '</div>' +
 				'<h4 class="publication-title">' + row.title + '</h4>' +
 				'<span class="publication-authors">' + row.authors + '</span>' +
 				'<div class="publication-journal">' + row.journal + '</div>' +
 				(actionsHtml ? '<div class="publication-actions">' + actionsHtml + '</div>' : '') +
-			'</div>' +
-		'</div>';
-	}
-
-	// ============================================================
-	// Build a section heading
-	// ============================================================
-	function buildSectionHeading(sectionKey) {
-		var meta = SECTIONS[sectionKey] || { icon: 'fa-list', label: sectionKey };
-		return '<h3 class="publication-section-title" data-section="' + sectionKey + '">' +
-			'<i class="fa ' + meta.icon + '" style="color:#766dff;margin-right:8px;"></i>' +
-			meta.label +
-		'</h3>';
-	}
-
-	// ============================================================
-	// Multi-filter logic
-	// ============================================================
-	var activeFilters = { area: 'all', country: 'all', type: 'all' };
-
-	function applyFilters() {
-		var items = document.querySelectorAll('.pub-item');
-		var count = 0;
-
-		items.forEach(function(item) {
-			var itemArea    = item.getAttribute('data-area')    || '';
-			var itemCountry = item.getAttribute('data-country') || '';
-			var itemType    = item.getAttribute('data-type')    || '';
-
-			// Multi-value matching (semicolon-separated)
-			var matchArea    = activeFilters.area    === 'all' || matchMulti(itemArea,    activeFilters.area);
-			var matchCountry = activeFilters.country === 'all' || matchMulti(itemCountry, activeFilters.country);
-			var matchType    = activeFilters.type    === 'all' || itemType === activeFilters.type;
-
-			if (matchArea && matchCountry && matchType) {
-				item.classList.add('show');
-				count++;
-			} else {
-				item.classList.remove('show');
-			}
-		});
-
-		// Hide section headings with no visible items below
-		document.querySelectorAll('.publication-section-title').forEach(function(heading) {
-			var sectionKey = heading.getAttribute('data-section');
-			// Check if there's at least one visible pub-item for this section
-			var hasVisible = false;
-			var next = heading.nextElementSibling;
-			while (next && !next.classList.contains('publication-section-title')) {
-				if (next.classList.contains('pub-item') && next.classList.contains('show')) {
-					hasVisible = true;
-					break;
-				}
-				next = next.nextElementSibling;
-			}
-			heading.style.display = hasVisible ? '' : 'none';
-		});
-
-		var countEl = document.getElementById('pub-count');
-		if (countEl) countEl.textContent = 'Showing ' + count + ' of ' + items.length + ' publications';
-
-		var noRes = document.getElementById('pub-no-results');
-		if (noRes) noRes.style.display = count === 0 ? 'block' : 'none';
-	}
-
-	function matchMulti(itemValue, filterValue) {
-		var parts = itemValue.split(';');
-		for (var i = 0; i < parts.length; i++) {
-			if (parts[i].trim() === filterValue) return true;
+				'</div>' +
+				'</div>';
 		}
-		return false;
-	}
 
-	function initFilterPills() {
-		document.querySelectorAll('.filter-pill').forEach(function(pill) {
-			pill.addEventListener('click', function() {
-				var filterType  = this.getAttribute('data-filter');
-				var filterValue = this.getAttribute('data-value');
-				document.querySelectorAll('.filter-pill[data-filter="' + filterType + '"]').forEach(function(p) {
-					p.classList.remove('active');
-				});
-				this.classList.add('active');
-				activeFilters[filterType] = filterValue;
-				applyFilters();
+		// ============================================================
+		// Build a section heading
+		// ============================================================
+		function buildSectionHeading(sectionKey) {
+			var meta = SECTIONS[sectionKey] || { icon: 'fa-list', label: sectionKey };
+			return '<h3 class="publication-section-title" data-section="' + sectionKey + '">' +
+				'<i class="fa ' + meta.icon + '" style="color:#766dff;margin-right:8px;"></i>' +
+				meta.label +
+				'</h3>';
+		}
+
+		// ============================================================
+		// Multi-filter logic
+		// ============================================================
+		var activeFilters = { area: 'all', type: 'all' };
+
+		function applyFilters() {
+			var items = document.querySelectorAll('.pub-item');
+			var count = 0;
+
+			items.forEach(function (item) {
+				var itemArea = item.getAttribute('data-area') || '';
+				var itemType = item.getAttribute('data-type') || '';
+				var matchArea = activeFilters.area === 'all' || matchMulti(itemArea, activeFilters.area);
+				var matchType = activeFilters.type === 'all' || itemType === activeFilters.type;
+
+				if (matchArea && matchType) {
+					item.classList.add('show');
+					count++;
+				} else {
+					item.classList.remove('show');
+				}
 			});
-		});
-	}
 
-	// ============================================================
-	// Load CSV and render
-	// ============================================================
-	CSVLoader.load('data/publications.csv').then(function(rows) {
-		var container = document.getElementById('pub-list');
-		var loading   = document.getElementById('pub-loading');
-		if (loading) loading.style.display = 'none';
+			// Hide section headings with no visible items below
+			document.querySelectorAll('.publication-section-title').forEach(function (heading) {
+				var sectionKey = heading.getAttribute('data-section');
+				// Check if there's at least one visible pub-item for this section
+				var hasVisible = false;
+				var next = heading.nextElementSibling;
+				while (next && !next.classList.contains('publication-section-title')) {
+					if (next.classList.contains('pub-item') && next.classList.contains('show')) {
+						hasVisible = true;
+						break;
+					}
+					next = next.nextElementSibling;
+				}
+				heading.style.display = hasVisible ? '' : 'none';
+			});
 
-		// Group rows by section (preserve CSV order but only add heading when section changes)
-		var currentSection = null;
-		var html = '';
+			var countEl = document.getElementById('pub-count');
+			if (countEl) countEl.textContent = 'Showing ' + count + ' of ' + items.length + ' publications';
 
-		rows.forEach(function(row) {
-			if (!row.id) return;
-			if (row.section !== currentSection) {
-				currentSection = row.section;
-				html += buildSectionHeading(currentSection);
+			var noRes = document.getElementById('pub-no-results');
+			if (noRes) noRes.style.display = count === 0 ? 'block' : 'none';
+		}
+
+		function matchMulti(itemValue, filterValue) {
+			var parts = itemValue.split(';');
+			for (var i = 0; i < parts.length; i++) {
+				if (parts[i].trim() === filterValue) return true;
 			}
-			html += buildPubItem(row);
-		});
+			return false;
+		}
 
-		container.innerHTML = html;
-		initFilterPills();
-		applyFilters();
-	}).catch(function(err) {
-		var loading = document.getElementById('pub-loading');
-		if (loading) loading.innerHTML = '<i class="fa fa-exclamation-triangle" style="color:#e74c3c;animation:none;"></i> Error loading publications. Please check data/publications.csv';
-		console.error(err);
-	});
+		function initFilterPills() {
+			document.querySelectorAll('.filter-pill').forEach(function (pill) {
+				pill.addEventListener('click', function () {
+					var filterType = this.getAttribute('data-filter');
+					var filterValue = this.getAttribute('data-value');
+					document.querySelectorAll('.filter-pill[data-filter="' + filterType + '"]').forEach(function (p) {
+						p.classList.remove('active');
+					});
+					this.classList.add('active');
+					activeFilters[filterType] = filterValue;
+					applyFilters();
+				});
+			});
+		}
+
+		// ============================================================
+		// Load CSV and render
+		// ============================================================
+		CSVLoader.load('data/publications.csv').then(function (rows) {
+			var container = document.getElementById('pub-list');
+			var loading = document.getElementById('pub-loading');
+			if (loading) loading.style.display = 'none';
+
+			// Group rows by section (preserve CSV order but only add heading when section changes)
+			var currentSection = null;
+			var html = '';
+
+			rows.forEach(function (row) {
+				if (!row.id) return;
+				if (row.section !== currentSection) {
+					currentSection = row.section;
+					html += buildSectionHeading(currentSection);
+				}
+				html += buildPubItem(row);
+			});
+
+			container.innerHTML = html;
+			initFilterPills();
+			applyFilters();
+		}).catch(function (err) {
+			var loading = document.getElementById('pub-loading');
+			if (loading) loading.innerHTML = '<i class="fa fa-exclamation-triangle" style="color:#e74c3c;animation:none;"></i> Error loading publications. Please check data/publications.csv';
+			console.error(err);
+		});
 	</script>
 </body>
 

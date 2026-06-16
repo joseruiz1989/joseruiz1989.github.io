@@ -46,6 +46,7 @@ var CSVLoader = (function () {
           i++;
         } else {
           inQuotes = !inQuotes;
+          current += ch; // keep the quote so splitCSVRow can detect quoted fields
         }
       } else if ((ch === '\r' || ch === '\n') && !inQuotes) {
         if (ch === '\r' && text[i + 1] === '\n') i++;

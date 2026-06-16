@@ -13,34 +13,270 @@
 	<link rel="stylesheet" href="css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/custom.css">
+	<script src="https://unpkg.com/twemoji@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
 
 	<style>
-		.header_area { background: rgba(15,14,23,.95) !important; border-bottom: 1px solid rgba(255,255,255,.08); }
-		.header_area .navbar-brand img { filter: brightness(10); }
-		.header_area .nav-link { color: rgba(255,255,255,.75) !important; }
-		.header_area .nav-link:hover,
-		.header_area .nav-item.active .nav-link { color: #a09bff !important; }
-		.header_area .icon-bar { background: #fff !important; }
+		.header_area {
+			background: rgba(15, 14, 23, .95) !important;
+			border-bottom: 1px solid rgba(255, 255, 255, .08);
+		}
 
-		body { background: #0f0e17; }
+		.header_area .navbar-brand img {
+			filter: brightness(10);
+		}
+
+		.header_area .nav-link {
+			color: rgba(255, 255, 255, .75) !important;
+		}
+
+		.header_area .nav-link:hover,
+		.header_area .nav-item.active .nav-link {
+			color: #a09bff !important;
+		}
+
+		.header_area .icon-bar {
+			background: #fff !important;
+		}
+
+		body {
+			background: #0f0e17;
+		}
 
 		.timeline-breadcrumb {
 			background: linear-gradient(135deg, #1a1836 0%, #0d1b2a 100%);
 			padding: 60px 0 30px;
-			border-bottom: 1px solid rgba(255,255,255,.06);
+			border-bottom: 1px solid rgba(255, 255, 255, .06);
 		}
-		.timeline-breadcrumb h2 { color: #fff; font-size: 36px; font-weight: 800; }
-		.timeline-breadcrumb .page_link a { color: rgba(255,255,255,.5); }
-		.timeline-breadcrumb .page_link a:hover { color: #a09bff; }
+
+		.timeline-breadcrumb h2 {
+			color: #fff;
+			font-size: 36px;
+			font-weight: 800;
+		}
+
+		.timeline-breadcrumb .page_link a {
+			color: rgba(255, 255, 255, .5);
+		}
+
+		.timeline-breadcrumb .page_link a:hover {
+			color: #a09bff;
+		}
 
 		#tl-loading {
 			text-align: center;
 			padding: 80px 20px;
-			color: rgba(255,255,255,.4);
+			color: rgba(255, 255, 255, .4);
 			font-size: 16px;
 		}
-		#tl-loading i { font-size: 40px; color: #766dff; display: block; margin-bottom: 14px; animation: spin 1s linear infinite; }
-		@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+		#tl-loading i {
+			font-size: 40px;
+			color: #766dff;
+			display: block;
+			margin-bottom: 14px;
+			animation: spin 1s linear infinite;
+		}
+
+		@keyframes spin {
+			from {
+				transform: rotate(0deg);
+			}
+
+			to {
+				transform: rotate(360deg);
+			}
+		}
+
+		/* Multi-select filter chips */
+		.tl-filter-wrap {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			gap: 14px;
+			margin-bottom: 48px;
+		}
+
+		.tl-filter-label {
+			font-size: 11px;
+			font-weight: 700;
+			letter-spacing: .14em;
+			text-transform: uppercase;
+			color: rgba(255, 255, 255, .35);
+		}
+
+		.tl-filter-chips {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			gap: 10px;
+		}
+
+		.tl-chip {
+			display: inline-flex;
+			align-items: center;
+			gap: 7px;
+			padding: 9px 18px;
+			border-radius: 50px;
+			font-size: 13px;
+			font-weight: 600;
+			border: 1.5px solid rgba(255, 255, 255, .14);
+			background: rgba(255, 255, 255, .05);
+			color: rgba(255, 255, 255, .55);
+			cursor: pointer;
+			transition: all .25s ease;
+			backdrop-filter: blur(8px);
+			user-select: none;
+		}
+
+		.tl-chip .chip-check {
+			width: 16px;
+			height: 16px;
+			border-radius: 50%;
+			border: 1.5px solid rgba(255, 255, 255, .25);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 9px;
+			transition: all .25s ease;
+			flex-shrink: 0;
+		}
+
+		.tl-chip:hover {
+			border-color: rgba(160, 155, 255, .5);
+			color: rgba(255, 255, 255, .85);
+			background: rgba(118, 109, 255, .12);
+		}
+
+		.tl-chip.active {
+			color: #fff;
+			box-shadow: 0 4px 16px rgba(0, 0, 0, .3);
+		}
+
+		.tl-chip.active .chip-check {
+			border-color: rgba(255, 255, 255, .6);
+			background: rgba(255, 255, 255, .25);
+		}
+
+		.tl-chip[data-cat="education"].active {
+			background: rgba(255, 196, 76, .22);
+			border-color: rgba(255, 196, 76, .55);
+			color: #ffcc4a;
+		}
+
+		.tl-chip[data-cat="work"].active {
+			background: rgba(76, 215, 127, .2);
+			border-color: rgba(76, 215, 127, .5);
+			color: #4cd77f;
+		}
+
+		.tl-chip[data-cat="project"].active {
+			background: rgba(118, 109, 255, .25);
+			border-color: rgba(118, 109, 255, .6);
+			color: #a09bff;
+		}
+
+		.tl-chip[data-cat="publication"].active {
+			background: rgba(255, 107, 107, .2);
+			border-color: rgba(255, 107, 107, .5);
+			color: #ff7b7b;
+		}
+
+		.tl-chip[data-cat="award"].active {
+			background: rgba(255, 165, 0, .2);
+			border-color: rgba(255, 165, 0, .5);
+			color: #ffaa33;
+		}
+
+		.tl-chip[data-cat="education"].active .chip-check {
+			background: rgba(255, 196, 76, .3);
+			border-color: #ffcc4a;
+		}
+
+		.tl-chip[data-cat="work"].active .chip-check {
+			background: rgba(76, 215, 127, .3);
+			border-color: #4cd77f;
+		}
+
+		.tl-chip[data-cat="project"].active .chip-check {
+			background: rgba(118, 109, 255, .4);
+			border-color: #a09bff;
+		}
+
+		.tl-chip[data-cat="publication"].active .chip-check {
+			background: rgba(255, 107, 107, .3);
+			border-color: #ff7b7b;
+		}
+
+		.tl-chip[data-cat="award"].active .chip-check {
+			background: rgba(255, 165, 0, .3);
+			border-color: #ffaa33;
+		}
+
+		.tl-filter-reset {
+			font-size: 12px;
+			color: rgba(255, 255, 255, .3);
+			cursor: pointer;
+			transition: color .2s;
+			padding: 4px 10px;
+			border-radius: 20px;
+			border: 1px solid rgba(255, 255, 255, .08);
+			background: transparent;
+		}
+
+		.tl-filter-reset:hover {
+			color: rgba(255, 255, 255, .7);
+			border-color: rgba(255, 255, 255, .2);
+		}
+
+		.tl-active-count {
+			font-size: 12px;
+			color: rgba(255, 255, 255, .35);
+			font-style: italic;
+		}
+
+		/* Dot color per category */
+		.tl-item[data-tl-cat="education"] .tl-dot-inner {
+			background: #ffcc4a;
+			box-shadow: 0 0 14px rgba(255, 196, 76, .6);
+		}
+
+		.tl-item[data-tl-cat="work"] .tl-dot-inner {
+			background: #4cd77f;
+			box-shadow: 0 0 14px rgba(76, 215, 127, .6);
+		}
+
+		.tl-item[data-tl-cat="project"] .tl-dot-inner {
+			background: #766dff;
+			box-shadow: 0 0 14px rgba(118, 109, 255, .6);
+		}
+
+		.tl-item[data-tl-cat="publication"].tl-dot-inner {
+			background: #ff7b7b;
+			box-shadow: 0 0 14px rgba(255, 107, 107, .6);
+		}
+
+		.tl-item[data-tl-cat="award"] .tl-dot-inner {
+			background: #ffaa33;
+			box-shadow: 0 0 14px rgba(255, 165, 0, .6);
+		}
+
+		/* Twemoji — inline flag images */
+		.tl-country-badge img.emoji {
+			height: 1.2em;
+			width: auto;
+			vertical-align: -0.15em;
+			display: inline;
+		}
+
+		/* Duration label under year */
+		.tl-duration-label {
+			font-size: 11px;
+			font-style: italic;
+			color: rgba(255, 255, 255, .35);
+			margin-top: 5px;
+			line-height: 1.4;
+			word-break: break-word;
+		}
 	</style>
 </head>
 
@@ -63,16 +299,38 @@
 	<section class="timeline-section">
 		<div class="container">
 			<div class="timeline-header">
-				<p>From Colombia to Brazil, Germany, Canada, and the Dominican Republic — a journey through research, engineering, and innovation.</p>
+				<p>From Colombia to Brazil, Germany, Canada, and the Dominican Republic — a journey through research,
+					engineering, and innovation.</p>
 
-				<!-- Category filters -->
-				<div class="timeline-filter-pills">
-					<span class="tl-pill active" data-tl-filter="all">All</span>
-					<span class="tl-pill" data-tl-filter="education">🎓 Education</span>
-					<span class="tl-pill" data-tl-filter="work">💼 Work</span>
-					<span class="tl-pill" data-tl-filter="project">🔬 Projects</span>
-					<span class="tl-pill" data-tl-filter="publication">📄 Publications</span>
-					<span class="tl-pill" data-tl-filter="award">🏆 Awards</span>
+				<!-- Multi-select filters -->
+				<div class="tl-filter-wrap" id="tl-filter-wrap">
+					<div class="tl-filter-label">Filter by category</div>
+					<div class="tl-filter-chips" id="tl-chips">
+						<div class="tl-chip active" data-cat="education" id="chip-education">
+							<span class="chip-check">✓</span>
+							🎓 Education
+						</div>
+						<div class="tl-chip active" data-cat="work" id="chip-work">
+							<span class="chip-check">✓</span>
+							💼 Work
+						</div>
+						<div class="tl-chip active" data-cat="project" id="chip-project">
+							<span class="chip-check">✓</span>
+							🔬 Projects
+						</div>
+						<div class="tl-chip active" data-cat="publication" id="chip-publication">
+							<span class="chip-check">✓</span>
+							📄 Publications
+						</div>
+						<div class="tl-chip active" data-cat="award" id="chip-award">
+							<span class="chip-check">✓</span>
+							🏆 Awards
+						</div>
+					</div>
+					<div style="display:flex;align-items:center;gap:14px;">
+						<span class="tl-active-count" id="tl-count"></span>
+						<button class="tl-filter-reset" id="tl-reset-btn">Show all</button>
+					</div>
 				</div>
 			</div>
 
@@ -91,7 +349,8 @@
 		<div class="container">
 			<div class="row footer_bottom justify-content-center">
 				<p class="col-lg-8 col-sm-12 footer-text" style="color:rgba(255,255,255,.4);">
-					Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Template by
+					Copyright &copy;
+					<script>document.write(new Date().getFullYear());</script> All rights reserved | Template by
 					<a href="https://colorlib.com" target="_blank" style="color:#766dff;">Colorlib</a>
 				</p>
 			</div>
@@ -109,114 +368,147 @@
 	<script>renderHeader('timeline');</script>
 
 	<script>
-	// ============================================================
-	// Category meta (icon / badge label / css class)
-	// ============================================================
-	var CAT_META = {
-		education:   { emoji: '🎓', label: 'Education',   css: 'cat-education' },
-		work:        { emoji: '💼', label: 'Work',        css: 'cat-work' },
-		project:     { emoji: '🔬', label: 'Project',     css: 'cat-project' },
-		publication: { emoji: '📄', label: 'Publication', css: 'cat-publication' },
-		award:       { emoji: '🏆', label: 'Award / Recognition', css: 'cat-award' }
-	};
+		// ============================================================
+		// Category meta (icon / badge label / css class)
+		// ============================================================
+		var CAT_META = {
+			education: { emoji: '🎓', label: 'Education', css: 'cat-education' },
+			work: { emoji: '💼', label: 'Work', css: 'cat-work' },
+			project: { emoji: '🔬', label: 'Project', css: 'cat-project' },
+			publication: { emoji: '📄', label: 'Publication', css: 'cat-publication' },
+			award: { emoji: '🏆', label: 'Award / Recognition', css: 'cat-award' }
+		};
 
-	// ============================================================
-	// Build one timeline item from a CSV row
-	// ============================================================
-	function buildTLItem(row) {
-		var cat = row.category || 'work';
-		var meta = CAT_META[cat] || { emoji: '📌', label: cat, css: 'cat-work' };
+		// ============================================================
+		// Build one timeline item from a CSV row
+		// ============================================================
+		function buildTLItem(row) {
+			var cat = row.category || 'work';
+			var meta = CAT_META[cat] || { emoji: '📌', label: cat, css: 'cat-work' };
 
-		var yearEnd = row.year_end && row.year_end !== row.year ? row.year_end : '';
-		var durationDisplay = row.duration_label || (yearEnd ? row.year + ' – ' + yearEnd : row.year);
+			// Convert flag emoji to <img> so it renders on Windows
+			var flagHtml = (window.twemoji && row.country_emoji)
+				? twemoji.parse(row.country_emoji, { folder: 'svg', ext: '.svg' })
+				: (row.country_emoji || '');
 
-		return '<div class="tl-item" data-tl-cat="' + cat + '">' +
-			'<div class="tl-side">' +
-				'<div class="tl-year">' + row.year + '</div>' +
-				'<div class="tl-duration">' + durationDisplay + '</div>' +
-			'</div>' +
-			'<div class="tl-dot"><div class="tl-dot-inner"></div></div>' +
-			'<div class="tl-card">' +
+			return '<div class="tl-item" data-tl-cat="' + cat + '">' +
+				'<div class="tl-side">' +
+				'<div class="tl-year">' + (row.year_end && row.year_end.trim() ? row.year_end : 'Present') + '</div>' +
+				(row.duration_label ? '<div class="tl-duration-label">' + row.duration_label + '</div>' : '') +
+				'</div>' +
+				'<div class="tl-dot"><div class="tl-dot-inner"></div></div>' +
+				'<div class="tl-card">' +
 				'<span class="tl-category ' + meta.css + '">' + meta.emoji + ' ' + meta.label + '</span>' +
 				'<h4>' + row.title + '</h4>' +
 				'<div class="tl-org">' + row.organization + '</div>' +
 				'<p>' + row.description + '</p>' +
-				'<div class="tl-country-badge"><i class="fa fa-map-marker"></i> ' + row.country_emoji + ' ' + row.country_name + '</div>' +
-			'</div>' +
-		'</div>';
-	}
-
-	// ============================================================
-	// Category filter
-	// ============================================================
-	var activeFilter = 'all';
-
-	function applyTLFilter() {
-		document.querySelectorAll('.tl-item').forEach(function(item) {
-			var cat = item.getAttribute('data-tl-cat');
-			item.style.display = (activeFilter === 'all' || cat === activeFilter) ? 'flex' : 'none';
-		});
-	}
-
-	function initTLFilters() {
-		document.querySelectorAll('.tl-pill').forEach(function(pill) {
-			pill.addEventListener('click', function() {
-				document.querySelectorAll('.tl-pill').forEach(function(p) { p.classList.remove('active'); });
-				this.classList.add('active');
-				activeFilter = this.getAttribute('data-tl-filter');
-				applyTLFilter();
-			});
-		});
-	}
-
-	// ============================================================
-	// Scroll-animation observer
-	// ============================================================
-	function initScrollObserver() {
-		if (!window.IntersectionObserver) return;
-		var observer = new IntersectionObserver(function(entries) {
-			entries.forEach(function(entry) {
-				if (entry.isIntersecting) {
-					entry.target.classList.add('visible');
-					observer.unobserve(entry.target);
-				}
-			});
-		}, { threshold: 0.15 });
-
-		document.querySelectorAll('.tl-item').forEach(function(item) {
-			observer.observe(item);
-		});
-	}
-
-	// ============================================================
-	// Load CSV and render
-	// ============================================================
-	CSVLoader.load('data/timeline.csv').then(function(rows) {
-		var wrapper = document.getElementById('tl-wrapper');
-		var loading = document.getElementById('tl-loading');
-		if (loading) loading.style.display = 'none';
-
-		var html = '';
-		rows.forEach(function(row) {
-			if (row.id) html += buildTLItem(row);
-		});
-
-		// Append items inside wrapper (after the .timeline-line div)
-		var line = wrapper.querySelector('.timeline-line');
-		var temp = document.createElement('div');
-		temp.innerHTML = html;
-		while (temp.firstChild) {
-			wrapper.appendChild(temp.firstChild);
+				'<div class="tl-country-badge"><i class="fa fa-map-marker"></i> ' + flagHtml + ' ' + row.country_name + '</div>' +
+				'</div>' +
+				'</div>';
 		}
 
-		initTLFilters();
-		applyTLFilter();
-		initScrollObserver();
-	}).catch(function(err) {
-		var loading = document.getElementById('tl-loading');
-		if (loading) loading.innerHTML = '<i class="fa fa-exclamation-triangle" style="color:#e74c3c;animation:none;"></i> Error loading timeline. Please check data/timeline.csv';
-		console.error(err);
-	});
+		// ============================================================
+		// Multi-select filter — active set
+		// ============================================================
+		var activeCategories = new Set(['education', 'work', 'project', 'publication', 'award']);
+
+		function applyTLFilter() {
+			var items = document.querySelectorAll('.tl-item');
+			var visible = 0;
+			items.forEach(function (item) {
+				var cat = item.getAttribute('data-tl-cat');
+				var show = activeCategories.size === 0 || activeCategories.has(cat);
+				item.style.display = show ? 'flex' : 'none';
+				if (show) visible++;
+			});
+			updateCountBadge(visible, items.length);
+		}
+
+		function updateCountBadge(visible, total) {
+			var el = document.getElementById('tl-count');
+			if (!el) return;
+			if (visible === total) {
+				el.textContent = 'Showing all ' + total + ' events';
+			} else {
+				el.textContent = 'Showing ' + visible + ' of ' + total + ' events';
+			}
+		}
+
+		function initTLFilters() {
+			var chips = document.querySelectorAll('.tl-chip');
+			chips.forEach(function (chip) {
+				chip.addEventListener('click', function () {
+					var cat = this.getAttribute('data-cat');
+					if (activeCategories.has(cat)) {
+						// Don't allow deselecting all — keep at least 1
+						if (activeCategories.size > 1) {
+							activeCategories.delete(cat);
+							this.classList.remove('active');
+						}
+					} else {
+						activeCategories.add(cat);
+						this.classList.add('active');
+					}
+					applyTLFilter();
+				});
+			});
+
+			var resetBtn = document.getElementById('tl-reset-btn');
+			if (resetBtn) {
+				resetBtn.addEventListener('click', function () {
+					activeCategories = new Set(['education', 'work', 'project', 'publication', 'award']);
+					chips.forEach(function (c) { c.classList.add('active'); });
+					applyTLFilter();
+				});
+			}
+		}
+
+		// ============================================================
+		// Scroll-animation observer
+		// ============================================================
+		function initScrollObserver() {
+			if (!window.IntersectionObserver) return;
+			var observer = new IntersectionObserver(function (entries) {
+				entries.forEach(function (entry) {
+					if (entry.isIntersecting) {
+						entry.target.classList.add('visible');
+						observer.unobserve(entry.target);
+					}
+				});
+			}, { threshold: 0.1 });
+
+			document.querySelectorAll('.tl-item').forEach(function (item) {
+				observer.observe(item);
+			});
+		}
+
+		// ============================================================
+		// Load CSV and render
+		// ============================================================
+		CSVLoader.load('data/timeline.csv').then(function (rows) {
+			var wrapper = document.getElementById('tl-wrapper');
+			var loading = document.getElementById('tl-loading');
+			if (loading) loading.style.display = 'none';
+
+			var html = '';
+			rows.forEach(function (row) {
+				if (row.id) html += buildTLItem(row);
+			});
+
+			var temp = document.createElement('div');
+			temp.innerHTML = html;
+			while (temp.firstChild) {
+				wrapper.appendChild(temp.firstChild);
+			}
+
+			initTLFilters();
+			applyTLFilter();
+			initScrollObserver();
+		}).catch(function (err) {
+			var loading = document.getElementById('tl-loading');
+			if (loading) loading.innerHTML = '<i class="fa fa-exclamation-triangle" style="color:#e74c3c;animation:none;"></i> Error: ' + (err && err.message ? err.message : err);
+			console.error('Timeline CSV load error:', err);
+		});
 	</script>
 </body>
 
