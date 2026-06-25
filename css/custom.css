@@ -11,15 +11,16 @@
   --accent: #766dff;
   --accent-light: #a09bff;
   --accent-dark: #5a52e0;
-  --bg-card: #ffffff;
-  --bg-soft: #f8f8ff;
-  --text-dark: #222222;
-  --text-mid: #555555;
-  --text-light: #888888;
-  --border: #e8e8f0;
-  --shadow-sm: 0 2px 8px rgba(118,109,255,.08);
-  --shadow-md: 0 8px 24px rgba(118,109,255,.14);
-  --shadow-lg: 0 16px 48px rgba(118,109,255,.18);
+  --bg-main: #0a0a0f;
+  --bg-card: #141420;
+  --bg-soft: #1b1b2e;
+  --text-dark: #ffffff;
+  --text-mid: #b8b8d0;
+  --text-light: #7b7b93;
+  --border: #232338;
+  --shadow-sm: 0 4px 12px rgba(0,0,0,.3);
+  --shadow-md: 0 8px 24px rgba(0,0,0,.5);
+  --shadow-lg: 0 16px 48px rgba(0,0,0,.7);
   --radius: 10px;
   --transition: 0.3s ease;
 }
@@ -62,7 +63,7 @@
   font-size: 13px;
   font-weight: 500;
   border: 1.5px solid var(--border);
-  background: #fff;
+  background: var(--bg-card);
   color: var(--text-mid);
   cursor: pointer;
   transition: all var(--transition);
@@ -71,8 +72,8 @@
 
 .filter-pill:hover {
   border-color: var(--accent-light);
-  color: var(--accent);
-  background: #f0eeff;
+  color: var(--accent-light);
+  background: rgba(118,109,255,.1);
 }
 
 .filter-pill.active {
@@ -127,9 +128,9 @@
   text-transform: uppercase;
 }
 
-.tag-area  { background: #ede9ff; color: #5a52e0; }
-.tag-country { background: #e6f4ff; color: #0070c0; }
-.tag-type { background: #e8f8ee; color: #1a7f44; }
+.tag-area  { background: rgba(118,109,255,.15); color: #a09bff; }
+.tag-country { background: rgba(0,112,192,.15); color: #60b0ff; }
+.tag-type { background: rgba(26,127,68,.15); color: #5cdb8b; }
 
 /* ============================================================
    PUBLICATIONS PAGE – Enhanced filter + items
@@ -225,7 +226,7 @@
   color: var(--text-mid);
 }
 .btn-pdf:hover {
-  background: #e8e8f0;
+  background: var(--border);
   color: var(--text-dark);
   text-decoration: none;
 }
@@ -536,7 +537,7 @@
 .cta-cards-section { padding: 70px 0; }
 
 .cta-card {
-  background: #fff;
+  background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: 16px;
   padding: 40px 30px;
@@ -607,3 +608,209 @@
 
   .stat-number { font-size: 32px; }
 }
+
+/* ============================================================
+   GLOBAL DARK MODE OVERRIDES & STYLE.CSS COMPATIBILITY
+   ============================================================ */
+body {
+  background: var(--bg-main) !important;
+  color: var(--text-mid) !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-dark) !important;
+}
+
+p, span, li, a, td, th {
+  transition: color var(--transition), background-color var(--transition);
+}
+
+p {
+  color: var(--text-mid) !important;
+}
+
+/* Base sections background override */
+.white_bg,
+.about_area,
+.skills-section,
+.cta-cards-section,
+.brand-area,
+.contact-section,
+.services_area,
+.portfolio_area,
+.blog_area,
+.section_gap,
+.section_gap_top,
+.section_gap_bottom,
+.welcome_area,
+.mytimeline-section {
+  background: var(--bg-main) !important;
+}
+
+/* Header & Menu */
+.header_area {
+  background: var(--bg-main) !important;
+  border-bottom: 1px solid var(--border) !important;
+}
+
+.header_area.navbar_fixed .main_menu {
+  background: var(--bg-main) !important;
+  box-shadow: var(--shadow-md) !important;
+  border-bottom: 1px solid var(--border) !important;
+}
+
+.header_area .navbar .nav .nav-item .nav-link {
+  color: var(--text-dark) !important;
+}
+
+.header_area .navbar .nav .nav-item:hover .nav-link, 
+.header_area .navbar .nav .nav-item.active .nav-link {
+  color: var(--accent) !important;
+}
+
+/* Dropdown/Submenu */
+.header_area .navbar .nav .nav-item.submenu ul {
+  background: var(--bg-card) !important;
+  border: 1px solid var(--border) !important;
+  box-shadow: var(--shadow-lg) !important;
+}
+
+.header_area .navbar .nav .nav-item.submenu ul .nav-item {
+  border-bottom: 1px solid var(--border) !important;
+}
+
+.header_area .navbar .nav .nav-item.submenu ul .nav-item .nav-link {
+  color: var(--text-mid) !important;
+  background: transparent !important;
+}
+
+.header_area .navbar .nav .nav-item.submenu ul .nav-item:hover .nav-link {
+  color: #fff !important;
+  background: var(--accent) !important;
+}
+
+/* Buttons */
+.primary_btn.tr-bg {
+  background-image: linear-gradient(var(--bg-main), var(--bg-main)), radial-gradient(circle at top left, var(--accent), var(--accent-light)) !important;
+  color: var(--text-dark) !important;
+}
+
+.primary_btn.tr-bg:hover {
+  color: #fff !important;
+  background-image: linear-gradient(to right, var(--accent) 0%, var(--accent-light) 100%), radial-gradient(circle at top left, var(--accent), var(--accent-light)) !important;
+}
+
+.primary_btn:hover {
+  color: var(--bg-main) !important;
+  background-image: linear-gradient(#ffffff, #ffffff), radial-gradient(circle at top left, var(--accent), var(--accent-light)) !important;
+}
+
+/* Card components */
+.skill-badge, .single-brand-item, .client-info {
+  background: var(--bg-card) !important;
+  border: 1px solid var(--border) !important;
+  color: var(--text-mid) !important;
+}
+
+.client-info .lage {
+  color: var(--accent-light) !important;
+}
+
+/* Brand area logo container */
+.single-brand-item {
+  box-shadow: var(--shadow-sm);
+  border-radius: var(--radius);
+  padding: 15px;
+}
+
+/* Filter bar */
+.filter-bar {
+  background: var(--bg-card) !important;
+  border-color: var(--border) !important;
+}
+
+/* Contact page inputs */
+.form-control, .contact_form .form-control {
+  background-color: var(--bg-card) !important;
+  border: 1px solid var(--border) !important;
+  color: var(--text-dark) !important;
+}
+
+.form-control:focus, .contact_form .form-control:focus {
+  border-color: var(--accent) !important;
+  background-color: var(--bg-card) !important;
+  color: var(--text-dark) !important;
+  box-shadow: 0 0 8px rgba(118, 109, 255, 0.4) !important;
+}
+
+.contact_info .info_item h6 {
+  color: var(--text-dark) !important;
+}
+
+.contact_info .info_item p {
+  color: var(--text-light) !important;
+}
+
+/* Elements / Tables */
+.table, .table td, .table th {
+  color: var(--text-mid) !important;
+  border-color: var(--border) !important;
+}
+
+/* Portfolio & Blog */
+.portfolio_item, .single-recent-blog-post, .blog_item {
+  background: var(--bg-card) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: var(--radius);
+}
+
+.blog_right_sidebar {
+  background: var(--bg-card) !important;
+  border-color: var(--border) !important;
+}
+
+.blog_right_sidebar .widget_title {
+  color: #fff !important;
+}
+
+.blog_right_sidebar .author_widget h4 {
+  color: var(--text-dark) !important;
+}
+
+.blog-pagination .page-link {
+  background-color: var(--bg-card) !important;
+  border-color: var(--border) !important;
+  color: var(--text-mid) !important;
+}
+
+.blog-pagination .page-item.active .page-link {
+  background: var(--accent) !important;
+  border-color: var(--accent) !important;
+  color: #fff !important;
+}
+
+/* Footer overrides */
+.footer_area {
+  background: #050508 !important;
+  border-top: 1px solid var(--border);
+}
+
+.footer_logo h4 {
+  color: var(--text-dark) !important;
+}
+
+.footer-text {
+  color: var(--text-light) !important;
+}
+
+.footer_social a {
+  background: var(--bg-card) !important;
+  color: var(--text-mid) !important;
+  border: 1px solid var(--border);
+}
+
+.footer_social a:hover {
+  background: var(--accent) !important;
+  color: #fff !important;
+}
+

@@ -240,9 +240,11 @@
 			if (row.pdf_file) {
 				actionsHtml += '<a href="' + row.pdf_file + '" download class="btn-pdf"><i class="fa fa-download"></i> PDF</a>';
 			}
-			if (row.extra_url_1) {
-				var extraIcon = row.extra_label_1 && row.extra_label_1.toLowerCase().indexOf('video') !== -1 ? 'fa-youtube-play' : 'fa-external-link';
-				actionsHtml += '<a href="' + row.extra_url_1 + '" target="_blank" class="btn-doi"><i class="fa ' + extraIcon + '"></i> ' + (row.extra_label_1 || 'Link') + '</a>';
+			if (row.link) {
+				actionsHtml += '<a href="' + row.link + '" target="_blank" class="btn-doi"><i class="fa fa-external-link"></i> Link</a>';
+			}
+			if (row.event_site) {
+				actionsHtml += '<a href="' + row.event_site + '" target="_blank" class="btn-doi"><i class="fa fa-globe"></i> Event Site</a>';
 			}
 			if (row.extra_url_2) {
 				actionsHtml += '<a href="' + row.extra_url_2 + '" target="_blank" class="btn-doi"><i class="fa fa-external-link"></i> ' + (row.extra_label_2 || 'Link') + '</a>';
