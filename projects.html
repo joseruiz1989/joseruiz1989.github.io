@@ -90,6 +90,31 @@
 			line-height: 1.6;
 		}
 
+		/* Grayscale for projects without a dedicated detail page */
+		.portfolio_box.no-page {
+			filter: grayscale(90%);
+			opacity: 0.65;
+			border-color: rgba(255, 255, 255, 0.08);
+		}
+
+		.portfolio_box.no-page:hover {
+			filter: grayscale(40%);
+			opacity: 0.85;
+		}
+
+		.pending-badge {
+			display: inline-block;
+			font-size: 10px;
+			font-weight: 700;
+			text-transform: uppercase;
+			letter-spacing: .06em;
+			padding: 2px 8px;
+			border-radius: 4px;
+			background: rgba(255, 255, 255, 0.12);
+			color: #aaa;
+			margin-left: 6px;
+		}
+
 		.proj-item {
 			display: none;
 			padding: 0 20px;
@@ -267,25 +292,32 @@
 		});
 
 		var imgSrc   = row.image_url  || 'img/about-us.png';
-		var linkHref = row.link_url   || '#';
-		var years    = row.year_start === row.year_end
-			? row.year_start
-			: row.year_start + ' – ' + (row.year_end || 'present');
+		var linkHref = row.link_url   ? row.link_url.trim() : '#';
+		var hasPage  = linkHref !== '' && linkHref !== '#';
+		var years    = row.year_start || '';
+
+		var boxClass = 'portfolio_box' + (hasPage ? '' : ' no-page');
+		var btnText  = hasPage ? 'View Project' : 'Page Pending';
+		var btnStyle = hasPage
+			? 'padding:0 20px;line-height:38px;font-size:13px;'
+			: 'padding:0 20px;line-height:38px;font-size:13px;opacity:0.55;cursor:default;';
+
+		var pendingTag = hasPage ? '' : '<span class="pending-badge"><i class="fa fa-clock-o"></i> Pending Page</span>';
 
 		return '<div class="col-lg-6 col-md-6 proj-item show"' +
 			' data-area="'    + dataArea    + '"' +
 			' data-country="' + dataCountry + '"' +
 			' data-type="'    + dataType    + '">' +
-			'<div class="portfolio_box">' +
+			'<div class="' + boxClass + '">' +
 				'<div class="single_portfolio">' +
 					'<img src="' + imgSrc + '" alt="' + row.title + '" loading="lazy">' +
 				'</div>' +
 				'<div class="short_info">' +
-					'<div class="project-tags">' + tagsHtml + '</div>' +
+					'<div class="project-tags">' + tagsHtml + pendingTag + '</div>' +
 					'<h4><a href="' + linkHref + '">' + row.title + '</a></h4>' +
 					'<div class="org">' + row.organization + ' <span style="color:#aaa;font-weight:400;font-size:12px;">(' + years + ')</span></div>' +
 					'<p>' + row.description + '</p>' +
-					'<div><a href="' + linkHref + '" class="primary_btn" style="padding:0 20px;line-height:38px;font-size:13px;"><span>View Project</span></a></div>' +
+					'<div><a href="' + linkHref + '" class="primary_btn" style="' + btnStyle + '"><span>' + btnText + '</span></a></div>' +
 				'</div>' +
 			'</div>' +
 		'</div>';

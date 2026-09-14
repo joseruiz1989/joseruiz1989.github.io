@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="Proxy System for Reservoir Production (OctopusIA) - Spatio-Temporal Transformer Surrogate Model for CMG Simulation - Jose Ruiz.">
+	<link rel="icon" href="img/favicon.png" type="image/png">
+	<title>Proxy System for Reservoir Simulation | Jose Ruiz</title>
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="vendors/linericon/style.css">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
+	<link rel="stylesheet" href="css/magnific-popup.css">
+	<link rel="stylesheet" href="vendors/nice-select/css/nice-select.css">
+	<!-- Main & Custom dark mode css -->
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/custom.css">
+
+	<style>
+		.project_detail_card {
+			background: var(--bg-card);
+			border: 1px solid var(--border);
+			border-radius: 16px;
+			padding: 30px;
+			margin-bottom: 30px;
+			box-shadow: var(--shadow-md);
+		}
+
+		.project_info_list {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+		}
+
+		.project_info_list li {
+			padding: 12px 0;
+			border-bottom: 1px solid var(--border);
+			font-size: 14px;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		.project_info_list li:last-child {
+			border-bottom: none;
+		}
+
+		.project_info_list span.label {
+			font-weight: 700;
+			color: #fff;
+			text-transform: uppercase;
+			font-size: 12px;
+			letter-spacing: 0.05em;
+		}
+
+		.project_info_list span.value {
+			color: var(--text-mid);
+			text-align: right;
+		}
+
+		.section_subtitle {
+			font-size: 22px;
+			font-weight: 700;
+			color: #fff;
+			margin-bottom: 20px;
+			position: relative;
+			padding-bottom: 8px;
+		}
+
+		.section_subtitle::after {
+			content: '';
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			width: 50px;
+			height: 2px;
+			background: var(--accent);
+		}
+
+		.tech-badge {
+			display: inline-block;
+			background: rgba(118, 109, 255, 0.12);
+			border: 1px solid rgba(118, 109, 255, 0.3);
+			color: var(--accent-light);
+			padding: 4px 12px;
+			border-radius: 20px;
+			font-size: 12px;
+			font-weight: 600;
+			margin-right: 6px;
+			margin-bottom: 8px;
+		}
+
+		.spec-card {
+			background: var(--bg-soft);
+			border: 1px solid var(--border);
+			border-radius: 12px;
+			padding: 20px;
+			margin-bottom: 20px;
+			transition: all var(--transition);
+		}
+
+		.spec-card:hover {
+			border-color: var(--accent-light);
+			box-shadow: var(--shadow-sm);
+		}
+
+		.spec-card h5 {
+			font-size: 16px;
+			font-weight: 700;
+			color: #fff;
+			margin-bottom: 10px;
+			display: flex;
+			align-items: center;
+			gap: 10px;
+		}
+
+		.spec-card h5 i {
+			color: var(--accent-light);
+		}
+
+		.spec-card p, .spec-card ul {
+			font-size: 13.5px;
+			color: var(--text-mid);
+			margin-bottom: 0;
+		}
+
+		.spec-card ul {
+			padding-left: 20px;
+		}
+
+		.spec-card ul li {
+			margin-bottom: 6px;
+		}
+
+		.download_box {
+			background: rgba(118, 109, 255, 0.05);
+			border: 1.5px dashed var(--border);
+			border-radius: 12px;
+			padding: 24px;
+			transition: all var(--transition);
+		}
+
+		.download_box:hover {
+			border-color: var(--accent-light);
+			background: rgba(118, 109, 255, 0.08);
+		}
+
+		.download_item {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding: 12px 0;
+			border-bottom: 1px solid var(--border);
+		}
+
+		.download_item:last-child {
+			border-bottom: none;
+		}
+
+		.download_meta {
+			display: flex;
+			align-items: center;
+			gap: 15px;
+		}
+
+		.download_icon {
+			width: 42px;
+			height: 42px;
+			background: var(--bg-soft);
+			border: 1.5px solid var(--border);
+			border-radius: 8px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 18px;
+			color: var(--accent-light);
+		}
+
+		.download_info h5 {
+			margin: 0;
+			font-size: 14px;
+			font-weight: 600;
+			color: #fff;
+		}
+
+		.download_info span {
+			font-size: 12px;
+			color: var(--text-light);
+		}
+
+		.img-container-styled {
+			position: relative;
+			border-radius: 16px;
+			overflow: hidden;
+			border: 1px solid var(--border);
+			box-shadow: var(--shadow-lg);
+			margin-bottom: 24px;
+		}
+
+		.img-container-styled img {
+			width: 100%;
+			height: auto;
+			display: block;
+			transition: transform 0.5s ease;
+		}
+
+		.img-container-styled:hover img {
+			transform: scale(1.02);
+		}
+
+		.img-caption {
+			background: rgba(15, 14, 23, 0.85);
+			backdrop-filter: blur(8px);
+			padding: 12px 18px;
+			font-size: 13px;
+			color: var(--text-mid);
+			border-top: 1px solid var(--border);
+			text-align: center;
+		}
+	</style>
+</head>
+
+<body>
+	<!-- Shared header -->
+	<div id="header-placeholder"></div>
+
+	<!--================ Start Banner Area =================-->
+	<section class="banner_area">
+		<div class="banner_inner d-flex align-items-center">
+			<div class="container">
+				<div class="banner_content text-center">
+					<h2>Proxy Model for Reservoir Simulation (OctopusIA)</h2>
+					<div class="page_link">
+						<a href="index.html">Home</a>
+						<a href="projects.html">Projects</a>
+						<a href="proxy-reservoir-simulation.html">Proxy Model Details</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--================ End Banner Area =================-->
+
+	<!--================Start Project Details Area =================-->
+	<section class="portfolio_details_area section_gap">
+		<div class="container">
+			<div class="portfolio_details_inner">
+				<div class="row">
+					<div class="col-lg-7">
+						<div class="img-container-styled">
+							<img src="img/projects/proxy_01.jpg" alt="OctopusIA Reservoir Proxy Model Architecture & Spatial Attention">
+							<div class="img-caption">
+								<i class="fa fa-info-circle"></i> Spatio-Temporal Transformer Surrogate Model Architecture & Inter-Well Self-Attention Flow
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-5">
+						<div class="project_detail_card">
+							<h4 class="text-uppercase"
+								style="font-size:18px; font-weight:800; border-bottom:2px solid var(--accent); padding-bottom:10px; margin-bottom:20px;">
+								Project Metadata</h4>
+							<ul class="project_info_list">
+								<li><span class="label">Organization</span><span class="value">ICA Lab, PUC-Rio / OctopusIA</span></li>
+								<li><span class="label">Timeline</span><span class="value">2022</span></li>
+								<li><span class="label">Domain</span><span class="value">Deep Learning & Petroleum AI</span></li>
+								<li><span class="label">Target Simulator</span><span class="value">CMG IMEX (Black-Oil)</span></li>
+								<li><span class="label">Country</span><span class="value">🇧🇷 Brazil</span></li>
+								<li><span class="label">Project Type</span><span class="value">Applied Research & Industry AI</span></li>
+							</ul>
+							<div style="margin-top: 20px;">
+								<span class="tech-badge">PyTorch</span>
+								<span class="tech-badge">PyTorch Lightning</span>
+								<span class="tech-badge">Transformers</span>
+								<span class="tech-badge">HDF5</span>
+								<span class="tech-badge">CMG Suite</span>
+								<span class="tech-badge">Slurm HPC</span>
+								<span class="tech-badge">Docker</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Overview Section -->
+				<div class="row mt-40">
+					<div class="col-lg-12">
+						<h3 class="section_subtitle">Executive Summary</h3>
+						<p>
+							The <strong>proxy-manager (OctopusIA Proxy Model)</strong> is a state-of-the-art Deep Learning surrogate model designed to replace computationally intensive numerical reservoir simulations executed by <strong>CMG (Computer Modelling Group) IMEX</strong> within the <strong>Well Placement Optimization (WPO)</strong> pipeline of OctopusIA.
+						</p>
+						<p>
+							By accelerating full-physics reservoir predictions from <strong>hours on an HPC cluster to mere milliseconds on a single GPU</strong>, the proxy system enables genetic algorithms to evaluate tens of thousands of well layout configurations, maximizing the <strong>Net Present Value (NPV / VPL)</strong> of oil fields efficiently.
+						</p>
+					</div>
+				</div>
+
+				<!-- Technical Deep Dive Grid -->
+				<div class="row mt-30">
+					<!-- Architecture -->
+					<div class="col-lg-6">
+						<div class="spec-card h-100">
+							<h5><i class="fa fa-cubes"></i> 1. Model Architecture</h5>
+							<ul>
+								<li><strong>Hybrid Spatio-Temporal Autoregressive Transformer:</strong> Combines spatial inter-well Multi-Head Self-Attention with step-by-step autoregressive temporal rollout.</li>
+								<li><strong>Spatial Inter-Well Attention:</strong> Sets sequence length equal to active well positions ($L = N_{\text{wells}}$, padded to 20 or 32). Uses <code>torch.nn.MultiheadAttention</code> to model inter-well interference, drainage dynamics, and geological connectivity.</li>
+								<li><strong>Quantized Rate Classification:</strong> Converts continuous production/injection flow rates into 1024 discrete ordinal classes trained with Categorical Cross-Entropy via <code>ProxyEmbeddingLayer</code>.</li>
+								<li><strong>Hybrid Loss Function:</strong> Blends Categorical Cross-Entropy (with validity masks) for production/injection curves with Mean Squared Error (MSE) for local dynamic state propagation.</li>
+								<li><strong>Modular Multi-Task Decomposition:</strong> Managed by <code>ModelUnityManager.py</code> across 4 training phases:
+									<ul>
+										<li><code>BuildProducersCurvesModel</code> (Producer curves)</li>
+										<li><code>BuildInjectorsCurvesModel</code> (Injector curves)</li>
+										<li><code>BuildFeaturesModel</code> (Local dynamic reservoir state transition)</li>
+										<li><code>BuildUnifiedModels</code> (End-to-end unified inference ensemble)</li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+					</div>
+
+					<!-- Variables I/O -->
+					<div class="col-lg-6">
+						<div class="spec-card h-100">
+							<h5><i class="fa fa-exchange"></i> 2. Input & Output (I/O) Specifications</h5>
+							<ul>
+								<li><strong>Static 3D Subvolume (1083 features):</strong>
+									<ul>
+										<li>$7 \times 7 \times 11 = 539$ local grid cells cropped around perforations (~$600\text{m} \times 600\text{m} \times 200\text{m}$).</li>
+										<li>Net Permeability ($k_h$) and Hydrocarbon Volume per area ($539 \times 2 = 1078$ continuous values).</li>
+										<li>5 Metadata attributes: Head/completion $(x,y,z)$ coordinates or $(i,j,k)$ grid indices, well type (Producer [1,0] vs Injector [0,1]), and status.</li>
+									</ul>
+								</li>
+								<li><strong>Dynamic 3D Subvolume (1078 features):</strong> Grid block Pressure and Oil Saturation at timestep $t_1$.</li>
+								<li><strong>Prior Curve State:</strong> Discrete class index vectors (0–1023) at timestep $t_1$.</li>
+								<li><strong>Predicted Outputs:</strong>
+									<ul>
+										<li>Surface Flow Rates (Oil, Gas, Water production, and Water/Gas injection rates in $\text{m}^3/\text{day}$).</li>
+										<li>Local Dynamic Field Update (Updated pressure and saturation fields at $t_2$).</li>
+										<li>Cumulative Volumes via numerical quadrature ($\sum Q \cdot \Delta t$).</li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<!-- Section Image 2 & CMG Integration -->
+				<div class="row mt-40">
+					<div class="col-lg-6">
+						<div class="img-container-styled">
+							<img src="img/projects/proxy_02.jpg" alt="CMG Simulation Data Pipeline & HDF5 Reduction">
+							<div class="img-caption">
+								<i class="fa fa-database"></i> Automated CMG IMEX Data Extraction, HDF5 Sub-cube Structuration & PyTorch DataLoaders
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-6">
+						<div class="spec-card h-100">
+							<h5><i class="fa fa-cogs"></i> 3. CMG Integration & Data Pipeline</h5>
+							<ul>
+								<li><strong>Target Numerical Simulator:</strong> CMG IMEX (Black-Oil simulator applied to pre-salt and benchmark reservoirs like Cabo Frio and UNISIM-I).</li>
+								<li><strong>Automatic Parsing:</strong> Extracts trajectory and completion data (<code>*PERF (i,j,k)</code>) directly from CMG include files (<code>OctopusWells.inc</code>) via regex.</li>
+								<li><strong>Background CLI Extraction:</strong> <code>ReportManagerCMG.py</code> triggers CMG's <code>result.sh</code> tool over binary outputs (<code>.sr3</code> / <code>.rwd</code>) to serialize intermediate Python <code>.pkl</code> data.</li>
+								<li><strong>HDF5 Space-Time Structuration:</strong> <code>generate_h5_data.py</code> reduces full reservoir grids ($4.5 \times 10^6$ cells) to lightweight local 3D sub-cubes:
+									<ul>
+										<li><code>h5_dynamic_base</code>: Static topology and initial state at $t = 0$.</li>
+										<li><code>h5_dynamic_times</code>: Dynamic state tensors across discrete timesteps ($0, 1, 30, \dots, 7290$ days).</li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<!-- Optimization & Tech Stack -->
+				<div class="row mt-40">
+					<div class="col-lg-7">
+						<h3 class="section_subtitle">4. Coupling with Well Placement Optimization & VPL</h3>
+						<p>
+							The proxy model functions as a seamless <strong>drop-in replacement</strong> for CMG during optimization rounds:
+						</p>
+						<ul style="padding-left: 20px; color: var(--text-mid); font-size: 14px;">
+							<li style="margin-bottom: 10px;"><strong>Drop-in CMG Output Replication:</strong> In <code>cmg-inference</code> mode, the proxy generates native-formatted CMG report files (<code>*_proxy_cmg_output.result</code>) matching all headers (<code>TABLE NUMBER</code>, <code>WELL</code>, <code>DATE</code>, rates, cumulative volumes). Economic evaluators read proxy output without modifying a single line of optimizer code.</li>
+							<li style="margin-bottom: 10px;"><strong>Preservation of Genetic Selection:</strong> Evaluated with ranking metrics including <em>Spearman Rank Correlation</em>, <em>Kendall’s Tau</em>, <em>Precision@k</em>, <em>NDCG@k</em>, and selection probability (<code>prob_selec</code>) to ensure genetic roulette/tournament selection is preserved.</li>
+							<li style="margin-bottom: 10px;"><strong>Massive Computational Speedup:</strong> Replaces <strong>hours of cluster simulation per individual with milliseconds on GPU</strong>, enabling exhaustive search across thousands of well layout candidates per generation.</li>
+						</ul>
+					</div>
+
+					<div class="col-lg-5">
+						<h3 class="section_subtitle">5. Technology Stack</h3>
+						<div class="download_box">
+							<div class="download_item">
+								<div class="download_meta">
+									<div class="download_icon"><i class="fa fa-code"></i></div>
+									<div class="download_info">
+										<h5>Deep Learning Frameworks</h5>
+										<span>PyTorch 1.10, PyTorch Lightning 1.7, TorchMetrics</span>
+									</div>
+								</div>
+							</div>
+							<div class="download_item">
+								<div class="download_meta">
+									<div class="download_icon"><i class="fa fa-database"></i></div>
+									<div class="download_info">
+										<h5>Data Science & Formats</h5>
+										<span>HDF5 (h5py 3.6), NumPy, SciPy, Pandas</span>
+									</div>
+								</div>
+							</div>
+							<div class="download_item">
+								<div class="download_meta">
+									<div class="download_icon"><i class="fa fa-server"></i></div>
+									<div class="download_info">
+										<h5>HPC & Reservoir Tooling</h5>
+										<span>CMG Suite 2024.30, Slurm Workload Manager, Docker</span>
+									</div>
+								</div>
+							</div>
+							<div class="download_item">
+								<div class="download_meta">
+									<div class="download_icon"><i class="fa fa-bar-chart"></i></div>
+									<div class="download_info">
+										<h5>Visualization & Debugging</h5>
+										<span>Matplotlib, Seaborn, debugpy</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Navigation Back Button -->
+				<div class="row mt-50">
+					<div class="col-lg-12 text-center">
+						<a href="projects.html" class="primary_btn"><span><i class="fa fa-arrow-left"></i> Back to All Projects</span></a>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+	<!--================End Project Details Area =================-->
+
+	<!--================ Footer Area =================-->
+	<footer class="footer_area">
+		<div class="container">
+			<div class="row footer_bottom justify-content-center">
+				<p class="col-lg-8 col-sm-12 footer-text">
+					Copyright &copy;
+					<script>document.write(new Date().getFullYear());</script> All rights reserved | Template by <a
+						href="https://colorlib.com" target="_blank">Colorlib</a>
+				</p>
+			</div>
+		</div>
+	</footer>
+	<!--================End Footer Area =================-->
+
+	<!-- Optional JavaScript -->
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/popper.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/stellar.js"></script>
+	<script src="js/jquery.magnific-popup.min.js"></script>
+	<script src="vendors/nice-select/js/jquery.nice-select.min.js"></script>
+	<script src="vendors/owl-carousel/owl.carousel.min.js"></script>
+	<script src="js/theme.js"></script>
+	<script src="js/header.js"></script>
+	<script>renderHeader('projects');</script>
+</body>
+
+</html>
