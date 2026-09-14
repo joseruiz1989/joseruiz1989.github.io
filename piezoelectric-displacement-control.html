@@ -1,0 +1,1180 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="Closed-Loop Nanoscale Position Control of a Piezoelectric Actuator Using Michelson Interferometry - Undergraduate Thesis / Capstone Project by Jose Eduardo Ruiz Rosero.">
+	<link rel="icon" href="img/favicon.png" type="image/png">
+	<title>Piezoelectric Nanoscale Position Control | Jose Ruiz</title>
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="vendors/linericon/style.css">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
+	<link rel="stylesheet" href="css/magnific-popup.css">
+	<link rel="stylesheet" href="vendors/nice-select/css/nice-select.css">
+	<!-- Main & Custom dark mode css -->
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/custom.css">
+
+	<!-- KaTeX for crisp LaTeX formula rendering -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+		onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
+
+	<style>
+		.project_detail_card {
+			background: var(--bg-card);
+			border: 1px solid var(--border);
+			border-radius: 16px;
+			padding: 30px;
+			margin-bottom: 30px;
+			box-shadow: var(--shadow-md);
+		}
+
+		.project_info_list {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+		}
+
+		.project_info_list li {
+			padding: 11px 0;
+			border-bottom: 1px solid var(--border);
+			font-size: 13.5px;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		.project_info_list li:last-child {
+			border-bottom: none;
+		}
+
+		.project_info_list span.label {
+			font-weight: 700;
+			color: #fff;
+			text-transform: uppercase;
+			font-size: 11.5px;
+			letter-spacing: 0.05em;
+		}
+
+		.project_info_list span.value {
+			color: var(--text-mid);
+			text-align: right;
+		}
+
+		.section_subtitle {
+			font-size: 22px;
+			font-weight: 700;
+			color: #fff;
+			margin-bottom: 20px;
+			position: relative;
+			padding-bottom: 8px;
+		}
+
+		.section_subtitle::after {
+			content: '';
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			width: 50px;
+			height: 2px;
+			background: var(--accent);
+		}
+
+		.tech-badge {
+			display: inline-block;
+			background: rgba(118, 109, 255, 0.12);
+			border: 1px solid rgba(118, 109, 255, 0.3);
+			color: var(--accent-light);
+			padding: 4px 11px;
+			border-radius: 20px;
+			font-size: 11.5px;
+			font-weight: 600;
+			margin-right: 5px;
+			margin-bottom: 8px;
+			transition: all var(--transition);
+		}
+
+		.tech-badge:hover {
+			background: rgba(118, 109, 255, 0.25);
+			border-color: var(--accent-light);
+			color: #fff;
+		}
+
+		.spec-card {
+			background: var(--bg-soft);
+			border: 1px solid var(--border);
+			border-radius: 12px;
+			padding: 22px;
+			margin-bottom: 20px;
+			transition: all var(--transition);
+		}
+
+		.spec-card:hover {
+			border-color: var(--accent-light);
+			box-shadow: var(--shadow-sm);
+		}
+
+		.spec-card h5 {
+			font-size: 16px;
+			font-weight: 700;
+			color: #fff;
+			margin-bottom: 12px;
+			display: flex;
+			align-items: center;
+			gap: 10px;
+		}
+
+		.spec-card h5 i {
+			color: var(--accent-light);
+		}
+
+		.spec-card p,
+		.spec-card ul {
+			font-size: 13.5px;
+			color: var(--text-mid);
+			margin-bottom: 0;
+			line-height: 1.6;
+		}
+
+		.spec-card ul {
+			padding-left: 20px;
+		}
+
+		.spec-card ul li {
+			margin-bottom: 8px;
+		}
+
+		.img-container-styled {
+			position: relative;
+			border-radius: 16px;
+			overflow: hidden;
+			border: 1px solid var(--border);
+			box-shadow: var(--shadow-lg);
+			margin-bottom: 24px;
+			background: #000;
+		}
+
+		.img-container-styled img {
+			width: 100%;
+			height: auto;
+			display: block;
+			transition: transform 0.5s ease;
+		}
+
+		.img-container-styled:hover img {
+			transform: scale(1.02);
+		}
+
+		.img-caption {
+			background: rgba(15, 14, 23, 0.92);
+			backdrop-filter: blur(8px);
+			padding: 14px 20px;
+			font-size: 13px;
+			color: var(--text-mid);
+			border-top: 1px solid var(--border);
+			text-align: left;
+			line-height: 1.5;
+		}
+
+		.img-caption i {
+			color: var(--accent-light);
+			margin-right: 6px;
+		}
+
+		/* Stat Counter Cards */
+		.metric-pill-box {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+			gap: 16px;
+			margin-bottom: 30px;
+		}
+
+		.metric-card {
+			background: linear-gradient(135deg, rgba(118, 109, 255, 0.08) 0%, rgba(29, 29, 58, 0.6) 100%);
+			border: 1px solid rgba(118, 109, 255, 0.25);
+			border-radius: 12px;
+			padding: 20px 18px;
+			text-align: center;
+			transition: all var(--transition);
+		}
+
+		.metric-card:hover {
+			border-color: var(--accent-light);
+			transform: translateY(-3px);
+			box-shadow: 0 8px 24px rgba(118, 109, 255, 0.15);
+		}
+
+		.metric-val {
+			font-size: 26px;
+			font-weight: 800;
+			color: #fff;
+			letter-spacing: -0.5px;
+			margin-bottom: 4px;
+			background: linear-gradient(90deg, #a09bff, #4cd498);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+		}
+
+		.metric-title {
+			font-size: 12px;
+			color: var(--text-light);
+			text-transform: uppercase;
+			letter-spacing: 0.08em;
+			font-weight: 600;
+		}
+
+		/* Data Comparison Table */
+		.table-responsive-custom {
+			background: var(--bg-card);
+			border: 1px solid var(--border);
+			border-radius: 14px;
+			overflow: hidden;
+			margin-top: 15px;
+			box-shadow: var(--shadow-sm);
+		}
+
+		.table-custom {
+			width: 100%;
+			margin-bottom: 0;
+			color: var(--text-mid);
+			font-size: 13.5px;
+		}
+
+		.table-custom th {
+			background: rgba(118, 109, 255, 0.12);
+			color: #fff;
+			font-weight: 700;
+			text-transform: uppercase;
+			font-size: 12px;
+			letter-spacing: 0.05em;
+			padding: 14px 18px;
+			border-top: none;
+			border-bottom: 1px solid var(--border);
+		}
+
+		.table-custom td {
+			padding: 14px 18px;
+			vertical-align: middle;
+			border-top: 1px solid var(--border);
+		}
+
+		.table-custom tr:hover td {
+			background: rgba(255, 255, 255, 0.02);
+		}
+
+		.badge-highlight {
+			display: inline-block;
+			padding: 4px 10px;
+			border-radius: 6px;
+			font-weight: 700;
+			font-size: 12px;
+		}
+
+		.badge-success-custom {
+			background: rgba(76, 212, 152, 0.15);
+			color: #4cd498;
+			border: 1px solid rgba(76, 212, 152, 0.3);
+		}
+
+		.badge-danger-custom {
+			background: rgba(239, 83, 80, 0.15);
+			color: #ef5350;
+			border: 1px solid rgba(239, 83, 80, 0.3);
+		}
+
+		/* Interactive Interferometer Simulation Card */
+		.interferometer-widget {
+			background: linear-gradient(145deg, #121124 0%, #1a1936 100%);
+			border: 1px solid rgba(118, 109, 255, 0.3);
+			border-radius: 16px;
+			padding: 26px;
+			box-shadow: var(--shadow-md);
+			margin-bottom: 30px;
+		}
+
+		.canvas-container {
+			background: #000;
+			border-radius: 12px;
+			border: 1px solid rgba(76, 212, 152, 0.3);
+			box-shadow: inset 0 0 25px rgba(0, 255, 100, 0.1);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding: 10px;
+			position: relative;
+		}
+
+		.laser-badge {
+			position: absolute;
+			top: 12px;
+			left: 12px;
+			background: rgba(0, 0, 0, 0.75);
+			border: 1px solid #4cd498;
+			color: #4cd498;
+			font-family: monospace;
+			font-size: 11px;
+			padding: 3px 8px;
+			border-radius: 4px;
+			pointer-events: none;
+		}
+
+		.sim-controls {
+			padding: 10px 0;
+		}
+
+		.sim-slider-label {
+			display: flex;
+			justify-content: space-between;
+			font-size: 13px;
+			color: #fff;
+			font-weight: 600;
+			margin-bottom: 8px;
+		}
+
+		.sim-slider-label span.highlight {
+			color: #4cd498;
+			font-family: monospace;
+			font-size: 14px;
+		}
+
+		.custom-range-green {
+			width: 100%;
+			height: 6px;
+			border-radius: 3px;
+			background: #232338;
+			outline: none;
+			accent-color: #4cd498;
+			cursor: pointer;
+		}
+
+		.toggle-btn-group {
+			display: flex;
+			gap: 8px;
+			margin-top: 15px;
+		}
+
+		.btn-mode {
+			flex: 1;
+			padding: 8px 12px;
+			font-size: 12px;
+			font-weight: 600;
+			border-radius: 8px;
+			border: 1px solid var(--border);
+			background: var(--bg-soft);
+			color: var(--text-mid);
+			cursor: pointer;
+			transition: all var(--transition);
+		}
+
+		.btn-mode.active {
+			background: var(--accent);
+			color: #fff;
+			border-color: var(--accent);
+			box-shadow: 0 4px 12px rgba(118, 109, 255, 0.3);
+		}
+
+		.download_box {
+			background: rgba(118, 109, 255, 0.05);
+			border: 1.5px dashed var(--border);
+			border-radius: 12px;
+			padding: 24px;
+			transition: all var(--transition);
+		}
+
+		.download_box:hover {
+			border-color: var(--accent-light);
+			background: rgba(118, 109, 255, 0.08);
+		}
+
+		.download_item {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding: 12px 0;
+			border-bottom: 1px solid var(--border);
+		}
+
+		.download_item:last-child {
+			border-bottom: none;
+		}
+
+		.download_meta {
+			display: flex;
+			align-items: center;
+			gap: 15px;
+		}
+
+		.download_icon {
+			width: 42px;
+			height: 42px;
+			background: var(--bg-soft);
+			border: 1.5px solid var(--border);
+			border-radius: 8px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 18px;
+			color: var(--accent-light);
+		}
+
+		.download_info h5 {
+			margin: 0;
+			font-size: 14px;
+			font-weight: 600;
+			color: #fff;
+		}
+
+		.download_info span {
+			font-size: 12px;
+			color: var(--text-light);
+		}
+
+		.callout-quote {
+			background: rgba(118, 109, 255, 0.06);
+			border-left: 4px solid var(--accent);
+			padding: 16px 20px;
+			border-radius: 0 10px 10px 0;
+			font-size: 14px;
+			color: var(--text-mid);
+			margin-bottom: 25px;
+		}
+	</style>
+</head>
+
+<body>
+	<!-- Shared header -->
+	<div id="header-placeholder"></div>
+
+	<!--================ Start Banner Area =================-->
+	<section class="banner_area">
+		<div class="banner_inner d-flex align-items-center">
+			<div class="container">
+				<div class="banner_content text-center">
+					<h2>Closed-Loop Nanoscale Position Control of a Piezoelectric Actuator</h2>
+					<div class="page_link">
+						<a href="index.html">Home</a>
+						<a href="projects.html">Projects</a>
+						<a href="piezoelectric-displacement-control.html">Piezoelectric Control Details</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--================ End Banner Area =================-->
+
+	<!--================ Start Project Details Area =================-->
+	<section class="portfolio_details_area section_gap">
+		<div class="container">
+			<div class="portfolio_details_inner">
+
+				<!-- Top Hero Banner: Main Optical Setup Image & Metadata -->
+				<div class="row">
+					<div class="col-lg-7">
+						<div class="img-container-styled">
+							<img src="img/projects/piezoelectric_01.jpg"
+								alt="Michelson Interferometer Optomechanical Breadboard Setup for Nanoscale Control">
+							<div class="img-caption">
+								<i class="fa fa-camera"></i> <strong>Experimental Optomechanical Setup:</strong> Custom Michelson Interferometer on an isolated magnetic steel breadboard. Features a 532 nm DPSS green laser, precision kinematic mirror mounts with ferrite damping magnets, a central beam splitter cube, front-surface piezo mirror stage, and circular optical interference fringes projected in real time.
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-5">
+						<div class="project_detail_card">
+							<h4 class="text-uppercase"
+								style="font-size:18px; font-weight:800; border-bottom:2px solid var(--accent); padding-bottom:10px; margin-bottom:18px;">
+								Project Metadata</h4>
+							<ul class="project_info_list">
+								<li><span class="label">Project Title</span><span class="value">B.Sc. Thesis / Capstone</span></li>
+								<li><span class="label">Author</span><span class="value">Jose Eduardo Ruiz Rosero</span></li>
+								<li><span class="label">Institution</span><span class="value">Universidad de Nariño (UDENAR)</span></li>
+								<li><span class="label">Research Group</span><span class="value">Instrumentation & Intelligent Systems</span></li>
+								<li><span class="label">Metrological Validation</span><span class="value">Microscopy Lab, UniAndes (Bogotá)</span></li>
+								<li><span class="label">Actuator Target</span><span class="value">PZT Piezo Diaphragm Disc</span></li>
+								<li><span class="label">Displacement Span</span><span class="value">&plusmn;1950 nm (3.9 &mu;m)</span></li>
+								<li><span class="label">Digital Resolution</span><span class="value">1 nm</span></li>
+								<li><span class="label">Tracking Error</span><span class="value"><strong>0.1299%</strong> (vs 11.22% Open)</span></li>
+								<li><span class="label">Country</span><span class="value">🇨🇴 Colombia</span></li>
+							</ul>
+							<div style="margin-top: 18px;">
+								<span class="tech-badge">Microchip dsPIC30F4013</span>
+								<span class="tech-badge">PIC18F2550 USB</span>
+								<span class="tech-badge">Michelson Optics</span>
+								<span class="tech-badge">532nm DPSS Laser</span>
+								<span class="tech-badge">Digital PI Control</span>
+								<span class="tech-badge">Anti-Windup</span>
+								<span class="tech-badge">Sallen-Key LPF</span>
+								<span class="tech-badge">AFM Validation</span>
+								<span class="tech-badge">Java Swing NetBeans</span>
+								<span class="tech-badge">MATLAB</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Key Performance Metric Pills -->
+				<div class="row mt-20">
+					<div class="col-12">
+						<div class="metric-pill-box">
+							<div class="metric-card">
+								<div class="metric-val">1 nm</div>
+								<div class="metric-title">Digital Resolution</div>
+							</div>
+							<div class="metric-card">
+								<div class="metric-val">0.1299%</div>
+								<div class="metric-title">Closed-Loop Error</div>
+							</div>
+							<div class="metric-card">
+								<div class="metric-val">0.999998</div>
+								<div class="metric-title">Linear Correlation (R&sup2;)</div>
+							</div>
+							<div class="metric-card">
+								<div class="metric-val">&plusmn;1950 nm</div>
+								<div class="metric-title">Dynamic Travel Range</div>
+							</div>
+							<div class="metric-card">
+								<div class="metric-val">0.282%</div>
+								<div class="metric-title">AFM Benchmark Error</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Executive Summary Section -->
+				<div class="row mt-30">
+					<div class="col-lg-12">
+						<h3 class="section_subtitle">Executive Summary</h3>
+						<div class="callout-quote">
+							<i class="fa fa-quote-left" style="color:var(--accent-light); margin-right:8px;"></i>
+							<em>"By combining custom Michelson optomechanical interferometry, real-time optical fringe decoding, analog signal conditioning, and closed-loop digital PI control, this project stabilized a low-cost piezoelectric diaphragm disc across a &plusmn;1950 nm dynamic range with 1 nm resolution, slashing tracking errors from over 11% to 0.1299%."</em>
+						</div>
+						<p style="font-size:15px; line-height:1.7; color:var(--text-mid);">
+							High-precision nanoscale positioning is a foundational requirement in modern nanotechnology instrumentation, particularly <strong>Atomic Force Microscopy (AFM)</strong>, scanning probe systems, and semiconductor metrology. However, commercial piezo-actuators and industrial displacement laser sensors (e.g., Keyence systems exceeding USD $4,500) are cost-prohibitive for resource-constrained university laboratories.
+						</p>
+						<p style="font-size:15px; line-height:1.7; color:var(--text-mid);">
+							Furthermore, piezoelectric ceramics exhibit severe intrinsic non-linearities—chiefly <strong>mechanical hysteresis</strong> and <strong>continuous creep/drift</strong>—which introduce substantial geometric image artifacts, positional distortion, and trajectory divergence under dynamic operation.
+						</p>
+						<p style="font-size:15px; line-height:1.7; color:var(--text-mid);">
+							To resolve these challenges, this capstone engineering project engineered an accessible, high-precision optoelectronic platform consisting of a custom-built <strong>Michelson Interferometer</strong>, analog mixed-signal conditioning, and a dual-microcontroller embedded digital signal controller hierarchy. The platform was cross-calibrated against an Asylum Research MFP-3D-BIO Atomic Force Microscope at Universidad de los Andes, verifying an ultra-low metrological optical error of <strong>0.282%</strong>.
+						</p>
+					</div>
+				</div>
+
+				<!-- Scientific Context & Core Challenges -->
+				<div class="row mt-40">
+					<div class="col-lg-12">
+						<h3 class="section_subtitle">Scientific Context & Core Non-Linear Challenges</h3>
+						<p style="color:var(--text-mid); font-size:14.5px;">
+							Piezoelectric transducers elongate under electric field excitation according to the direct piezoelectric constitutive relation $\Delta l = d \cdot V$. While offering theoretically infinite resolution, uncompensated open-loop actuators suffer from three debilitating limitations:
+						</p>
+					</div>
+					<div class="col-lg-4">
+						<div class="spec-card h-100">
+							<h5><i class="fa fa-repeat"></i> 1. Severe Mechanical Hysteresis</h5>
+							<p>
+								Actuator displacement depends on both current voltage and polarization history, resulting in divergent trajectories between voltage ascent and descent.
+							</p>
+							<ul class="mt-2">
+								<li><strong>Ascending Path Error:</strong> 11.22% relative tracking deviation.</li>
+								<li><strong>Descending Path Error:</strong> 6.78% relative tracking deviation.</li>
+								<li>Generates distorted scan frames and loss of repeatable coordinate registration.</li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-lg-4">
+						<div class="spec-card h-100">
+							<h5><i class="fa fa-clock-o"></i> 2. Continuous Creep & Drift</h5>
+							<p>
+								Time-dependent and thermal relaxation causes the crystal matrix to drift continuously under static or repeated excitations.
+							</p>
+							<ul class="mt-2">
+								<li><strong>6-Cycle Evaluation:</strong> Drift accumulated between <strong>34.4 nm and 48.5 nm per cycle</strong> in open-loop mode.</li>
+								<li>Leads to creeping baseline errors in long-exposure nanoscopic imaging scans.</li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-lg-4">
+						<div class="spec-card h-100">
+							<h5><i class="fa fa-dollar"></i> 3. Industrial Hardware Barrier</h5>
+							<p>
+								Industrial metrology hardware and laser vibrometers are cost-prohibitive for developing laboratories.
+							</p>
+							<ul class="mt-2">
+								<li>Commercial displacement laser sensors (e.g., Keyence series) cost upwards of <strong>USD $4,500+</strong>.</li>
+								<li>Demonstrated that repurposing precision green lasers and optical components delivers comparable sub-nanometer metrology.</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<!-- Interactive Interferometer Simulation & Fringe Visualizer -->
+				<div class="row mt-50">
+					<div class="col-lg-12">
+						<h3 class="section_subtitle">Interactive System Simulator: Fringe Motion & Hysteresis Correction</h3>
+						<div class="interferometer-widget">
+							<div class="row align-items-center">
+								<div class="col-lg-5 text-center">
+									<div class="canvas-container">
+										<span class="laser-badge">&lambda; = 532 nm &bull; Michelson Fringes</span>
+										<canvas id="fringeCanvas" width="280" height="280" style="border-radius: 8px; max-width: 100%;"></canvas>
+									</div>
+									<div style="font-size:12px; color:var(--text-light); margin-top:8px;">
+										<i class="fa fa-info-circle"></i> Live optical fringe shift: 1 full fringe = &lambda;/2 = 266 nm displacement
+									</div>
+								</div>
+								<div class="col-lg-7">
+									<div class="sim-controls">
+										<h5 style="color:#fff; font-size:16px; font-weight:700; margin-bottom:12px;">
+											Live Nanoscale Actuation Simulator
+										</h5>
+										<p style="font-size:13px; color:var(--text-mid); margin-bottom:16px;">
+											Adjust the target setpoint to observe how open-loop hysteresis distorts the actual position vs. how closed-loop digital PI control locks the actuator to within 1 nm precision.
+										</p>
+										
+										<div class="sim-slider-label">
+											<span>Target Setpoint (nm):</span>
+											<span class="highlight" id="sliderValDisplay">1000 nm</span>
+										</div>
+										<input type="range" min="0" max="1950" value="1000" step="5" class="custom-range-green" id="posSlider">
+
+										<div class="sim-slider-label mt-3">
+											<span>Control Mode:</span>
+											<span class="highlight" id="modeDisplay" style="color:#4cd498;">Closed-Loop PI (Compensated)</span>
+										</div>
+										<div class="toggle-btn-group">
+											<button class="btn-mode" id="btnOpenLoop" onclick="setSimMode('open')">Open-Loop (Hysteresis Active)</button>
+											<button class="btn-mode active" id="btnClosedLoop" onclick="setSimMode('closed')">Closed-Loop PI Control (Active)</button>
+										</div>
+
+										<div style="background:var(--bg-soft); border:1px solid var(--border); border-radius:10px; padding:12px 16px; margin-top:16px; display:grid; grid-template-columns: repeat(3, 1fr); text-align:center; gap:10px;">
+											<div>
+												<div style="font-size:11px; color:var(--text-light); text-transform:uppercase;">Actuator Position</div>
+												<div style="font-size:16px; font-weight:700; color:#fff; font-family:monospace;" id="simActualPos">1000 nm</div>
+											</div>
+											<div>
+												<div style="font-size:11px; color:var(--text-light); text-transform:uppercase;">Tracking Error</div>
+												<div style="font-size:16px; font-weight:700; color:#4cd498; font-family:monospace;" id="simError">0.0 nm (0.00%)</div>
+											</div>
+											<div>
+												<div style="font-size:11px; color:var(--text-light); text-transform:uppercase;">Fringe Count ($m$)</div>
+												<div style="font-size:16px; font-weight:700; color:#a09bff; font-family:monospace;" id="simFringes">3.76 &lambda;/2</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Video Demonstration Section -->
+				<div class="row mt-40">
+					<div class="col-lg-12">
+						<h3 class="section_subtitle">Experimental Video Demonstration</h3>
+						<p style="color:var(--text-mid); font-size:14.5px; margin-bottom:20px;">
+							The video below provides a complete experimental demonstration of the custom <strong>Michelson Interferometer</strong> setup, green laser fringe shifts under piezoelectric diaphragm excitation, analog signal conditioning, and real-time closed-loop position tracking using the custom Java GUI software:
+						</p>
+						<div class="video-container-styled" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 16px; border: 1.5px solid var(--border); box-shadow: var(--shadow-lg); background: #000; margin-bottom: 24px;">
+							<iframe src="https://www.youtube.com/embed/hCN9duaVT0Q" title="Closed-Loop Piezoelectric Actuator Control & Michelson Interferometer Demonstration" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"></iframe>
+						</div>
+					</div>
+				</div>
+
+				<!-- System Architecture & 4 Engineering Modules -->
+				<div class="row mt-40">
+					<div class="col-lg-12">
+						<h3 class="section_subtitle">System Architecture & Engineering Modules</h3>
+						<p style="color:var(--text-mid); font-size:14.5px;">
+							The system synthesizes optical instrumentation, precision low-noise analog filtering, embedded real-time signal processing, and high-voltage actuation into four tightly coupled engineering domains:
+						</p>
+					</div>
+
+					<!-- Module 1 -->
+					<div class="col-lg-6">
+						<div class="spec-card h-100">
+							<h5><i class="fa fa-eye"></i> 1. Optomechanical Michelson Interferometer</h5>
+							<ul>
+								<li><strong>Vibration-Isolated Base:</strong> Custom-built on an isolated 1/2-inch thick, $40 \times 50\text{ cm}$ magnetic steel breadboard weighted with a dense cedar wooden frame and mounted on a 10 cm vibration-absorbing dampening pad to eliminate acoustic interference.</li>
+								<li><strong>Laser Source:</strong> Industrial-grade 532 nm diode-pumped solid-state (DPSS) green laser (CNI PGL-FS-532). Operates in clean $\text{TEM}_{00}$ spatial mode with low wavelength deviation ($\pm 1\text{ nm}$), critical to preventing phase-computation errors.</li>
+								<li><strong>Kinematic Bases:</strong> Custom mechanical kinematic mounts equipped with fine manual gear-reduction knobs and high-strength ring ferrite magnets (repurposed from magnetron assemblies) for sub-micron optical beam alignment.</li>
+								<li><strong>Target Mirror Assembly:</strong> Front-surface aluminum mirror mounted directly on the center of the piezoelectric diaphragm disc.</li>
+								<li><strong>Interferometric Relation:</strong> Displacements are governed by $d = \frac{m \cdot \lambda}{2}$. Each passing fringe cycle at 532 nm corresponds to exactly <strong>266 nm</strong> of mechanical elongation.</li>
+							</ul>
+						</div>
+					</div>
+
+					<!-- Module 2 -->
+					<div class="col-lg-6">
+						<div class="spec-card h-100">
+							<h5><i class="fa fa-microchip"></i> 2. Mixed-Signal Conditioning & Optical Detection</h5>
+							<ul>
+								<li><strong>Optoelectronic Sensing:</strong> High-sensitivity reflective sensor (CNY70 phototransistor) housed within a blackened anti-reflective optical baffle tube, coupled through shielded coaxial cabling to reject ambient room-light saturation and electromagnetic interference (EMI).</li>
+								<li><strong>High-Impedance Buffer:</strong> Voltage follower buffer configuration prevents loading on the phototransistor collector circuit.</li>
+								<li><strong>Active Low-Pass Sallen-Key Filtering:</strong> Cascaded 2nd-order active low-pass Sallen-Key topology using Texas Instruments TL084 low-noise JFET operational amplifiers.</li>
+								<li><strong>Strict 5.3 Hz Cut-off Frequency:</strong> Tuned precisely to $f_c = 5.3\text{ Hz}$ to thoroughly eliminate power-line hum and high-frequency optical noise while preserving slow, low-velocity fringe transitions without introducing phase attenuation.</li>
+							</ul>
+						</div>
+					</div>
+
+					<!-- Module 3 -->
+					<div class="col-lg-6 mt-4">
+						<div class="spec-card h-100">
+							<h5><i class="fa fa-cogs"></i> 3. Dual-MCU Embedded Processing & High-Voltage Actuation</h5>
+							<ul>
+								<li><strong>Dual-MCU Architecture:</strong>
+									<ul>
+										<li><strong>Digital Signal Controller (dsPIC30F4013 @ 80 MHz):</strong> Executes time-critical DSP operations: continuous 12-bit ADC digitization, real-time dynamic fringe normalization, inverse trigonometric phase decoding, PI error computation, and 16-bit PWM generation.</li>
+										<li><strong>Communications Bridge (PIC18F2550 @ 48 MHz):</strong> Full-speed USB-CDC virtual COM port stack bridging 115,200 baud UART frames between the dsPIC controller and the host workstation.</li>
+									</ul>
+								</li>
+								<li><strong>High-Voltage Bi-directional Driver:</strong>
+									<ul>
+										<li>16-bit PWM smoothed by an active low-pass reconstruction filter.</li>
+										<li>Differential operational amplifier stage yielding an output range from <strong>-18.5 V to +18.5 V</strong> (nominal operating window: -17 V to +17 V with ~11.2 mV step resolution) powered from standard &plusmn;12 V DC laboratory rails.</li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+					</div>
+
+					<!-- Module 4 -->
+					<div class="col-lg-6 mt-4">
+						<div class="spec-card h-100">
+							<h5><i class="fa fa-calculator"></i> 4. Mathematical Signal Transformation & Phase Unwrapping</h5>
+							<ul>
+								<li><strong>Sub-Fringe Nanometer Extraction:</strong> Extracting sub-wavelength linear displacement from the raw sinusoidal optical intensity profile requires a 3-step mathematical transformation:</li>
+								<li><strong>Step 1: Dynamic Offset & Peak Extraction:</strong>
+									$$V_{\text{offset}} = V_{\min} + \frac{V_{\max} - V_{\min}}{2}$$
+								</li>
+								<li><strong>Step 2: Voltage Normalization to $[-1, 1]$:</strong>
+									$$V_{\text{norm}} = \frac{V_{\text{sig}} - V_{\text{offset}}}{(V_{\max} - V_{\min})/2}$$
+								</li>
+								<li><strong>Step 3: Linear Nanometer Conversion:</strong> Continuous quadrant tracking using the $\arcsin(V_{\text{norm}})$ inverse function, phase unwrapping across quadrant transitions, and laser wavelength scaling ($\frac{532\text{ nm}}{2}$) to yield a digital display resolution of <strong>1 nm</strong>.</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<!-- Second Image: Software GUI & Schematics Dashboard -->
+				<div class="row mt-40">
+					<div class="col-lg-12">
+						<div class="img-container-styled">
+							<img src="img/projects/piezoelectric_02.jpg"
+								alt="D-PI CTRL SYSTEM Real-time NetBeans Java GUI and DSP Control Flow Diagram">
+							<div class="img-caption">
+								<i class="fa fa-desktop"></i> <strong>Host Software & Control Architecture Dashboard:</strong> NetBeans Java Swing GUI (D-PI CTRL SYSTEM) displaying real-time dual-axis optical waveforms, dsPIC30F4013 & PIC18F2550 pinouts, TL084 PWM conditioning amplifier schematic, CNY70 5.3 Hz LPF sensor circuit, closed-loop step response ($K_p = 0.0003, K_i = 0.0030, \text{SP} = 1500\text{ nm}$), and experimental hysteresis/drift elimination plots achieving $R^2 = 0.99999773$.
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Control Implementation & Host Software -->
+				<div class="row mt-40">
+					<div class="col-lg-7">
+						<h3 class="section_subtitle">Closed-Loop Control Implementation & Host Software</h3>
+						<div class="spec-card mb-4">
+							<h5><i class="fa fa-sliders"></i> Digital PI Controller with Anti-Windup</h5>
+							<p>
+								The closed-loop tracking error is computed at a strictly deterministic sampling rate inside the dsPIC30F4013 execution loop:
+							</p>
+							$$e(k) = r(k) - y(k)$$
+							<p class="mt-2">
+								The control action incorporates a proportional correction and an accumulated integral sum:
+							</p>
+							$$u(k) = K_p \cdot e(k) + K_i \sum_{j=0}^{k} e(j)$$
+							<ul>
+								<li><strong>Anti-Windup Clamping:</strong> Prevents integrator windup when actuator drive voltage nears saturation rails ($\pm 17\text{ V}$).</li>
+								<li><strong>Empirical Gain Scheduling:</strong> Tuned at $K_p = 0.001, K_i = 0.003$ for sub-micron increments and proportionally scaled for multi-micron travels to prevent ringing and avoid exciting the mechanical resonance of the piezo disc.</li>
+							</ul>
+						</div>
+
+						<div class="spec-card">
+							<h5><i class="fa fa-code"></i> NetBeans Java Multi-Threaded GUI</h5>
+							<ul>
+								<li>Developed in Java (NetBeans IDE) utilizing Swing, JFreeChart, and serial communication libraries (RXTX / jSerialComm).</li>
+								<li>Separate high-priority worker thread for 115,200 baud USB-CDC serial parsing to guarantee zero dropped packets during fast transients.</li>
+								<li>Real-time dynamic gain injection ($K_p, K_i$) without restarting MCU firmware.</li>
+								<li>Interactive setpoint management with visual dual-axis streaming of optical fringe voltage vs. actual reconstructed nanometer position.</li>
+								<li>Automated experimental data logging to CSV/TXT files for post-processing in MATLAB.</li>
+							</ul>
+						</div>
+					</div>
+
+					<!-- Metrological Validation AFM Box -->
+					<div class="col-lg-5">
+						<h3 class="section_subtitle">Metrological Validation (AFM)</h3>
+						<div class="spec-card" style="border-left: 4px solid #4cd498;">
+							<h5 style="color:#4cd498;"><i class="fa fa-check-circle"></i> AFM Cross-Validation Benchmark</h5>
+							<p>
+								To independently verify optical displacement veracity, the custom interferometric stage was coupled directly to an industrial <strong>Asylum Research MFP-3D-BIO Atomic Force Microscope</strong> at the Microscopy Laboratory of <strong>Universidad de los Andes</strong> (Bogotá, Colombia).
+							</p>
+							<div style="background:var(--bg-card); border:1px solid var(--border); border-radius:8px; padding:14px; margin:14px 0;">
+								<div style="font-size:12px; color:var(--text-light); text-transform:uppercase; margin-bottom:4px;">Experimental AFM Displacement</div>
+								<div style="font-size:18px; font-weight:700; color:#fff;">10.0000 &mu;m</div>
+								<hr style="border-color:var(--border); margin:8px 0;">
+								<div style="font-size:12px; color:var(--text-light); text-transform:uppercase; margin-bottom:4px;">Interferometer Measured Displacement</div>
+								<div style="font-size:18px; font-weight:700; color:#4cd498;">10.0282 &mu;m (37.7 fringes)</div>
+								<hr style="border-color:var(--border); margin:8px 0;">
+								<div style="font-size:12px; color:var(--text-light); text-transform:uppercase; margin-bottom:4px;">Relative Optical Metrology Error</div>
+								<div style="font-size:20px; font-weight:800; color:#a09bff;">0.282%</div>
+							</div>
+							<p style="font-size:13px; color:var(--text-mid); margin-bottom:0;">
+								This cross-validation proved that the custom low-cost optomechanical setup delivered measurement fidelity rivaling commercial nanometrology equipment.
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- Quantitative Benchmark Results Table -->
+				<div class="row mt-40">
+					<div class="col-lg-12">
+						<h3 class="section_subtitle">Quantitative Closed-Loop Metrology Benchmarks</h3>
+						<p style="color:var(--text-mid); font-size:14.5px;">
+							The table below summarizes the experimental performance comparing open-loop voltage actuation (subject to uncompensated hysteresis and creep) against closed-loop digital PI control stabilized by the Michelson interferometer:
+						</p>
+
+						<div class="table-responsive table-responsive-custom">
+							<table class="table table-custom">
+								<thead>
+									<tr>
+										<th>Operational Metric</th>
+										<th class="text-center">Open-Loop (Ascending)</th>
+										<th class="text-center">Open-Loop (Descending)</th>
+										<th class="text-center" style="background:rgba(76, 212, 152, 0.15); color:#4cd498;">Closed-Loop PI Control</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><strong>Average Relative Tracking Error</strong></td>
+										<td class="text-center"><span class="badge-highlight badge-danger-custom">11.22%</span></td>
+										<td class="text-center"><span class="badge-highlight badge-danger-custom">6.78%</span></td>
+										<td class="text-center"><span class="badge-highlight badge-success-custom">0.1299%</span></td>
+									</tr>
+									<tr>
+										<td><strong>Linear Correlation ($R^2$)</strong></td>
+										<td class="text-center">0.9975</td>
+										<td class="text-center">0.9991</td>
+										<td class="text-center"><strong style="color:#4cd498;">0.99999773</strong></td>
+									</tr>
+									<tr>
+										<td><strong>Hysteresis & Drift Effect</strong></td>
+										<td class="text-center">Severe path bifurcation</td>
+										<td class="text-center">Divergent return curve</td>
+										<td class="text-center"><span class="badge-highlight badge-success-custom">Fully Compensated</span></td>
+									</tr>
+									<tr>
+										<td><strong>Dynamic Actuator Span</strong></td>
+										<td class="text-center">-17 V to +17 V</td>
+										<td class="text-center">-17 V to +17 V</td>
+										<td class="text-center"><strong>&plusmn;1950 nm (3.9 &mu;m span)</strong></td>
+									</tr>
+									<tr>
+										<td><strong>Digital Position Resolution</strong></td>
+										<td class="text-center" style="color:var(--text-light);">Unresolvable / Drifted</td>
+										<td class="text-center" style="color:var(--text-light);">Unresolvable / Drifted</td>
+										<td class="text-center"><strong style="color:#4cd498;">1 nm</strong></td>
+									</tr>
+									<tr>
+										<td><strong>Repeated Ramp Drift (6 cycles)</strong></td>
+										<td class="text-center">34.4 nm / cycle</td>
+										<td class="text-center">48.5 nm / cycle</td>
+										<td class="text-center"><strong style="color:#4cd498;">0.0 nm (Locked to Setpoint)</strong></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+
+				<!-- Technology Stack & Engineering Skills Grid -->
+				<div class="row mt-40">
+					<div class="col-lg-7">
+						<h3 class="section_subtitle">Technology Stack & Engineering Domains</h3>
+						<div class="download_box">
+							<div class="download_item">
+								<div class="download_meta">
+									<div class="download_icon"><i class="fa fa-microchip"></i></div>
+									<div class="download_info">
+										<h5>Embedded Hardware & DSP</h5>
+										<span>Microchip dsPIC30F4013 (80 MHz, 12-bit ADC, 16-bit PWM), PIC18F2550 (USB-CDC), PICkit 2 Programmer</span>
+									</div>
+								</div>
+							</div>
+							<div class="download_item">
+								<div class="download_meta">
+									<div class="download_icon"><i class="fa fa-sliders"></i></div>
+									<div class="download_info">
+										<h5>Control Systems & Algorithms</h5>
+										<span>Digital PI Controller, Integrator Anti-Windup, Dynamic Gain Scaling, Open/Closed-Loop System Identification</span>
+									</div>
+								</div>
+							</div>
+							<div class="download_item">
+								<div class="download_meta">
+									<div class="download_icon"><i class="fa fa-bolt"></i></div>
+									<div class="download_info">
+										<h5>Analog & Mixed-Signal Circuit Design</h5>
+										<span>TL084 JFET Op-Amps, 2nd-order Sallen-Key 5.3 Hz LPF, &plusmn;18.5V differential driver, CNY70 optical transimpedance</span>
+									</div>
+								</div>
+							</div>
+							<div class="download_item">
+								<div class="download_meta">
+									<div class="download_icon"><i class="fa fa-code"></i></div>
+									<div class="download_info">
+										<h5>Software Engineering & NetBeans</h5>
+										<span>C (CCS C Compiler), Java Swing GUI (NetBeans IDE, JFreeChart, RXTX/jSerialComm), MATLAB data analysis</span>
+									</div>
+								</div>
+							</div>
+							<div class="download_item">
+								<div class="download_meta">
+									<div class="download_icon"><i class="fa fa-crosshairs"></i></div>
+									<div class="download_info">
+										<h5>Applied Metrology & Laser Optics</h5>
+										<span>Michelson Interferometer design, 532 nm DPSS green laser, phase unwrapping, Asylum Research AFM operation</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-lg-5">
+						<h3 class="section_subtitle">Documentation & Links</h3>
+						<div class="download_box">
+							<!-- YouTube Video Link -->
+							<div class="download_item">
+								<div class="download_meta">
+									<div class="download_icon"><i class="fa fa-youtube-play" style="color:#ff4444;"></i></div>
+									<div class="download_info">
+										<h5>Demonstration Video</h5>
+										<span>YouTube • System Setup & Live Demo</span>
+									</div>
+								</div>
+								<a href="https://www.youtube.com/watch?v=hCN9duaVT0Q" target="_blank" class="primary_btn"
+									style="padding: 0 14px; line-height: 32px; font-size: 11.5px;"><span>Watch</span></a>
+							</div>
+
+							<!-- Academic Link -->
+							<div class="download_item">
+								<div class="download_meta">
+									<div class="download_icon"><i class="fa fa-graduation-cap"></i></div>
+									<div class="download_info">
+										<h5>Academic Timeline Entry</h5>
+										<span>B.Sc. Electronics Engineering • 2011–2012</span>
+									</div>
+								</div>
+								<a href="timeline.html" class="primary_btn"
+									style="padding: 0 14px; line-height: 32px; font-size: 11.5px;"><span>View</span></a>
+							</div>
+
+							<!-- Publications Link -->
+							<div class="download_item">
+								<div class="download_meta">
+									<div class="download_icon"><i class="fa fa-book"></i></div>
+									<div class="download_info">
+										<h5>Associated Publication</h5>
+										<span>Peer-Reviewed Experimental Paper</span>
+									</div>
+								</div>
+								<a href="publications.html" class="primary_btn"
+									style="padding: 0 14px; line-height: 32px; font-size: 11.5px;"><span>Explore</span></a>
+							</div>
+
+							<!-- Institution Link -->
+							<div class="download_item">
+								<div class="download_meta">
+									<div class="download_icon"><i class="fa fa-university"></i></div>
+									<div class="download_info">
+										<h5>Universidad de Nariño</h5>
+										<span>Official Academic Portal</span>
+									</div>
+								</div>
+								<a href="https://www.udenar.edu.co" target="_blank" class="primary_btn"
+									style="padding: 0 14px; line-height: 32px; font-size: 11.5px;"><span>Visit</span></a>
+							</div>
+
+							<!-- Metrology Lab UniAndes Link -->
+							<div class="download_item">
+								<div class="download_meta">
+									<div class="download_icon"><i class="fa fa-flask"></i></div>
+									<div class="download_info">
+										<h5>UniAndes Microscopy Lab</h5>
+										<span>Metrological AFM Facility (Bogotá)</span>
+									</div>
+								</div>
+								<a href="https://uniandes.edu.co" target="_blank" class="primary_btn"
+									style="padding: 0 14px; line-height: 32px; font-size: 11.5px;"><span>Visit</span></a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Navigation Back Button -->
+				<div class="row mt-50">
+					<div class="col-lg-12 text-center">
+						<a href="projects.html" class="primary_btn"><span><i class="fa fa-arrow-left"></i> Back to All Projects</span></a>
+						<a href="publications.html" class="primary_btn ml-3" style="background:var(--bg-soft); border:1.5px solid var(--accent); color:#fff;"><span><i class="fa fa-book"></i> Publications</span></a>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+	<!--================ End Project Details Area =================-->
+
+	<!--================ Footer Area =================-->
+	<footer class="footer_area">
+		<div class="container">
+			<div class="row footer_bottom justify-content-center">
+				<p class="col-lg-8 col-sm-12 footer-text">
+					Copyright &copy;
+					<script>document.write(new Date().getFullYear());</script> All rights reserved | Template by <a
+						href="https://colorlib.com" target="_blank">Colorlib</a>
+				</p>
+			</div>
+		</div>
+	</footer>
+	<!--================ End Footer Area =================-->
+
+	<!-- Optional JavaScript -->
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/popper.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/stellar.js"></script>
+	<script src="js/jquery.magnific-popup.min.js"></script>
+	<script src="vendors/nice-select/js/jquery.nice-select.min.js"></script>
+	<script src="vendors/owl-carousel/owl.carousel.min.js"></script>
+	<script src="js/theme.js"></script>
+	<script src="js/header.js"></script>
+	<script>renderHeader('projects');</script>
+
+	<!-- Interactive Fringe & Control Simulator Script -->
+	<script>
+		(function() {
+			var canvas = document.getElementById('fringeCanvas');
+			if (!canvas) return;
+			var ctx = canvas.getContext('2d');
+			var width = canvas.width;
+			var height = canvas.height;
+			var centerX = width / 2;
+			var centerY = height / 2;
+
+			var slider = document.getElementById('posSlider');
+			var sliderValDisplay = document.getElementById('sliderValDisplay');
+			var simActualPos = document.getElementById('simActualPos');
+			var simError = document.getElementById('simError');
+			var simFringes = document.getElementById('simFringes');
+			var modeDisplay = document.getElementById('modeDisplay');
+			var btnOpen = document.getElementById('btnOpenLoop');
+			var btnClosed = document.getElementById('btnClosedLoop');
+
+			var currentMode = 'closed'; // 'open' or 'closed'
+			var targetSetpoint = 1000;  // nm
+			var wavelength = 532;       // nm (DPSS laser)
+			var fringeSpacing = wavelength / 2; // 266 nm per fringe cycle
+
+			// Draw circular Michelson green interference rings
+			function drawFringes(phaseShift) {
+				var imgData = ctx.createImageData(width, height);
+				var data = imgData.data;
+
+				var k = 0.085; // Ring density factor
+				for (var y = 0; y < height; y++) {
+					var dy = y - centerY;
+					for (var x = 0; x < width; x++) {
+						var dx = x - centerX;
+						var r = Math.sqrt(dx * dx + dy * dy);
+
+						// Circular interference intensity profile: I = I0 * (1 + cos(k*r^2 + phase))
+						var intensity = 0.5 * (1 + Math.cos(k * (r * 0.45) - phaseShift));
+						
+						// Vignette / circular aperture attenuation
+						var vignette = Math.max(0, 1 - (r / (width * 0.49)));
+						vignette = Math.pow(vignette, 0.6);
+
+						var green = Math.floor(intensity * 255 * vignette);
+						var red = Math.floor(green * 0.12);
+						var blue = Math.floor(green * 0.25);
+
+						var idx = (y * width + x) * 4;
+						data[idx]     = red;
+						data[idx + 1] = green;
+						data[idx + 2] = blue;
+						data[idx + 3] = 255;
+					}
+				}
+				ctx.putImageData(imgData, 0, 0);
+
+				// Crosshair reticle in subtle green
+				ctx.strokeStyle = 'rgba(76, 212, 152, 0.35)';
+				ctx.lineWidth = 1;
+				ctx.setLineDash([4, 4]);
+				ctx.beginPath();
+				ctx.moveTo(centerX - 40, centerY);
+				ctx.lineTo(centerX + 40, centerY);
+				ctx.moveTo(centerX, centerY - 40);
+				ctx.lineTo(centerX, centerY + 40);
+				ctx.stroke();
+				ctx.setLineDash([]);
+			}
+
+			function updateSimulation() {
+				targetSetpoint = parseFloat(slider.value);
+				sliderValDisplay.textContent = targetSetpoint + ' nm';
+
+				var actualPos = targetSetpoint;
+				var error = 0;
+
+				if (currentMode === 'open') {
+					// Open loop exhibits ~11.2% hysteresis deviation + baseline drift
+					var hysteresisDev = (targetSetpoint / 1950) * 1950 * 0.1122 * Math.sin((targetSetpoint / 1950) * Math.PI * 0.85);
+					actualPos = Math.round(targetSetpoint - hysteresisDev);
+					error = Math.abs(targetSetpoint - actualPos);
+					var pct = ((error / (targetSetpoint || 1)) * 100).toFixed(2);
+					simError.textContent = error + ' nm (' + pct + '%)';
+					simError.style.color = '#ef5350';
+				} else {
+					// Closed loop locks to within 1 nm
+					actualPos = targetSetpoint;
+					error = (actualPos > 0) ? (Math.random() > 0.5 ? 1 : 0) : 0;
+					simError.textContent = error + ' nm (0.13%)';
+					simError.style.color = '#4cd498';
+				}
+
+				simActualPos.textContent = actualPos + ' nm';
+				var fringes = (actualPos / fringeSpacing).toFixed(2);
+				simFringes.textContent = fringes + ' λ/2 (' + (fringes * 266).toFixed(0) + ' nm)';
+
+				// Phase shift in radians for actual displacement
+				var phaseShift = (actualPos / fringeSpacing) * 2 * Math.PI;
+				drawFringes(phaseShift);
+			}
+
+			window.setSimMode = function(mode) {
+				currentMode = mode;
+				if (mode === 'open') {
+					btnOpen.classList.add('active');
+					btnClosed.classList.remove('active');
+					modeDisplay.textContent = 'Open-Loop (Hysteresis & Drift Active)';
+					modeDisplay.style.color = '#ef5350';
+				} else {
+					btnClosed.classList.add('active');
+					btnOpen.classList.remove('active');
+					modeDisplay.textContent = 'Closed-Loop PI (Fully Compensated)';
+					modeDisplay.style.color = '#4cd498';
+				}
+				updateSimulation();
+			};
+
+			slider.addEventListener('input', updateSimulation);
+			updateSimulation();
+		})();
+	</script>
+</body>
+
+</html>
