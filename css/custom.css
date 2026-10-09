@@ -635,6 +635,102 @@
   box-shadow: 0 6px 18px rgba(118, 109, 255, 0.5);
 }
 
+/* ============================================================
+   HOME PAGE – Academic & Research Affiliations Section
+   ============================================================ */
+.affiliations-section {
+  padding: 80px 0;
+  background: var(--bg-soft);
+  position: relative;
+}
+
+.affiliation-subtitle {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--accent-light);
+  margin-bottom: 15px;
+}
+
+.affiliation-card {
+  background: var(--bg-card);
+  border: 1.5px solid var(--border);
+  border-radius: 16px;
+  padding: 22px 16px;
+  text-align: center;
+  transition: all var(--transition);
+  height: 100%;
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: var(--shadow-sm);
+}
+
+.affiliation-card:hover {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-5px);
+  background: rgba(29, 29, 58, 0.95);
+}
+
+.affiliation-img-wrapper {
+  width: 100%;
+  max-width: 130px;
+  height: 85px;
+  background: #ffffff;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 12px;
+  margin: 0 auto 14px auto;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  transition: transform var(--transition);
+}
+
+.affiliation-card:hover .affiliation-img-wrapper {
+  transform: scale(1.05);
+}
+
+.affiliation-img-wrapper img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.affiliation-card h5 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 4px;
+}
+
+.lab-desc {
+  font-size: 11.5px;
+  color: var(--text-light) !important;
+  margin-bottom: 6px !important;
+  line-height: 1.35;
+}
+
+.affiliation-role {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent-light);
+  margin-bottom: 4px;
+  display: block;
+}
+
+.affiliation-country {
+  font-size: 11px;
+  color: var(--text-mid);
+  opacity: 0.85;
+}
+
 /* CTA Cards */
 .cta-cards-section {
   padding: 70px 0;
@@ -989,3 +1085,215 @@ p {
   background: var(--accent) !important;
   color: #fff !important;
 }
+
+/* ============================================================
+   HERO BANNER - RIGHT IMAGE RESPONSIVE FIT & CARD STYLING
+   ============================================================ */
+.home_banner_area {
+  overflow: hidden;
+  padding: 120px 0 80px 0;
+}
+
+.home_banner_area .banner_inner .home_right_img {
+  padding-top: 0 !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 100%;
+  text-align: center;
+}
+
+.home_banner_area .banner_inner .home_right_img img {
+  width: 100% !important;
+  max-width: 440px !important;
+  height: auto !important;
+  max-height: 460px !important;
+  object-fit: cover;
+  border-radius: 24px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(118, 109, 255, 0.3);
+  transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+  display: block;
+  margin: 0 auto;
+}
+
+.home_banner_area .banner_inner .home_right_img img:hover {
+  transform: translateY(-5px) scale(1.01);
+  box-shadow: 0 25px 60px rgba(118, 109, 255, 0.3), 0 0 0 1px rgba(118, 109, 255, 0.6);
+  border-color: var(--accent);
+}
+
+@media (max-width: 991px) {
+  .home_banner_area {
+    padding: 100px 0 60px 0;
+  }
+  .home_banner_area .banner_inner .home_right_img {
+    display: flex !important;
+    margin-top: 40px;
+    margin-bottom: 20px;
+  }
+  .home_banner_area .banner_inner .home_right_img img {
+    max-width: 360px !important;
+    max-height: 380px !important;
+  }
+}
+
+@media (max-width: 575px) {
+  .home_banner_area {
+    padding: 80px 0 40px 0;
+  }
+  .home_banner_area .banner_inner .home_right_img img {
+    max-width: 290px !important;
+    max-height: 300px !important;
+  }
+}
+
+/* ============================================================
+   ABOUT ME SECTION - IMAGE AUTO FIT & RESPONSIVE STYLING
+   ============================================================ */
+.about_area .about_img {
+  position: relative;
+  right: 0 !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 100%;
+  text-align: center;
+}
+
+.about_area .about_img img {
+  width: 100% !important;
+  max-width: 440px !important;
+  height: auto !important;
+  max-height: 480px !important;
+  object-fit: contain;
+  filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.45));
+  transition: transform 0.4s ease, filter 0.4s ease;
+  display: block;
+  margin: 0 auto;
+}
+
+.about_area .about_img img:hover {
+  transform: translateY(-5px) scale(1.02);
+  filter: drop-shadow(0 20px 45px rgba(118, 109, 255, 0.35));
+}
+
+@media (max-width: 991px) {
+  .about_area .about_img {
+    display: flex !important;
+    margin-bottom: 35px;
+  }
+  .about_area .about_img img {
+    max-width: 340px !important;
+    max-height: 380px !important;
+  }
+}
+
+@media (max-width: 575px) {
+  .about_area .about_img img {
+    max-width: 280px !important;
+    max-height: 320px !important;
+  }
+}
+
+/* ============================================================
+   GLOBAL BANNER & SECTION SPACING NORMALIZATION
+   Fixes excessive whitespace before and after titles across all pages
+   ============================================================ */
+.banner_area {
+  position: relative !important;
+  min-height: auto !important;
+  background: radial-gradient(ellipse at 50% 40%, rgba(118, 109, 255, 0.08) 0%, rgba(15, 14, 23, 0) 80%),
+    linear-gradient(180deg, rgba(118, 109, 255, 0.04) 0%, transparent 100%) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+.banner_area .banner_inner {
+  min-height: auto !important;
+  width: 100% !important;
+  padding: 110px 0 32px 0 !important;
+  background: none !important;
+}
+
+.banner_area .banner_inner .banner_content {
+  margin-top: 0 !important;
+  margin-left: 0 !important;
+  text-align: center !important;
+}
+
+.banner_area .banner_inner .banner_content h2 {
+  font-size: 36px !important;
+  line-height: 1.25 !important;
+  font-weight: 700 !important;
+  color: #ffffff !important;
+  margin-bottom: 8px !important;
+  text-transform: capitalize !important;
+}
+
+.banner_area .banner_inner .banner_content .page_link {
+  margin-top: 6px;
+}
+
+.banner_area .banner_inner .banner_content .page_link a {
+  color: var(--text-mid) !important;
+  font-size: 13.5px !important;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.banner_area .banner_inner .banner_content .page_link a:hover {
+  color: var(--accent-light) !important;
+}
+
+.banner_area .banner_inner .banner_content .page_link a:last-child {
+  color: var(--accent) !important;
+}
+
+/* Global section gap normalization */
+.section_gap {
+  padding: 60px 0 !important;
+}
+
+.section_gap_top {
+  padding-top: 60px !important;
+}
+
+.section_gap_bottom {
+  padding-bottom: 60px !important;
+}
+
+.section_gap_top_100 {
+  padding-top: 60px !important;
+}
+
+@media (max-width: 991px) {
+  .banner_area .banner_inner {
+    padding: 95px 0 25px 0 !important;
+  }
+  .banner_area .banner_inner .banner_content h2 {
+    font-size: 28px !important;
+  }
+  .section_gap {
+    padding: 45px 0 !important;
+  }
+  .section_gap_top {
+    padding-top: 45px !important;
+  }
+  .section_gap_bottom {
+    padding-bottom: 45px !important;
+  }
+}
+
+/* ============================================================
+   TWEMOJI FLAG RENDERING (Windows & cross-platform support)
+   ============================================================ */
+img.emoji {
+  height: 1.22em !important;
+  width: auto !important;
+  vertical-align: -0.15em !important;
+  display: inline-block !important;
+  margin: 0 0.18em 0 0.05em !important;
+}
+

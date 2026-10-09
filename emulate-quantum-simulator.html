@@ -1,0 +1,1267 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description"
+		content="e-mulate: Quantum Heterostructure Simulator & Evolutionary Bandgap Engineering Platform - Developed by Dr. Jose Ruiz, LabSem PUC-Rio.">
+	<link rel="icon" href="img/favicon.png" type="image/png">
+	<title>e-mulate: Quantum Simulator & Bandgap Engineering | Jose Ruiz</title>
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="vendors/linericon/style.css">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="vendors/owl-carousel/owl.carousel.min.css">
+	<link rel="stylesheet" href="css/magnific-popup.css">
+	<link rel="stylesheet" href="vendors/nice-select/css/nice-select.css">
+	<!-- Main & Custom dark mode css -->
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/custom.css">
+	<script src="https://unpkg.com/twemoji@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
+
+	<!-- KaTeX for crisp LaTeX formula rendering -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+		onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
+
+	<style>
+		.project_detail_card {
+			background: var(--bg-card);
+			border: 1px solid var(--border);
+			border-radius: 16px;
+			padding: 30px;
+			margin-bottom: 30px;
+			box-shadow: var(--shadow-md);
+		}
+
+		.project_info_list {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+		}
+
+		.project_info_list li {
+			padding: 11px 0;
+			border-bottom: 1px solid var(--border);
+			font-size: 13.5px;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		.project_info_list li:last-child {
+			border-bottom: none;
+		}
+
+		.project_info_list span.label {
+			font-weight: 700;
+			color: #fff;
+			text-transform: uppercase;
+			font-size: 11.5px;
+			letter-spacing: 0.05em;
+		}
+
+		.project_info_list span.value {
+			color: var(--text-mid);
+			text-align: right;
+		}
+
+		.section_subtitle {
+			font-size: 22px;
+			font-weight: 700;
+			color: #fff;
+			margin-bottom: 20px;
+			position: relative;
+			padding-bottom: 8px;
+		}
+
+		.section_subtitle::after {
+			content: '';
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			width: 50px;
+			height: 2px;
+			background: var(--accent);
+		}
+
+		.tech-badge {
+			display: inline-block;
+			background: rgba(118, 109, 255, 0.12);
+			border: 1px solid rgba(118, 109, 255, 0.3);
+			color: var(--accent-light);
+			padding: 4px 11px;
+			border-radius: 20px;
+			font-size: 11.5px;
+			font-weight: 600;
+			margin-right: 5px;
+			margin-bottom: 8px;
+			transition: all var(--transition);
+		}
+
+		.tech-badge:hover {
+			background: rgba(118, 109, 255, 0.25);
+			border-color: var(--accent-light);
+			color: #fff;
+		}
+
+		.spec-card {
+			background: var(--bg-soft);
+			border: 1px solid var(--border);
+			border-radius: 12px;
+			padding: 22px;
+			margin-bottom: 20px;
+			transition: all var(--transition);
+		}
+
+		.spec-card:hover {
+			border-color: var(--accent-light);
+			box-shadow: var(--shadow-sm);
+			transform: translateY(-2px);
+		}
+
+		.spec-card h5 {
+			font-size: 16px;
+			font-weight: 700;
+			color: #fff;
+			margin-bottom: 10px;
+			display: flex;
+			align-items: center;
+			gap: 10px;
+		}
+
+		.spec-card h5 i {
+			color: var(--accent-light);
+		}
+
+		.equation-box {
+			background: rgba(15, 23, 42, 0.6);
+			border-left: 3px solid var(--accent);
+			border-radius: 8px;
+			padding: 16px 20px;
+			margin: 16px 0;
+			overflow-x: auto;
+		}
+
+		.metric-badge {
+			display: inline-block;
+			background: rgba(34, 197, 94, 0.12);
+			border: 1px solid rgba(34, 197, 94, 0.35);
+			color: #4ade80;
+			padding: 4px 10px;
+			border-radius: 6px;
+			font-weight: 600;
+			font-size: 13px;
+		}
+
+		.img-container-styled {
+			position: relative;
+			border-radius: 16px;
+			overflow: hidden;
+			border: 1px solid var(--border);
+			box-shadow: var(--shadow-lg);
+			margin-bottom: 24px;
+		}
+
+		.img-container-styled img {
+			width: 100%;
+			height: auto;
+			display: block;
+			transition: transform 0.5s ease;
+		}
+
+		.img-container-styled:hover img {
+			transform: scale(1.02);
+		}
+
+		.img-caption {
+			background: rgba(15, 14, 23, 0.88);
+			backdrop-filter: blur(8px);
+			padding: 14px 20px;
+			font-size: 13px;
+			color: var(--text-mid);
+			border-top: 1px solid var(--border);
+			text-align: left;
+			line-height: 1.6;
+		}
+
+		/* ============================================================
+		   MODERN PIPELINE VISUAL FLOW (REPLACES ASCII BOX)
+		   ============================================================ */
+		.pipeline-flow {
+			display: flex;
+			flex-direction: column;
+			gap: 14px;
+			margin: 20px 0;
+		}
+
+		.pipeline-stage {
+			background: var(--bg-soft);
+			border: 1px solid var(--border);
+			border-radius: 14px;
+			padding: 22px 24px;
+			position: relative;
+			transition: all var(--transition);
+		}
+
+		.pipeline-stage:hover {
+			border-color: var(--accent-light);
+			box-shadow: 0 8px 24px rgba(118, 109, 255, 0.12);
+		}
+
+		.pipeline-stage-header {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			margin-bottom: 12px;
+			flex-wrap: wrap;
+			gap: 10px;
+		}
+
+		.pipeline-stage-title {
+			font-size: 16px;
+			font-weight: 700;
+			color: #fff;
+			display: flex;
+			align-items: center;
+			gap: 10px;
+			margin: 0;
+		}
+
+		.stage-num {
+			width: 28px;
+			height: 28px;
+			border-radius: 50%;
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 13px;
+			font-weight: 700;
+		}
+
+		.pipeline-stage-badge {
+			font-size: 11px;
+			font-weight: 700;
+			text-transform: uppercase;
+			letter-spacing: 0.05em;
+			padding: 3px 10px;
+			border-radius: 20px;
+		}
+
+		.pipeline-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+			gap: 12px;
+			margin-top: 10px;
+		}
+
+		.pipeline-subcard {
+			background: rgba(15, 23, 42, 0.55);
+			border: 1px solid rgba(255, 255, 255, 0.08);
+			border-radius: 10px;
+			padding: 14px 16px;
+			transition: all .2s;
+		}
+
+		.pipeline-subcard:hover {
+			border-color: rgba(255, 255, 255, 0.2);
+			background: rgba(15, 23, 42, 0.8);
+		}
+
+		.pipeline-subcard h6 {
+			color: #fff;
+			font-size: 13.5px;
+			font-weight: 600;
+			margin-bottom: 6px;
+			display: flex;
+			align-items: center;
+			gap: 8px;
+		}
+
+		.pipeline-subcard p {
+			font-size: 12.5px;
+			color: var(--text-mid);
+			margin: 0;
+			line-height: 1.5;
+		}
+
+		.pipeline-arrow-down {
+			text-align: center;
+			color: var(--accent);
+			font-size: 20px;
+			margin: -6px 0;
+			opacity: 0.8;
+		}
+
+		/* ============================================================
+		   REFERENCES & CITATIONS SECTION
+		   ============================================================ */
+		.ref-category-title {
+			font-size: 17px;
+			font-weight: 700;
+			color: #fff;
+			margin: 28px 0 16px 0;
+			display: flex;
+			align-items: center;
+			gap: 10px;
+			border-bottom: 1px solid var(--border);
+			padding-bottom: 8px;
+		}
+
+		.reference-item {
+			background: var(--bg-soft);
+			border: 1px solid var(--border);
+			border-radius: 12px;
+			padding: 18px 22px;
+			margin-bottom: 14px;
+			transition: all var(--transition);
+		}
+
+		.reference-item:hover {
+			border-color: var(--accent-light);
+			box-shadow: var(--shadow-sm);
+			transform: translateX(3px);
+		}
+
+		.reference-item .ref-title {
+			color: #fff;
+			font-size: 14.5px;
+			font-weight: 700;
+			line-height: 1.5;
+			margin-bottom: 6px;
+		}
+
+		.reference-item .ref-authors {
+			color: var(--text-mid);
+			font-size: 13px;
+			margin-bottom: 5px;
+			line-height: 1.5;
+		}
+
+		.reference-item .ref-journal {
+			color: var(--text-light);
+			font-size: 12.5px;
+			font-style: italic;
+			margin-bottom: 10px;
+		}
+
+		.ref-link-btn {
+			display: inline-flex;
+			align-items: center;
+			gap: 6px;
+			font-size: 11.5px;
+			font-weight: 600;
+			color: var(--accent-light);
+			background: rgba(118, 109, 255, 0.12);
+			border: 1px solid rgba(118, 109, 255, 0.3);
+			padding: 4px 12px;
+			border-radius: 6px;
+			transition: all .2s;
+			text-decoration: none;
+		}
+
+		.ref-link-btn:hover {
+			background: var(--accent);
+			color: #fff;
+			border-color: var(--accent);
+			text-decoration: none;
+		}
+
+		.ref-tag {
+			display: inline-block;
+			font-size: 10.5px;
+			font-weight: 700;
+			text-transform: uppercase;
+			letter-spacing: 0.04em;
+			padding: 2px 8px;
+			border-radius: 4px;
+			margin-right: 6px;
+		}
+	</style>
+</head>
+
+<body>
+	<!-- Shared header -->
+	<div id="header-placeholder"></div>
+
+	<!--================ Start Banner Area =================-->
+	<section class="banner_area">
+		<div class="banner_inner d-flex align-items-center">
+			<div class="container">
+				<div class="banner_content text-center">
+					<h2>e-mulate: Quantum Heterostructure Simulator</h2>
+					<div class="page_link">
+						<a href="index.html">Home</a>
+						<a href="projects.html">Projects</a>
+						<a href="emulate-quantum-simulator.html">e-mulate</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--================ End Banner Area =================-->
+
+	<!--================ Start Project Details Area =================-->
+	<section class="portfolio_details_area section_gap">
+		<div class="container">
+			<div class="portfolio_details_inner">
+
+				<!-- Top Hero Banner: Main Simulator Screenshot & Metadata -->
+				<div class="row">
+					<div class="col-lg-7">
+						<div class="img-container-styled">
+							<img src="img/projects/emulate_01.jpg"
+								alt="e-mulate Scientific GUI: Conduction Band Potential, Wavefunctions, Oscillator Strength, and DEAP Genetic Algorithm Optimization">
+							<div class="img-caption">
+								<i class="fa fa-desktop text-accent"></i> <strong>e-mulate Scientific Dashboard:</strong>
+								Integrated quantum simulation and evolutionary inverse design suite. Visualizes the 1D conduction
+								band potential profile $V(z)$ with localized electronic envelope wavefunctions, intersubband dipole
+								oscillator strengths, absolute spectral photocurrent $I_{PC}$ (Amperes), and real-time DEAP genetic algorithm
+								fitness convergence.
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-5">
+						<div class="project_detail_card">
+							<h4 class="text-uppercase"
+								style="font-size:18px; font-weight:800; border-bottom:2px solid var(--accent); padding-bottom:10px; margin-bottom:18px;">
+								Project Information</h4>
+							<ul class="project_info_list">
+								<li><span class="label">Software Title</span><span class="value"><strong>e-mulate</strong> (v0.4)</span></li>
+								<li><span class="label">Lead Architect</span><span class="value">Dr. Jose Ruiz</span></li>
+								<li><span class="label">Principal Inv.</span><span class="value">Prof. Daniel Penello</span></li>
+								<li><span class="label">Co-Researchers</span><span class="value">Pereira, Torelly</span></li>
+								<li><span class="label">Institution</span><span class="value">LabSem, PUC-Rio / UFRJ</span></li>
+								<li><span class="label">Timeline</span><span class="value">2020 &ndash; 2026</span></li>
+								<li><span class="label">Target Physics</span><span class="value">QWIPs, QCDs & Superlattices</span></li>
+								<li><span class="label">Status</span><span class="value"><span class="badge badge-success" style="padding: 4px 8px;">Active Research Tool</span></span></li>
+								<li><span class="label">License</span><span class="value">Academic / Open Research</span></li>
+								<li><span class="label">Country</span><span class="value">🇧🇷 Brazil</span></li>
+							</ul>
+							<div style="margin-top: 18px;">
+								<span class="tech-badge">Python 3.10+</span>
+								<span class="tech-badge">Fortran 90 Core</span>
+								<span class="tech-badge">PyQt5 GUI</span>
+								<span class="tech-badge">DEAP (Genetic Algorithms)</span>
+								<span class="tech-badge">4th-Order Numerov</span>
+								<span class="tech-badge">Transfer Matrix (TMM)</span>
+								<span class="tech-badge">GaAs / AlGaAs</span>
+								<span class="tech-badge">Matplotlib</span>
+								<span class="tech-badge">OpenMP / Multiprocessing</span>
+								<span class="tech-badge">Pandas / NumPy</span>
+							</div>
+							<div class="mt-4">
+								<a href="https://github.com/LabSem-PUC-Rio/e-mulate" target="_blank" class="primary_btn w-100 text-center" style="display: block;">
+									<span><i class="fa fa-github"></i> View GitHub Repository</span>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Key Performance Metric Pills -->
+				<div class="row mt-4 mb-4">
+					<div class="col-md-3 col-6 mb-3">
+						<div class="spec-card text-center" style="margin-bottom:0;">
+							<span style="font-size: 11px; text-transform: uppercase; color: var(--text-light); display: block; letter-spacing: 0.05em;">Engine Speed</span>
+							<strong style="color: #4ade80; font-size: 20px; display: block; margin: 4px 0;">~3.8 s</strong>
+							<span style="font-size: 11px; color: var(--text-light);">Compiled native Fortran 90 solver</span>
+						</div>
+					</div>
+					<div class="col-md-3 col-6 mb-3">
+						<div class="spec-card text-center" style="margin-bottom:0;">
+							<span style="font-size: 11px; text-transform: uppercase; color: var(--text-light); display: block; letter-spacing: 0.05em;">Design Degrees</span>
+							<strong style="color: var(--accent-light); font-size: 20px; display: block; margin: 4px 0;">7 Parameters</strong>
+							<span style="font-size: 11px; color: var(--text-light);">LLQW, LQW, LQB, MQW, RLQW...</span>
+						</div>
+					</div>
+					<div class="col-md-3 col-6 mb-3">
+						<div class="spec-card text-center" style="margin-bottom:0;">
+							<span style="font-size: 11px; text-transform: uppercase; color: var(--text-light); display: block; letter-spacing: 0.05em;">Peak Photocurrent</span>
+							<strong style="color: #60a5fa; font-size: 20px; display: block; margin: 4px 0;">1.55 &times; 10<sup>-11</sup> A</strong>
+							<span style="font-size: 11px; color: var(--text-light);">At 309.6 meV (&lambda; &approx; 4.01 &mu;m)</span>
+						</div>
+					</div>
+					<div class="col-md-3 col-6 mb-3">
+						<div class="spec-card text-center" style="margin-bottom:0;">
+							<span style="font-size: 11px; text-transform: uppercase; color: var(--text-light); display: block; letter-spacing: 0.05em;">Optimization</span>
+							<strong style="color: #f59e0b; font-size: 20px; display: block; margin: 4px 0;">DEAP Genetic Algo</strong>
+							<span style="font-size: 11px; color: var(--text-light);">Multi-objective bandgap synthesis</span>
+						</div>
+					</div>
+				</div>
+
+				<!-- Main Content Column & Sidebar -->
+				<div class="row">
+					<!-- Main Content -->
+					<div class="col-lg-8">
+						<!-- Executive Overview -->
+						<div class="project_detail_card">
+							<h3 class="section_subtitle">Executive Overview & Scientific Scope</h3>
+							<p style="font-size: 15px; line-height: 1.8; color: var(--text-mid);">
+								<strong>e-mulate</strong> is an integrated computational physics and machine-assisted engineering platform designed to model, simulate, and inversely design quantum semiconductor heterostructures—primarily coupled quantum wells and defect-engineered finite superlattices.
+							</p>
+							<p style="font-size: 15px; line-height: 1.8; color: var(--text-mid);">
+								Developed at the <strong>Semiconductor Laboratory (LabSem)</strong> of PUC-Rio and UFRJ, the platform addresses the demanding solid-state physics of mid- and far-infrared optoelectronic devices, including <strong>Quantum Well Infrared Photodetectors (QWIPs)</strong>, <strong>Quantum Cascade Detectors (QCDs)</strong>, Quantum Cascade Lasers (QCLs), and intermediate-band quantum photovoltaics.
+							</p>
+							<p style="font-size: 15px; line-height: 1.8; color: var(--text-mid);">
+								The system couples rigorous 1D quantum mechanics numerical solvers (<strong>4th-order Numerov</strong> boundary-value algorithm and <strong>Transfer Matrix Method - TMM</strong>) with an ultra-fast compiled <strong>Fortran 90</strong> core. Furthermore, it incorporates bio-inspired <strong>multi-objective Genetic Algorithms (DEAP)</strong> to explore vast structural parameter spaces and autonomously synthesize optimal layer sequences matching targeted optical absorption windows.
+							</p>
+						</div>
+
+						<!-- Core Capabilities Cards -->
+						<h3 class="section_subtitle">Core Capabilities & Functional Highlights</h3>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="spec-card">
+									<h5><i class="fa fa-bolt"></i> Ultra-Fast Fortran Core</h5>
+									<p style="font-size: 13.5px; color: var(--text-mid); margin: 0; line-height: 1.6;">
+										Native compiled Fortran 90 binary (<code>photocurrent_sim_windows.exe</code>) calculates complete superlattices, wavefunctions, dipole oscillator strengths, and absolute photocurrent spectra in <strong>~3 to 5 seconds</strong> per sample.
+									</p>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="spec-card">
+									<h5><i class="fa fa-dna"></i> Evolutionary Bandgap Design</h5>
+									<p style="font-size: 13.5px; color: var(--text-mid); margin: 0; line-height: 1.6;">
+										Multi-objective Genetic Algorithm (GA) powered by DEAP optimizes up to 7 structural parameters simultaneously, synthesizing structures for maximal photocurrent or targeted transition resonances (e.g., $300.0 \pm 20.0\,\text{meV}$).
+									</p>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="spec-card">
+									<h5><i class="fa fa-sliders"></i> Combinatorial Grid Sweeps</h5>
+									<p style="font-size: 13.5px; color: var(--text-mid); margin: 0; line-height: 1.6;">
+										Automated parameter exploration module supporting independent Fixed or Variable stepping per dimension, prior runtime estimation, multi-core CPU parallelization, and safe background thread cancellation.
+									</p>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="spec-card">
+									<h5><i class="fa fa-table"></i> Excel-Style Analytics & Caching</h5>
+									<p style="font-size: 13.5px; color: var(--text-mid); margin: 0; line-height: 1.6;">
+										216+ precomputed simulations cataloged with JSON persistent disk caching (&lt;50 ms loading time), multi-criteria column dropdown filters, and bi-directional interactive scatter cross-filtering.
+									</p>
+								</div>
+							</div>
+						</div>
+
+						<!-- Theoretical Formulation -->
+						<div class="project_detail_card mt-4">
+							<h3 class="section_subtitle">Physical Principles & Numerical Solvers</h3>
+							
+							<h5 style="color: #fff; margin-top: 15px;"><i class="fa fa-square-o text-accent"></i> 1. 1D Effective-Mass Schrödinger Equation</h5>
+							<p style="font-size: 14px; color: var(--text-mid); line-height: 1.7;">
+								Conduction band electron confinement along epitaxial growth axis $z$ is modeled with a position-dependent electron effective mass $m^*(z)$ and conduction band edge potential step profile $V(z)$:
+							</p>
+							<div class="equation-box">
+								$$-\frac{\hbar^2}{2} \frac{d}{dz}\left[\frac{1}{m^*(z)}\frac{d\psi(z)}{dz}\right] + V(z)\psi(z) = E\psi(z)$$
+							</div>
+							<p style="font-size: 13px; color: var(--text-light);">
+								Where $m^*(z) = 0.067\,m_0$ in binary GaAs and $m^*(z) = (0.067 + 0.083x)\,m_0$ in ternary $\text{Al}_x\text{Ga}_{1-x}\text{As}$, with conduction band offset $\Delta E_c$ parameterized according to empirical alloy composition $x$.
+							</p>
+
+							<h5 style="color: #fff; margin-top: 24px;"><i class="fa fa-square-o text-accent"></i> 2. BenDaniel-Duke Hetero-Interface Boundary Conditions</h5>
+							<p style="font-size: 14px; color: var(--text-mid); line-height: 1.7;">
+								Ensures strict continuity of probability density and quantum probability flux across abrupt semiconductor interfaces at $z = z_0$:
+							</p>
+							<div class="equation-box">
+								$$\psi_A(z_0) = \psi_B(z_0) \quad \text{and} \quad \left.\frac{1}{m_A^*} \frac{d\psi_A}{dz}\right|_{z_0} = \left.\frac{1}{m_B^*} \frac{d\psi_B}{dz}\right|_{z_0}$$
+							</div>
+
+							<h5 style="color: #fff; margin-top: 24px;"><i class="fa fa-square-o text-accent"></i> 3. 4th-Order Numerov Discretization Method</h5>
+							<p style="font-size: 14px; color: var(--text-mid); line-height: 1.7;">
+								To calculate bound state eigenenergies $E_n$ and normalized envelope wavefunctions $\psi_n(z)$, the 1D Schrödinger boundary-value equation is transformed into Numerov's recurrence relation with local truncation error $\mathcal{O}(h^6)$:
+							</p>
+							<div class="equation-box">
+								$$y_{n+1} = \frac{2\left(1 - \frac{5}{12}h^2 k_n^2\right)y_n - \left(1 + \frac{1}{12}h^2 k_{n-1}^2\right)y_{n-1}}{1 + \frac{1}{12}h^2 k_{n+1}^2}$$
+							</div>
+
+							<h5 style="color: #fff; margin-top: 24px;"><i class="fa fa-square-o text-accent"></i> 4. Transfer Matrix Method (TMM) & Transmission Probability</h5>
+							<p style="font-size: 14px; color: var(--text-mid); line-height: 1.7;">
+								For unbound continuum states and electric-field-assisted tunneling resonance lifetimes across multi-barrier structures, each epitaxial layer is represented by a $2 \times 2$ transfer matrix:
+							</p>
+							<div class="equation-box">
+								$$\begin{pmatrix} A_{j+1} \\ B_{j+1} \end{pmatrix} = M_j \begin{pmatrix} A_j \\ B_j \end{pmatrix}, \quad M = \prod_{j=1}^{N} M_j, \quad T(E) = \frac{k_R\, m_L^*}{k_L\, m_R^*} \frac{1}{|M_{11}|^2}$$
+							</div>
+
+							<h5 style="color: #fff; margin-top: 24px;"><i class="fa fa-square-o text-accent"></i> 5. Intersubband Optical Transition & Dipole Oscillator Strength</h5>
+							<p style="font-size: 14px; color: var(--text-mid); line-height: 1.7;">
+								Under transverse magnetic (TM) infrared optical polarization, the electric dipole transition coupling between ground state $\psi_i$ and excited subband $\psi_f$ is quantified by the dimensionless oscillator strength:
+							</p>
+							<div class="equation-box">
+								$$f_{if} = \frac{2 m_0 (E_f - E_i)}{\hbar^2} \left| \int \psi_i^*(z)\, z\, \psi_f(z)\, dz \right|^2$$
+							</div>
+
+							<h5 style="color: #fff; margin-top: 24px;"><i class="fa fa-square-o text-accent"></i> 6. Absolute Physical Photocurrent Modeling (Amperes)</h5>
+							<p style="font-size: 14px; color: var(--text-mid); line-height: 1.7;">
+								Unlike traditional codes that output arbitrary normalized units, <strong>e-mulate</strong> evaluates true absolute spectral photocurrent in <strong>Amperes (A)</strong> by integrating the incident photon flux $\Phi_0$, absorption cross-section $\alpha_{if}(h\nu)$, and field-assisted tunneling escape probability $p_{\text{tunnel}}$:
+							</p>
+							<div class="equation-box">
+								$$I_{PC}(h\nu) = q \cdot \Phi_0 \cdot \sum_{i,f} \alpha_{if}(h\nu) \cdot p_{\text{tunnel}}(E_f, F) \cdot \eta_{\text{collection}}$$
+							</div>
+						</div>
+
+						<!-- Superlattice Structural Parameterization -->
+						<div class="project_detail_card">
+							<h3 class="section_subtitle">Superlattice Structural Geometry & Degrees of Freedom</h3>
+							<p style="font-size: 14px; color: var(--text-mid); line-height: 1.7;">
+								The finite defect-engineered heterostructure is parameterized by <strong>7 geometric degrees of freedom</strong> defining the central defect well and the flanking injection and collector superlattice blocks:
+							</p>
+							<div class="table-responsive">
+								<table class="table table-dark table-sm" style="font-size: 13px; background: transparent;">
+									<thead>
+										<tr style="border-bottom: 2px solid var(--border);">
+											<th>Parameter</th>
+											<th>Full Name</th>
+											<th>Unit</th>
+											<th>Typical Range</th>
+											<th>Physical Role</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td><strong style="color: var(--accent-light);">LLQW</strong></td>
+											<td>Left Lateral QWs Count</td>
+											<td>Integer</td>
+											<td>1 &ndash; 10</td>
+											<td>Number of periodic wells in the left injection block</td>
+										</tr>
+										<tr>
+											<td><strong style="color: var(--accent-light);">LQW</strong></td>
+											<td>Left Quantum Well Width</td>
+											<td>nm</td>
+											<td>1.0 &ndash; 5.0 nm</td>
+											<td>Thickness of each well in the left periodic block</td>
+										</tr>
+										<tr>
+											<td><strong style="color: var(--accent-light);">LQB</strong></td>
+											<td>Left Quantum Barrier Width</td>
+											<td>nm</td>
+											<td>3.0 &ndash; 10.0 nm</td>
+											<td>Thickness of each barrier in the left block</td>
+										</tr>
+										<tr>
+											<td><strong style="color: #f59e0b;">MQW</strong></td>
+											<td>Main Quantum Well (Defect)</td>
+											<td>nm</td>
+											<td>2.0 &ndash; 6.0 nm</td>
+											<td>Defect well hosting the localized optical ground state</td>
+										</tr>
+										<tr>
+											<td><strong style="color: var(--accent-light);">RLQW</strong></td>
+											<td>Right Lateral QWs Count</td>
+											<td>Integer</td>
+											<td>1 &ndash; 5</td>
+											<td>Number of periodic wells in the right collector block</td>
+										</tr>
+										<tr>
+											<td><strong style="color: var(--accent-light);">RQW</strong></td>
+											<td>Right Quantum Well Width</td>
+											<td>nm</td>
+											<td>1.0 &ndash; 5.0 nm</td>
+											<td>Thickness of each well in the right periodic block</td>
+										</tr>
+										<tr>
+											<td><strong style="color: var(--accent-light);">RQB</strong></td>
+											<td>Right Quantum Barrier Width</td>
+											<td>nm</td>
+											<td>3.0 &ndash; 10.0 nm</td>
+											<td>Thickness of each barrier in the right block</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							
+							<div class="p-3 mt-3" style="background: rgba(234, 179, 8, 0.1); border-left: 3px solid #eab308; border-radius: 6px;">
+								<strong style="color: #fde047; font-size: 13px;"><i class="fa fa-exclamation-triangle"></i> Mandatory Physical Constraint:</strong>
+								<p style="font-size: 12.5px; color: #cbd5e1; margin: 4px 0 0 0;">
+									<code>MQW &ge; max(LQW, RQW) + 0.5 nm</code> &mdash; The defect central well must be substantially wider than adjacent periodic superlattice wells. This ensures that the electronic ground state resides strictly below the superlattice miniband edge, localizing carrier population for selective optical infrared absorption.
+								</p>
+							</div>
+						</div>
+
+						<!-- MODERN VISUAL SOFTWARE ARCHITECTURE PIPELINE -->
+						<div class="project_detail_card">
+							<h3 class="section_subtitle">Software Architecture & Computational Pipeline</h3>
+							<p style="font-size: 14px; color: var(--text-mid); line-height: 1.7; margin-bottom: 24px;">
+								<strong>e-mulate</strong> employs a high-throughput four-tier modular architecture designed to decouple user interaction, compiled high-performance physics calculation, persistent caching, and interactive multi-panel visualization:
+							</p>
+
+							<div class="pipeline-flow">
+								<!-- Stage 1: UI Layer -->
+								<div class="pipeline-stage" style="border-left: 4px solid #766dff;">
+									<div class="pipeline-stage-header">
+										<h5 class="pipeline-stage-title">
+											<span class="stage-num" style="background: rgba(118, 109, 255, 0.2); color: #766dff;">1</span>
+											<i class="fa fa-desktop" style="color: var(--accent-light);"></i> Tier 1 &mdash; Presentation & Control Deck (PyQt5)
+										</h5>
+										<span class="pipeline-stage-badge" style="background: rgba(118, 109, 255, 0.15); color: var(--accent-light); border: 1px solid rgba(118, 109, 255, 0.3);">User Interface</span>
+									</div>
+									<p style="font-size: 13px; color: var(--text-mid); margin-bottom: 12px; line-height: 1.6;">
+										Responsive dark Qt GUI with resizable dock panels, live parameter sliders, real-time logging terminal, and three execution dispatchers:
+									</p>
+									<div class="pipeline-grid">
+										<div class="pipeline-subcard">
+											<h6><i class="fa fa-play text-accent"></i> Single Heterostructure</h6>
+											<p>Instant manual evaluation of any 7-parameter superlattice structure with dynamic plot refresh.</p>
+										</div>
+										<div class="pipeline-subcard">
+											<h6><i class="fa fa-dna" style="color: #4ade80;"></i> DEAP Genetic Algorithm</h6>
+											<p>Bio-inspired evolutionary search across 3, 5, or 7 degrees of freedom with smooth penalty windows.</p>
+										</div>
+										<div class="pipeline-subcard">
+											<h6><i class="fa fa-sliders" style="color: #f59e0b;"></i> Automate Grid Sweep</h6>
+											<p>Combinatorial exploration with prior runtime estimation and asynchronous multi-core dispatch.</p>
+										</div>
+									</div>
+								</div>
+
+								<div class="pipeline-arrow-down">
+									<i class="fa fa-chevron-down"></i>
+								</div>
+
+								<!-- Stage 2: Fortran Core -->
+								<div class="pipeline-stage" style="border-left: 4px solid #22c55e;">
+									<div class="pipeline-stage-header">
+										<h5 class="pipeline-stage-title">
+											<span class="stage-num" style="background: rgba(34, 197, 94, 0.2); color: #4ade80;">2</span>
+											<i class="fa fa-cogs" style="color: #4ade80;"></i> Tier 2 &mdash; Compiled Numerical Solvers (Fortran 90 Core)
+										</h5>
+										<span class="pipeline-stage-badge" style="background: rgba(34, 197, 94, 0.15); color: #4ade80; border: 1px solid rgba(34, 197, 94, 0.3);">Numerical Engine</span>
+									</div>
+									<p style="font-size: 13px; color: var(--text-mid); margin-bottom: 12px; line-height: 1.6;">
+										Direct native subprocess invocation (<code>photocurrent_sim_windows.exe</code>) avoiding CMD quoting overhead and executing in <strong>~3.8 seconds</strong>:
+									</p>
+									<div class="pipeline-grid">
+										<div class="pipeline-subcard">
+											<h6><i class="fa fa-calculator" style="color: #4ade80;"></i> 4th-Order Numerov</h6>
+											<p>Bound-state wavefunctions $\psi_n(z)$ and eigenenergies $E_n$ solved with $\mathcal{O}(h^6)$ truncation error.</p>
+										</div>
+										<div class="pipeline-subcard">
+											<h6><i class="fa fa-exchange" style="color: #4ade80;"></i> Transfer Matrix (TMM)</h6>
+											<p>Continuum states, transmission coefficient $T(E)$, and field-assisted tunneling lifetimes.</p>
+										</div>
+										<div class="pipeline-subcard">
+											<h6><i class="fa fa-bolt" style="color: #4ade80;"></i> Physical Photocurrent</h6>
+											<p>Dipole matrix elements $f_{if}$ and absolute spectral photocurrent integration in Amperes.</p>
+										</div>
+									</div>
+								</div>
+
+								<div class="pipeline-arrow-down">
+									<i class="fa fa-chevron-down"></i>
+								</div>
+
+								<!-- Stage 3: Caching & Parsing -->
+								<div class="pipeline-stage" style="border-left: 4px solid #38bdf8;">
+									<div class="pipeline-stage-header">
+										<h5 class="pipeline-stage-title">
+											<span class="stage-num" style="background: rgba(56, 189, 248, 0.2); color: #38bdf8;">3</span>
+											<i class="fa fa-database" style="color: #38bdf8;"></i> Tier 3 &mdash; Output Parsing & Multi-Tier Disk Caching
+										</h5>
+										<span class="pipeline-stage-badge" style="background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3);">Data Management</span>
+									</div>
+									<div class="pipeline-grid">
+										<div class="pipeline-subcard">
+											<h6><i class="fa fa-file-text-o" style="color: #38bdf8;"></i> 8 Output TXT Files</h6>
+											<p>Automatic parsing of <code>Potencial_SL.txt</code>, <code>wavefunction_SL.txt</code>, <code>OscStr_SL.txt</code>, and <code>Photocurrent_SL.txt</code>.</p>
+										</div>
+										<div class="pipeline-subcard">
+											<h6><i class="fa fa-flash" style="color: #38bdf8;"></i> Persistent JSON Cache</h6>
+											<p><code>samples_cache.json</code> loads and catalogs 216+ complete precomputed simulations in <strong>&lt; 50 ms</strong>.</p>
+										</div>
+										<div class="pipeline-subcard">
+											<h6><i class="fa fa-filter" style="color: #38bdf8;"></i> Excel-Style Headers</h6>
+											<p>Column sorting (A-Z/Z-A), numeric comparison (&gt;, &lt;, ==, range), and checkbox values with instant filtering.</p>
+										</div>
+									</div>
+								</div>
+
+								<div class="pipeline-arrow-down">
+									<i class="fa fa-chevron-down"></i>
+								</div>
+
+								<!-- Stage 4: Visualization Layer -->
+								<div class="pipeline-stage" style="border-left: 4px solid #f59e0b;">
+									<div class="pipeline-stage-header">
+										<h5 class="pipeline-stage-title">
+											<span class="stage-num" style="background: rgba(245, 158, 11, 0.2); color: #f59e0b;">4</span>
+											<i class="fa fa-line-chart" style="color: #f59e0b;"></i> Tier 4 &mdash; Interactive Multi-Panel Matplotlib Visualizations
+										</h5>
+										<span class="pipeline-stage-badge" style="background: rgba(245, 158, 11, 0.15); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.3);">Graphics & Feedback</span>
+									</div>
+									<div class="pipeline-grid">
+										<div class="pipeline-subcard">
+											<h6><i class="fa fa-area-chart" style="color: #f59e0b;"></i> Potential & Waves</h6>
+											<p>Superposition of conduction band $V(z)$, bound energies $E_n$, and wavefunctions $|\psi_n(z)|^2$.</p>
+										</div>
+										<div class="pipeline-subcard">
+											<h6><i class="fa fa-bar-chart" style="color: #f59e0b;"></i> Oscillator Spectrum</h6>
+											<p>Intersubband optical dipole coupling $f_{if}$ plotted against photon transition energy (meV).</p>
+										</div>
+										<div class="pipeline-subcard">
+											<h6><i class="fa fa-heartbeat" style="color: #f59e0b;"></i> Absolute Photocurrent</h6>
+											<p>Continuous photocurrent curve $I_{PC}$ in true physical units of Amperes (A) across infrared wavelengths.</p>
+										</div>
+										<div class="pipeline-subcard">
+											<h6><i class="fa fa-crosshairs" style="color: #f59e0b;"></i> 2D Scatter Sync</h6>
+											<p>Bi-directional sync: clicking any scatter point highlights the database row and refreshes physical plots instantly.</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- Benchmark Case Study -->
+						<div class="project_detail_card">
+							<h3 class="section_subtitle">Benchmark Case Study & Quantitative Results</h3>
+							<p style="font-size: 14px; color: var(--text-mid); line-height: 1.7;">
+								Reference defect-engineered superlattice structure evaluated from the precomputed database:
+								<code>05x02.0_07.0__02.5__01x02.0_07.0</code> (LLQW=5, LQW=2.0 nm, LQB=7.0 nm, MQW=2.5 nm, RLQW=1, RQW=2.0 nm, RQB=7.0 nm):
+							</p>
+							<div class="row text-center mt-3 mb-3">
+								<div class="col-6 col-md-3 mb-3">
+									<div class="p-3" style="background: var(--bg-soft); border-radius: 10px; border: 1px solid var(--border);">
+										<span style="font-size: 11px; text-transform: uppercase; color: var(--text-light); display: block;">Peak Photocurrent</span>
+										<span class="metric-badge mt-1">1.55 &times; 10<sup>-11</sup> A</span>
+									</div>
+								</div>
+								<div class="col-6 col-md-3 mb-3">
+									<div class="p-3" style="background: var(--bg-soft); border-radius: 10px; border: 1px solid var(--border);">
+										<span style="font-size: 11px; text-transform: uppercase; color: var(--text-light); display: block;">Resonance Energy</span>
+										<strong style="color: #fff; font-size: 16px;">309.6 meV</strong>
+										<span style="font-size: 11px; color: var(--text-light); display: block;">(&lambda; &approx; 4.01 &mu;m)</span>
+									</div>
+								</div>
+								<div class="col-6 col-md-3 mb-3">
+									<div class="p-3" style="background: var(--bg-soft); border-radius: 10px; border: 1px solid var(--border);">
+										<span style="font-size: 11px; text-transform: uppercase; color: var(--text-light); display: block;">Max Oscillator Str.</span>
+										<strong style="color: #fff; font-size: 16px;">0.3588</strong>
+										<span style="font-size: 11px; color: var(--text-light); display: block;">(at 299.9 meV)</span>
+									</div>
+								</div>
+								<div class="col-6 col-md-3 mb-3">
+									<div class="p-3" style="background: var(--bg-soft); border-radius: 10px; border: 1px solid var(--border);">
+										<span style="font-size: 11px; text-transform: uppercase; color: var(--text-light); display: block;">Simulation Time</span>
+										<strong style="color: #60a5fa; font-size: 16px;">3.8 s</strong>
+										<span style="font-size: 11px; color: var(--text-light); display: block;">(Full 7-well engine)</span>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- COMPLETE SCIENTIFIC REFERENCES & RELATED LITERATURE -->
+						<div class="project_detail_card">
+							<h3 class="section_subtitle">Complete Project References & Related Literature</h3>
+							<p style="font-size: 14px; color: var(--text-mid); line-height: 1.7; margin-bottom: 20px;">
+								All scientific peer-reviewed papers, academic theses, conference proceedings, and foundational textbooks directly related to the development and physical theoretical models of <strong>e-mulate</strong>:
+							</p>
+
+							<!-- CATEGORY 1: Peer-Reviewed Articles -->
+							<h5 class="ref-category-title">
+								<i class="fa fa-newspaper-o text-accent"></i> 1. Peer-Reviewed Articles & Journal Publications
+							</h5>
+
+							<!-- Ref 1: e-mulate main SBMicro paper -->
+							<div class="reference-item">
+								<div class="ref-title">
+									<span class="ref-tag" style="background: rgba(118, 109, 255, 0.2); color: var(--accent-light);">Main Software Paper</span>
+									e-mulate: A user-friendly software to calculate optoelectronic properties of quantum well systems
+								</div>
+								<div class="ref-authors">
+									Pedro H. Pereira, Guilherme M. Torelly, M. S. Lacerda, D. R. Souza, <strong>Jose E. Ruiz</strong>, V. R. Souza, L. A. Chipana, Patricia L. Souza, Germano M. Penello, Mauricio P. Pires
+								</div>
+								<div class="ref-journal">
+									2021 35th Symposium on Microelectronics Technology and Devices (SBMicro), Campinas, Brazil, pp. 1-4, 2021.
+								</div>
+								<a href="https://doi.org/10.1109/SBMicro50945.2021.9585740" target="_blank" class="ref-link-btn">
+									<i class="fa fa-external-link"></i> DOI: 10.1109/SBMicro50945.2021.9585740
+								</a>
+							</div>
+
+							<!-- Ref 2: APL Electronic Devices 2026 -->
+							<div class="reference-item">
+								<div class="ref-title">
+									<span class="ref-tag" style="background: rgba(34, 197, 94, 0.2); color: #4ade80;">Genetic Algorithm</span>
+									Genetic algorithm optimization of quantum Bragg mirror detectors
+								</div>
+								<div class="ref-authors">
+									<strong>Jose E. Ruiz</strong>, Pedro H. Pereira, Guilherme M. Torelly, Patricia L. Souza, Mauricio P. Pires, Germano M. Penello
+								</div>
+								<div class="ref-journal">
+									APL Electronic Devices, Volume 2, Issue 1, 2026.
+								</div>
+								<a href="https://doi.org/10.1063/5.0315540" target="_blank" class="ref-link-btn">
+									<i class="fa fa-external-link"></i> DOI: 10.1063/5.0315540
+								</a>
+							</div>
+
+							<!-- Ref 3: JICS 2026 -->
+							<div class="reference-item">
+								<div class="ref-title">
+									<span class="ref-tag" style="background: rgba(56, 189, 248, 0.2); color: #38bdf8;">X-Ray & AI Design</span>
+									X-Ray Diffraction of Infrared Quantum Bragg Mirror Detector Structures Designed by Genetic Algorithm
+								</div>
+								<div class="ref-authors">
+									Jailson Oliveira Santana, <strong>Jose Eduardo Ruiz Rosero</strong>, Pedro Henrique Pereira, Luciana Dornelas Pinto, Rudy Massami Sakamoto Kawabata, Jéssica de Oliveira Lorenzi, Guilherme Monteiro Torelly, Patrícia Lustoza de Souza, Maurício Pamplona Pires, Germano Maioli Penello
+								</div>
+								<div class="ref-journal">
+									Journal of Integrated Circuits and Systems (JICS), Vol. 21, No. 1, 2026.
+								</div>
+								<a href="https://doi.org/10.29292/jics.v21i1.1198" target="_blank" class="ref-link-btn">
+									<i class="fa fa-external-link"></i> DOI: 10.29292/jics.v21i1.1198
+								</a>
+							</div>
+
+							<!-- Ref 4: SBMicro 2023 -->
+							<div class="reference-item">
+								<div class="ref-title">
+									<span class="ref-tag" style="background: rgba(245, 158, 11, 0.2); color: #f59e0b;">Oscillator Strength</span>
+									Mapping and Optimization of Oscillator Strength in Quantum Bragg Mirror Detectors as a Function of their Dimensions
+								</div>
+								<div class="ref-authors">
+									<strong>Jose Ruiz</strong>, Pedro H. Pereira, Germano M. Penello, Guilherme M. Torelly, Patricia L. Souza, Mauricio P. Pires
+								</div>
+								<div class="ref-journal">
+									2023 37th Symposium on Microelectronics Technology and Devices (SBMicro - Chip in Rio), 2023.
+								</div>
+								<a href="https://doi.org/10.1109/SBMicro60499.2023.10302557" target="_blank" class="ref-link-btn">
+									<i class="fa fa-external-link"></i> DOI: 10.1109/SBMicro60499.2023.10302557
+								</a>
+							</div>
+
+							<!-- Ref 5: JICS 2020 -->
+							<div class="reference-item">
+								<div class="ref-title">
+									Electronic Confinement in the Continuum: Leaky Bragg Mirror for Electrons
+								</div>
+								<div class="ref-authors">
+									P. H. Pereira, G. M. Penello, G. M. Torelly, M. P. Pires, P. L. Souza
+								</div>
+								<div class="ref-journal">
+									Journal of Integrated Circuits and Systems (JICS), Vol. 15, No. 1, pp. 109-114, 2020.
+								</div>
+								<a href="https://doi.org/10.29292/jics.v15i1.109" target="_blank" class="ref-link-btn">
+									<i class="fa fa-external-link"></i> DOI: 10.29292/jics.v15i1.109
+								</a>
+							</div>
+
+							<!-- Ref 6: Annalen der Physik 2018 -->
+							<div class="reference-item">
+								<div class="ref-title">
+									Progress in Symmetric and Asymmetric Superlattice Quantum Well Infrared Photodetectors
+								</div>
+								<div class="ref-authors">
+									Germano M. Penello, et al.
+								</div>
+								<div class="ref-journal">
+									Annalen der Physik, Vol. 531, No. 5, 1800462, 2018.
+								</div>
+								<a href="https://doi.org/10.1002/andp.201800462" target="_blank" class="ref-link-btn">
+									<i class="fa fa-external-link"></i> DOI: 10.1002/andp.201800462
+								</a>
+							</div>
+
+							<!-- Ref 7: APL 2017 -->
+							<div class="reference-item">
+								<div class="ref-title">
+									Leaky electronic states for photovoltaic photodetectors based on asymmetric superlattices
+								</div>
+								<div class="ref-authors">
+									G. M. Penello, G. M. Torelly, et al.
+								</div>
+								<div class="ref-journal">
+									Applied Physics Letters, Vol. 111, Issue 24, 241103, 2017.
+								</div>
+								<a href="https://doi.org/10.1063/1.5006464" target="_blank" class="ref-link-btn">
+									<i class="fa fa-external-link"></i> DOI: 10.1063/1.5006464
+								</a>
+							</div>
+
+							<!-- Ref 8: Springer 2019 SWIR -->
+							<div class="reference-item">
+								<div class="ref-title">
+									Quantum Well Infrared Photodetector for the SWIR Range
+								</div>
+								<div class="ref-authors">
+									G. M. Penello, G. M. Torelly, D. R. Souza, M. P. Pires, P. L. Souza
+								</div>
+								<div class="ref-journal">
+									Springer Proceedings in Physics, Vol. 224, pp. 183-189, 2019.
+								</div>
+								<a href="https://doi.org/10.1007/978-981-13-9155-2_29" target="_blank" class="ref-link-btn">
+									<i class="fa fa-external-link"></i> DOI: 10.1007/978-981-13-9155-2_29
+								</a>
+							</div>
+
+							<!-- Ref 9: IEEE PTL 2016 -->
+							<div class="reference-item">
+								<div class="ref-title">
+									Detecting Infrared Radiation Beyond the Bandoffset With Intersubband Transitions
+								</div>
+								<div class="ref-authors">
+									G. M. Penello, et al.
+								</div>
+								<div class="ref-journal">
+									IEEE Photonics Technology Letters, Vol. 28, No. 16, pp. 1778-1781, 2016.
+								</div>
+								<a href="https://doi.org/10.1109/LPT.2016.2554064" target="_blank" class="ref-link-btn">
+									<i class="fa fa-external-link"></i> DOI: 10.1109/LPT.2016.2554064
+								</a>
+							</div>
+
+							<!-- Ref 10: IEEE JQE 2016 -->
+							<div class="reference-item">
+								<div class="ref-title">
+									Exploring Parity Anomaly for Dual Peak Infrared Photodetection
+								</div>
+								<div class="ref-authors">
+									G. M. Penello, et al.
+								</div>
+								<div class="ref-journal">
+									IEEE Journal of Quantum Electronics, Vol. 53, No. 1, pp. 1-6, 2016.
+								</div>
+								<a href="https://doi.org/10.1109/JQE.2016.2623271" target="_blank" class="ref-link-btn">
+									<i class="fa fa-external-link"></i> DOI: 10.1109/JQE.2016.2623271
+								</a>
+							</div>
+
+							<!-- CATEGORY 2: Theses and Dissertations -->
+							<h5 class="ref-category-title">
+								<i class="fa fa-graduation-cap text-accent"></i> 2. Academic Theses & Dissertations
+							</h5>
+
+							<!-- Thesis 1: Pedro Pereira MSc -->
+							<div class="reference-item">
+								<div class="ref-title">
+									<span class="ref-tag" style="background: rgba(168, 85, 247, 0.2); color: #c084fc;">M.Sc. Dissertation</span>
+									Fotodetector de Duas Cores Baseado em Super-Rede Assimétrica
+								</div>
+								<div class="ref-authors">
+									Pedro Henrique Pereira &middot; Advisor: Prof. Germano Maioli Penello
+								</div>
+								<div class="ref-journal">
+									Dissertação de Mestrado, Departamento de Física, Pontifícia Universidade Católica do Rio de Janeiro (PUC-Rio), 2020.
+								</div>
+								<a href="https://doi.org/10.17771/PUCRio.acad.49584" target="_blank" class="ref-link-btn">
+									<i class="fa fa-external-link"></i> DOI: 10.17771/PUCRio.acad.49584
+								</a>
+							</div>
+
+							<!-- Thesis 2: Germano Penello PhD UFRJ -->
+							<div class="reference-item">
+								<div class="ref-title">
+									<span class="ref-tag" style="background: rgba(168, 85, 247, 0.2); color: #c084fc;">Ph.D. Thesis</span>
+									Investigação Teórica e Experimental do Papel das Super-Redes em Fotodetectores de Infravermelho Médio Baseados em Poços Quânticos
+								</div>
+								<div class="ref-authors">
+									Germano Maioli Penello &middot; Instituto de Física, Universidade Federal do Rio de Janeiro (UFRJ)
+								</div>
+								<div class="ref-journal">
+									Tese de Doutorado em Física, Universidade Federal do Rio de Janeiro (UFRJ), 2015.
+								</div>
+								<a href="https://minerva.ufrj.br/F/3VQTGB9RTKGR34GFVE47UI166FE4R2AFPRGFTU2URI4G4ND412-38272?func=service-media-exec&doc_library=UFR01&doc_number=000826288&media_index=00001&func_code=WEB-BRIEF" target="_blank" class="ref-link-btn">
+									<i class="fa fa-external-link"></i> Repositório Institucional Minerva UFRJ
+								</a>
+							</div>
+
+							<!-- Thesis 3: Guilherme Torelly MSc -->
+							<div class="reference-item">
+								<div class="ref-title">
+									<span class="ref-tag" style="background: rgba(168, 85, 247, 0.2); color: #c084fc;">M.Sc. Dissertation</span>
+									Fotodetectores de Infravermelho Baseados em Superredes Assimétricas com Estados Vazantes no Contínuo
+								</div>
+								<div class="ref-authors">
+									Guilherme Monteiro Torelly &middot; Advisor: Prof. Germano Maioli Penello
+								</div>
+								<div class="ref-journal">
+									Dissertação de Mestrado, Departamento de Física, Pontifícia Universidade Católica do Rio de Janeiro (PUC-Rio), 2020.
+								</div>
+								<a href="https://doi.org/10.17771/PUCRio.acad.48004" target="_blank" class="ref-link-btn">
+									<i class="fa fa-external-link"></i> DOI: 10.17771/PUCRio.acad.48004
+								</a>
+							</div>
+
+							<!-- Thesis 4: Daniel Souza PhD -->
+							<div class="reference-item">
+								<div class="ref-title">
+									<span class="ref-tag" style="background: rgba(168, 85, 247, 0.2); color: #c084fc;">Ph.D. Thesis</span>
+									Detecção de Radiação Infravermelho com QWIPs Além do Limite do Bandoffset
+								</div>
+								<div class="ref-authors">
+									Daniel Rocha Souza &middot; Advisor: Prof. Mauricio Pamplona Pires
+								</div>
+								<div class="ref-journal">
+									Tese de Doutorado em Física, Pontifícia Universidade Católica do Rio de Janeiro (PUC-Rio), 2016.
+								</div>
+								<a href="https://doi.org/10.17771/PUCRio.acad.27620" target="_blank" class="ref-link-btn">
+									<i class="fa fa-external-link"></i> DOI: 10.17771/PUCRio.acad.27620
+								</a>
+							</div>
+
+							<!-- CATEGORY 3: Foundational Textbooks -->
+							<h5 class="ref-category-title">
+								<i class="fa fa-book text-accent"></i> 3. Foundational Quantum & Solid-State Physics Textbooks
+							</h5>
+
+							<div class="reference-item">
+								<div class="ref-title">
+									Quantum Well Infrared Photodetectors: Physics and Principles
+								</div>
+								<div class="ref-authors">
+									Schneider, H. & Liu, H. C.
+								</div>
+								<div class="ref-journal">
+									Springer Series in Advanced Microelectronics, Vol. 18, Springer-Verlag Berlin Heidelberg, 2007.
+								</div>
+							</div>
+
+							<div class="reference-item">
+								<div class="ref-title">
+									Wave Mechanics Applied to Semiconductor Heterostructures
+								</div>
+								<div class="ref-authors">
+									Bastard, G.
+								</div>
+								<div class="ref-journal">
+									Les Éditions de Physique, Monographies de Physique, Paris, France, 1988.
+								</div>
+							</div>
+
+							<div class="reference-item">
+								<div class="ref-title">
+									The Physics of Low-Dimensional Semiconductors: An Introduction
+								</div>
+								<div class="ref-authors">
+									Davies, J. H.
+								</div>
+								<div class="ref-journal">
+									Cambridge University Press, Cambridge, UK, 1998.
+								</div>
+							</div>
+
+							<div class="reference-item">
+								<div class="ref-title">
+									Quantum Wells, Wires and Dots: Theoretical and Computational Physics of Semiconductor Nanostructures
+								</div>
+								<div class="ref-authors">
+									Harrison, P. & Valavanis, A.
+								</div>
+								<div class="ref-journal">
+									4th Edition, John Wiley & Sons, Ltd, Chichester, UK, 2016.
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Sidebar Column -->
+					<div class="col-lg-4">
+						<!-- Target Applications Card -->
+						<div class="project_detail_card">
+							<h4 style="font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 16px;">
+								<i class="fa fa-bullseye text-accent"></i> Target Applications
+							</h4>
+							<ul style="font-size: 13.5px; color: var(--text-mid); padding-left: 18px; line-height: 1.8;">
+								<li><strong>QWIPs:</strong> Quantum Well Infrared Photodetectors for multispectral thermal imaging ($3\text{--}5\,\mu\text{m}$ & $8\text{--}12\,\mu\text{m}$ atmospheric windows).</li>
+								<li><strong>QCDs:</strong> Photovoltaic Quantum Cascade Detectors operating with zero bias voltage and zero dark current noise.</li>
+								<li><strong>QCLs:</strong> Quantum Cascade Laser population inversion analysis and intersubband carrier transport.</li>
+								<li><strong>Intermediate-Band Photovoltaics:</strong> Quantum well solar cells with sub-bandgap photon harvesting.</li>
+							</ul>
+						</div>
+
+						<!-- Material Systems Supported -->
+						<div class="project_detail_card">
+							<h4 style="font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 16px;">
+								<i class="fa fa-cubes text-accent"></i> Material Systems
+							</h4>
+							<ul style="font-size: 13.5px; color: var(--text-mid); padding-left: 18px; line-height: 1.8;">
+								<li><strong>$\text{GaAs} / \text{Al}_x\text{Ga}_{1-x}\text{As}$:</strong> Standard high-uniformity lattice-matched system for commercial MWIR/LWIR.</li>
+								<li><strong>$\text{In}_{0.53}\text{Ga}_{0.47}\text{As} / \text{In}_{0.52}\text{Al}_{0.48}\text{As}$:</strong> Lattice-matched to $\text{InP}$ for high conduction band offset ($520\,\text{meV}$).</li>
+								<li><strong>Arbitrary Composition Profiles:</strong> Supports arbitrary step-like potential definitions with custom effective masses.</li>
+							</ul>
+						</div>
+
+						<!-- User Video Guides Card (from repo) -->
+						<div class="project_detail_card">
+							<h4 style="font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 16px;">
+								<i class="fa fa-video-camera text-accent"></i> Video Guides & Demos
+							</h4>
+							<ul style="font-size: 13px; color: var(--text-mid); padding-left: 18px; line-height: 1.8; margin-bottom: 0;">
+								<li style="margin-bottom: 8px;">
+									<a href="https://youtu.be/bqjrZOjeDdw" target="_blank" style="color: var(--accent-light);">
+										<i class="fa fa-youtube-play text-danger"></i> Como rodar usando Anaconda
+									</a>
+								</li>
+								<li style="margin-bottom: 8px;">
+									<a href="https://www.youtube.com/watch?v=h8JMfAcHAA8" target="_blank" style="color: var(--accent-light);">
+										<i class="fa fa-youtube-play text-danger"></i> Instalação VSC, Python e Git
+									</a>
+								</li>
+								<li>
+									<a href="https://www.youtube.com/watch?v=zItRL5RWc14" target="_blank" style="color: var(--accent-light);">
+										<i class="fa fa-youtube-play text-danger"></i> Git e Controle de Versões no VSC
+									</a>
+								</li>
+							</ul>
+						</div>
+
+						<!-- Institutional Affiliations -->
+						<div class="project_detail_card text-center">
+							<h5 style="font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 14px;">Institutions Involved</h5>
+							<p style="font-size: 13px; color: var(--text-mid); margin-bottom: 8px;">
+								<strong>LabSem</strong> &ndash; Semiconductor Laboratory<br>
+								Department of Physics, PUC-Rio
+							</p>
+							<p style="font-size: 13px; color: var(--text-mid); margin: 0;">
+								<strong>UFRJ</strong> &ndash; Federal University of Rio de Janeiro
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- Navigation Back Button -->
+				<div class="row mt-50">
+					<div class="col-lg-12 text-center">
+						<a href="projects.html" class="primary_btn"><span><i class="fa fa-arrow-left"></i> Back to All Projects</span></a>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+	<!--================ End Project Details Area =================-->
+
+	<!--================ Footer Area =================-->
+	<footer class="footer_area">
+		<div class="container">
+			<div class="row footer_bottom justify-content-center">
+				<p class="col-lg-8 col-sm-12 footer-text">
+					Copyright &copy;
+					<script>document.write(new Date().getFullYear());</script> All rights reserved | Developed by Jose Ruiz
+				</p>
+			</div>
+		</div>
+	</footer>
+	<!--================ End Footer Area =================-->
+
+	<!-- Optional JavaScript -->
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/popper.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/stellar.js"></script>
+	<script src="vendors/lightbox/simpleLightbox.min.js"></script>
+	<script src="vendors/nice-select/js/jquery.nice-select.min.js"></script>
+	<script src="vendors/isotope/imagesloaded.pkgd.min.js"></script>
+	<script src="vendors/isotope/isotope-min.js"></script>
+	<script src="vendors/owl-carousel/owl.carousel.min.js"></script>
+	<script src="js/jquery.ajaxchimp.min.js"></script>
+	<script src="js/mail-script.js"></script>
+	<script src="js/header.js"></script>
+	<script src="js/theme.js"></script>
+	<script>renderHeader('projects');</script>
+</body>
+
+</html>

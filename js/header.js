@@ -56,4 +56,68 @@
   }
 
   window.renderHeader = renderHeader;
+
+  // ============================================================
+  // Global Twemoji flag support for Windows & cross-platform
+  // ============================================================
+  function parseAll(root) {
+    if (window.twemoji) {
+      var target = root || document.body;
+      if (target) {
+        window.twemoji.parse(target, { folder: 'svg', ext: '.svg' });
+      }
+    }
+  }
+
+  function setupTwemoji() {
+    if (!window.twemoji) {
+      var script = document.createElement('script');
+      script.src = 'https://unpkg.com/twemoji@latest/dist/twemoji.min.js';
+      script.crossOrigin = 'anonymous';
+      script.onload = function() {
+        parseAll();
+        observeDOM();
+      };
+      document.head.appendChild(script);
+    } else {
+      parseAll();
+      observeDOM();
+    }
+  }
+
+  function observeDOM() {
+    if (!window.MutationObserver || !document.body) return;
+    var timer = null;
+    var observer = new MutationObserver(function(mutations) {
+      var hasNewText = false;
+      for (var i = 0; i < mutations.length; i++) {
+        var m = mutations[i];
+        if (m.addedNodes && m.addedNodes.length > 0) {
+          for (var j = 0; j < m.addedNodes.length; j++) {
+            var node = m.addedNodes[j];
+            if (node.nodeType === 1 && !node.classList.contains('emoji')) {
+              hasNewText = true;
+              break;
+            }
+          }
+        }
+        if (hasNewText) break;
+      }
+      if (hasNewText) {
+        clearTimeout(timer);
+        timer = setTimeout(function() {
+          parseAll();
+        }, 60);
+      }
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupTwemoji);
+  } else {
+    setupTwemoji();
+  }
+  window.addEventListener('load', function() { parseAll(); });
+  window.parseEmojis = parseAll;
 })();

@@ -16,6 +16,7 @@
 	<link rel="stylesheet" href="vendors/nice-select/css/nice-select.css">
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/custom.css">
+	<script src="https://unpkg.com/twemoji@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
 
 	<style>
 		.portfolio_box {
@@ -181,25 +182,6 @@
 					<span class="filter-pill" data-filter="area" data-value="semiconductor-nanotech"><i class="fa fa-microchip"></i> Semiconductor Research</span>
 					<span class="filter-pill" data-filter="area" data-value="electronics-hardware"><i class="fa fa-cogs"></i> Electronics &amp; Hardware</span>
 				</div>
-
-				<div class="filter-bar-title" style="margin-top:14px;"><i class="fa fa-globe"></i> Filter by Country</div>
-				<div class="filter-pills" id="pills-country">
-					<span class="filter-pill active" data-filter="country" data-value="all"><i class="fa fa-globe"></i> All Countries</span>
-					<span class="filter-pill" data-filter="country" data-value="brazil">🇧🇷 Brazil</span>
-					<span class="filter-pill" data-filter="country" data-value="colombia">🇨🇴 Colombia</span>
-					<span class="filter-pill" data-filter="country" data-value="germany">🇩🇪 Germany</span>
-					<span class="filter-pill" data-filter="country" data-value="canada">🇨🇦 Canada</span>
-					<span class="filter-pill" data-filter="country" data-value="dom-republic">🇩🇴 Dom. Republic</span>
-				</div>
-
-				<div class="filter-bar-title" style="margin-top:14px;"><i class="fa fa-folder-open"></i> Filter by Type</div>
-				<div class="filter-pills" id="pills-type">
-					<span class="filter-pill active" data-filter="type" data-value="all"><i class="fa fa-list"></i> All Types</span>
-					<span class="filter-pill" data-filter="type" data-value="research"><i class="fa fa-flask"></i> Research</span>
-					<span class="filter-pill" data-filter="type" data-value="industry"><i class="fa fa-building"></i> Industry</span>
-					<span class="filter-pill" data-filter="type" data-value="academic"><i class="fa fa-graduation-cap"></i> Academic</span>
-					<span class="filter-pill" data-filter="type" data-value="personal"><i class="fa fa-user"></i> Personal</span>
-				</div>
 			</div>
 
 			<!-- Results count -->
@@ -324,24 +306,19 @@
 	}
 
 	// ============================================================
-	// Multi-filter logic
+	// Filter logic (Filter by Area)
 	// ============================================================
-	var activeFilters = { area: 'all', country: 'all', type: 'all' };
+	var activeFilterArea = 'all';
 
 	function applyFilters() {
 		var items = document.querySelectorAll('.proj-item');
 		var count = 0;
 
 		items.forEach(function(item) {
-			var itemArea    = item.getAttribute('data-area')    || '';
-			var itemCountry = item.getAttribute('data-country') || '';
-			var itemType    = item.getAttribute('data-type')    || '';
+			var itemArea = item.getAttribute('data-area') || '';
+			var matchArea = activeFilterArea === 'all' || itemArea.indexOf(activeFilterArea) !== -1;
 
-			var matchArea    = activeFilters.area    === 'all' || itemArea.indexOf(activeFilters.area)    !== -1;
-			var matchCountry = activeFilters.country === 'all' || itemCountry.indexOf(activeFilters.country) !== -1;
-			var matchType    = activeFilters.type    === 'all' || itemType.indexOf(activeFilters.type)    !== -1;
-
-			if (matchArea && matchCountry && matchType) {
+			if (matchArea) {
 				item.classList.add('show');
 				count++;
 			} else {
@@ -359,13 +336,12 @@
 	function initFilterPills() {
 		document.querySelectorAll('.filter-pill').forEach(function(pill) {
 			pill.addEventListener('click', function() {
-				var filterType  = this.getAttribute('data-filter');
 				var filterValue = this.getAttribute('data-value');
-				document.querySelectorAll('.filter-pill[data-filter="' + filterType + '"]').forEach(function(p) {
+				document.querySelectorAll('.filter-pill').forEach(function(p) {
 					p.classList.remove('active');
 				});
 				this.classList.add('active');
-				activeFilters[filterType] = filterValue;
+				activeFilterArea = filterValue;
 				applyFilters();
 			});
 		});
@@ -384,6 +360,9 @@
 			if (row.id) html += buildProjectCard(row);
 		});
 		grid.innerHTML = html;
+		if (window.twemoji) {
+			twemoji.parse(grid, { folder: 'svg', ext: '.svg' });
+		}
 
 		initFilterPills();
 		applyFilters();

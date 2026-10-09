@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 70" width="100%" height="100%">
+  <!-- 3IT Official Vector Emblem -->
+  <defs>
+    <linearGradient id="grad3it" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#018849" />
+      <stop offset="100%" stop-color="#025e33" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Left Badge Graphic: 3IT Cube / Monogram -->
+  <g transform="translate(6, 6)">
+    <rect x="0" y="0" width="58" height="58" rx="10" fill="url(#grad3it)" />
+    <!-- 3IT Lettering inside badge -->
+    <text x="29" y="38" font-family="'Inter', 'Rubik', sans-serif" font-weight="900" font-size="24" fill="#ffffff" text-anchor="middle" letter-spacing="-0.5">3IT</text>
+  </g>
+
+  <!-- Right Text Description -->
+  <g transform="translate(74, 18)">
+    <text x="0" y="16" font-family="'Inter', 'Rubik', sans-serif" font-weight="800" font-size="20" fill="#1b1b2e" letter-spacing="0.5">3IT</text>
+    <text x="0" y="32" font-family="'Inter', 'Roboto', sans-serif" font-weight="600" font-size="9" fill="#018849" letter-spacing="0.3">INSTITUT D'INNOVATION</text>
+    <text x="0" y="44" font-family="'Inter', 'Roboto', sans-serif" font-weight="500" font-size="8.5" fill="#666666">Université de Sherbrooke</text>
+  </g>
+</svg>

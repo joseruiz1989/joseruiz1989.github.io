@@ -3,6 +3,11 @@ import socketserver
 import webbrowser
 import sys
 
+# Ensure UTF-8 output on Windows consoles
+if hasattr(sys.stdout, 'reconfigure'):
+    sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+    sys.stderr.reconfigure(encoding='utf-8', errors='replace')
+
 PORT = 8000
 
 class CustomHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
@@ -21,8 +26,8 @@ def run_server():
                 url = f"http://localhost:{port}"
                 print("=" * 60)
                 print(f"  🚀 Servidor local iniciado correctamente")
-                print(f"  🌐 URL del sitio: {url}")
-                print(f"  📄 Página del proyecto: {url}/piezoelectric-displacement-control.html")
+                print(f"  📄 Catálogo de proyectos: {url}/projects.html")
+                print(f"  ⚛️  Página de e-mulate: {url}/emulate-quantum-simulator.html")
                 print(f"  🛑 Presiona Ctrl+C en esta terminal para detenerlo")
                 print("=" * 60)
                 
@@ -39,3 +44,7 @@ if __name__ == "__main__":
     except KeyboardInterrupt:
         print("\n  Servidor detenido exitosamente.")
         sys.exit(0)
+
+
+
+
