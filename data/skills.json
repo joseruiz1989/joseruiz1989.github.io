@@ -1,0 +1,52 @@
+{
+  "categories": [
+    {
+      "title": "Programming & Core",
+      "icon": "fa fa-code",
+      "skills": [
+        { "name": "Python", "startYear": 2013, "iconHtml": "<i class=\"devicon-python-plain colored\"></i>" },
+        { "name": "C / C++", "startYear": 2012, "iconHtml": "<i class=\"devicon-cplusplus-plain colored\"></i>" },
+        { "name": "MATLAB", "startYear": 2011, "iconHtml": "<i class=\"devicon-matlab-plain colored\"></i>" },
+        { "name": "R", "startYear": 2018, "iconHtml": "<i class=\"devicon-r-plain colored\"></i>" },
+        { "name": "SQL / PostgreSQL", "startYear": 2019, "iconHtml": "<i class=\"devicon-postgresql-plain colored\"></i>" },
+        { "name": "Git & GitHub", "startYear": 2015, "iconHtml": "<i class=\"devicon-git-plain colored\"></i>" }
+      ]
+    },
+    {
+      "title": "AI, ML & Computer Vision",
+      "icon": "fa fa-brain",
+      "skills": [
+        { "name": "PyTorch", "startYear": 2019, "iconHtml": "<i class=\"devicon-pytorch-plain colored\"></i>" },
+        { "name": "TensorFlow", "startYear": 2018, "iconHtml": "<i class=\"devicon-tensorflow-original colored\"></i>" },
+        { "name": "Scikit-Learn", "startYear": 2017, "iconHtml": "<i class=\"devicon-scikitlearn-plain colored\"></i>" },
+        { "name": "OpenCV", "startYear": 2015, "iconHtml": "<i class=\"devicon-opencv-plain colored\"></i>" },
+        { "name": "Detectron2", "startYear": 2020, "iconHtml": "<img src=\"img/brands/logo_detectron2.svg\" alt=\"Detectron2\">" },
+        { "name": "ONNX / TensorRT", "startYear": 2022, "iconHtml": "<i class=\"fa fa-bolt\" style=\"color:#76b900;\"></i>" }
+      ]
+    },
+    {
+      "title": "HPC, Simulation & Data",
+      "icon": "fa fa-server",
+      "skills": [
+        { "name": "SLURM / HPC Clusters", "startYear": 2020, "iconHtml": "<i class=\"devicon-linux-plain colored\"></i>" },
+        { "name": "Docker", "startYear": 2020, "iconHtml": "<i class=\"devicon-docker-plain colored\"></i>" },
+        { "name": "NumPy", "startYear": 2014, "iconHtml": "<i class=\"devicon-numpy-plain colored\"></i>" },
+        { "name": "Pandas", "startYear": 2017, "iconHtml": "<i class=\"devicon-pandas-plain colored\"></i>" },
+        { "name": "CMG Reservoir", "startYear": 2019, "iconHtml": "<i class=\"fa fa-cubes\" style=\"color:#60b0ff;\"></i>" },
+        { "name": "HDF5 Data", "startYear": 2019, "iconHtml": "<i class=\"fa fa-database\" style=\"color:#a09bff;\"></i>" }
+      ]
+    },
+    {
+      "title": "Semiconductors, Optics & Hardware",
+      "icon": "fa fa-microchip",
+      "skills": [
+        { "name": "Ansys Lumerical", "startYear": 2023, "iconHtml": "<img src=\"img/brands/logo_ansys.svg\" alt=\"Ansys Lumerical\">" },
+        { "name": "COMSOL", "startYear": 2021, "iconHtml": "<img src=\"img/brands/logo_comsol.svg\" alt=\"COMSOL\">" },
+        { "name": "LabVIEW", "startYear": 2014, "iconHtml": "<i class=\"devicon-labview-plain colored\"></i>" },
+        { "name": "AFM Metrology", "startYear": 2014, "iconHtml": "<i class=\"fa fa-search-plus\" style=\"color:#854fee;\"></i>" },
+        { "name": "Interferometry", "startYear": 2018, "iconHtml": "<i class=\"fa fa-crosshairs\" style=\"color:#00b4d8;\"></i>" },
+        { "name": "Embedded dsPIC", "startYear": 2013, "iconHtml": "<i class=\"fa fa-cogs\" style=\"color:#766dff;\"></i>" }
+      ]
+    }
+  ]
+}

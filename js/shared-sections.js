@@ -135,9 +135,13 @@
 						<h2>Skills &amp; Technologies</h2>\
 						<p>Comprehensive engineering toolkit spanning Artificial Intelligence, Data Science, Software\
 							Development, and Applied Metrology.</p>\
+						<button type="button" id="copy-cv-skills-btn" class="cv-skills-copy-btn">\
+							<i class="fa fa-clipboard"></i> Copy CV Skills Summary\
+						</button>\
 					</div>\
 				</div>\
 			</div>\
+			<div id="skills-dynamic-container"></div>\
 \
 			<!-- Category 1: Machine Learning & Artificial Intelligence -->\
 			<div class="row mt-4">\
@@ -319,7 +323,7 @@
 				<div class="col-6 col-md-3 col-lg-2 mb-3">\
 					<div class="skill-badge">\
 						<div class="skill-icon-wrap">\
-							<i class="fa fa-microchip" style="color:#766dff;"></i>\
+							<i class="fa fa-cogs" style="color:#766dff;"></i>\
 						</div>\
 						Embedded dsPIC\
 					</div>\
@@ -389,11 +393,66 @@
     }
   }
 
+  function buildSkillsFromData(data) {
+    var container = document.getElementById('skills-dynamic-container');
+    if (!container || !data || !data.categories) return;
+    var currentYear = new Date().getFullYear();
+    var html = '';
+    var cvLines = [];
+
+    data.categories.forEach(function (cat) {
+      html += '<div class="row mt-4">';
+      html += '<div class="col-12"><div class="skill-category-title"><i class="' + cat.icon + '"></i> ' + cat.title + '</div></div>';
+      var catSkills = [];
+      cat.skills.forEach(function (skill) {
+        var yrs = Math.max(1, currentYear - skill.startYear);
+        var yrLabel = yrs + '+ yrs';
+        catSkills.push(skill.name + ' (' + yrLabel + ', since ' + skill.startYear + ')');
+        html += '<div class="col-6 col-md-3 col-lg-2 mb-3">';
+        html += '<div class="skill-badge" data-start-year="' + skill.startYear + '">';
+        html += '<div class="skill-icon-wrap">' + skill.iconHtml + '</div>';
+        html += '<span class="skill-name">' + skill.name + '</span>';
+        html += '<span class="skill-years" title="Started in ' + skill.startYear + '">' + yrLabel + ' · ' + skill.startYear + '</span>';
+        html += '</div></div>';
+      });
+      html += '</div>';
+      cvLines.push(cat.title + ': ' + catSkills.join(', '));
+    });
+
+    container.innerHTML = html;
+
+    // Hide static fallback rows if dynamic container rendered
+    var section = container.closest('.skills-section');
+    if (section) {
+      var rows = section.querySelectorAll(':scope > .container > .row.mt-4');
+      rows.forEach(function (r) { r.style.display = 'none'; });
+    }
+
+    var copyBtn = document.getElementById('copy-cv-skills-btn');
+    if (copyBtn) {
+      copyBtn.addEventListener('click', function () {
+        var summary = 'SKILLS & EXPERIENCE (as of ' + currentYear + ')\n' + cvLines.join('\n');
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(summary).then(function () {
+            copyBtn.innerHTML = '<i class="fa fa-check"></i> Copied for CV!';
+            setTimeout(function () {
+              copyBtn.innerHTML = '<i class="fa fa-clipboard"></i> Copy CV Skills Summary';
+            }, 2200);
+          });
+        }
+      });
+    }
+  }
+
   function renderSkills(targetId) {
     var id = targetId || 'skills-placeholder';
     var el = document.getElementById(id);
     if (el) {
       el.outerHTML = skillsHtml;
+      fetch('data/skills.json')
+        .then(function (res) { return res.ok ? res.json() : null; })
+        .then(function (data) { if (data) buildSkillsFromData(data); })
+        .catch(function () { /* Keep static fallback */ });
     }
   }
 
