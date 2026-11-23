@@ -456,7 +456,64 @@
     }
   }
 
+  function applyTheme(theme) {
+    var meta = document.querySelector('meta[name="color-scheme"]');
+    if (!meta) {
+      meta = document.createElement('meta');
+      meta.name = 'color-scheme';
+      document.head.appendChild(meta);
+    }
+    meta.content = theme;
+    document.documentElement.setAttribute('data-theme', theme);
+    var btn = document.getElementById('theme-toggle-btn');
+    if (btn) {
+      var isLight = theme === 'light';
+      btn.setAttribute('aria-pressed', String(isLight));
+      btn.setAttribute('aria-label', isLight ? 'Switch to dark theme' : 'Switch to light theme');
+      btn.innerHTML = isLight
+        ? '<i class="fa fa-moon-o" aria-hidden="true"></i> <span>Dark</span>'
+        : '<i class="fa fa-sun-o" aria-hidden="true"></i> <span>Light</span>';
+    }
+  }
+
+  function initThemeToggle() {
+    var stored = 'dark';
+    try {
+      stored = localStorage.getItem('color-scheme') || 'dark';
+    } catch (e) {}
+    applyTheme(stored);
+
+    var nav = document.querySelector('.header_area .navbar-nav');
+    if (nav && !document.getElementById('theme-toggle-btn')) {
+      var li = document.createElement('li');
+      li.className = 'nav-item theme-toggle-item';
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.id = 'theme-toggle-btn';
+      btn.className = 'theme-toggle-btn';
+      li.appendChild(btn);
+      nav.appendChild(li);
+      applyTheme(stored);
+
+      btn.addEventListener('click', function () {
+        var current = document.documentElement.getAttribute('data-theme') || 'dark';
+        var next = current === 'light' ? 'dark' : 'light';
+        try {
+          localStorage.setItem('color-scheme', next);
+        } catch (e) {}
+        applyTheme(next);
+      });
+    }
+
+    window.addEventListener('storage', function (e) {
+      if (e.key === 'color-scheme') {
+        applyTheme(e.newValue || 'dark');
+      }
+    });
+  }
+
   function init() {
+    initThemeToggle();
     if (document.getElementById('affiliations-placeholder')) {
       renderAffiliations('affiliations-placeholder');
     }
