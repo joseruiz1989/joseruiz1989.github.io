@@ -1727,4 +1727,39 @@ img.emoji {
   border-color: var(--border) !important;
   color: var(--text-dark) !important;
 }
+
+/* Timeline page light mode */
+:root[data-theme="light"] .timeline-hero {
+  background: linear-gradient(135deg, #eef0fa 0%, #f8f9fc 100%) !important;
+  color: var(--text-dark) !important;
+}
+
+:root[data-theme="light"] .timeline-section {
+  background: var(--bg-main) !important;
+}
+
+:root[data-theme="light"] .timeline-card {
+  background: #ffffff !important;
+  border-color: var(--border) !important;
+  box-shadow: var(--shadow-sm) !important;
+  color: var(--text-mid) !important;
+}
+
+:root[data-theme="light"] .timeline-card h3,
+:root[data-theme="light"] .timeline-card h4,
+:root[data-theme="light"] .timeline-hero h1,
+:root[data-theme="light"] .timeline-hero h2 {
+  color: var(--text-dark) !important;
+}
+
+:root[data-theme="light"] .tl-filter-btn {
+  background: #ffffff !important;
+  color: var(--text-mid) !important;
+  border-color: var(--border) !important;
+}
+
+:root[data-theme="light"] .tl-filter-btn.active {
+  background: var(--accent) !important;
+  color: #ffffff !important;
+}
 
