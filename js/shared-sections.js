@@ -477,9 +477,9 @@
   }
 
   function initThemeToggle() {
-    var stored = 'dark';
+    var stored = 'light';
     try {
-      stored = localStorage.getItem('color-scheme') || 'dark';
+      stored = localStorage.getItem('color-scheme') || 'light';
     } catch (e) {}
     applyTheme(stored);
 
@@ -507,7 +507,7 @@
 
     window.addEventListener('storage', function (e) {
       if (e.key === 'color-scheme') {
-        applyTheme(e.newValue || 'dark');
+        applyTheme(e.newValue || 'light');
       }
     });
   }
